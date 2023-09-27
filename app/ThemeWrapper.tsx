@@ -11,5 +11,5 @@ export default function ThemeWrapper({
 
   const textColor = isDarkMode ? "text-slate-50" : "text-slate-900";
   const bgColor = isDarkMode ? "bg-slate-900" : "bg-slate-50";
-  return <body className={`${bgColor} ${textColor}`}>{children}</body>;
+  return <body className={`${bgColor} ${textColor} h-screen`}>{children}</body>;
 }

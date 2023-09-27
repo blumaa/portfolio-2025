@@ -23,11 +23,11 @@ export default function Home() {
   const title = "aaron blum";
 
   return (
-    <>
-      <div className="flex justify-end pt-1">
+    <div className="flex flex-col h-screen">
+      <div className="flex flex-none justify-end pt-1">
         <LightSwitch />
       </div>
-      <main className="w-full h-screen flex items-center justify-center">
+      <main className="grow flex items-center justify-center">
         <div className="flex-col items-center justify-center">
           <div className="flex-col items-center justify-center pb-4">
             <div className="text-4xl">{title}</div>
@@ -84,6 +84,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }

@@ -2,7 +2,6 @@ import {
   BuildingLibraryIcon,
   BookOpenIcon,
   PaintBrushIcon,
-  PencilIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/solid";
 

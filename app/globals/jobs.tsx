@@ -20,19 +20,15 @@ export const jobs = [
       "frontend coding to help automate the tasks of case managers who assisted employees in global mobility",
     learning: (
       <>
-        <div>
-          <HeartIcon className="h-4" />
-        </div>
-        <div>
-          : it was so much fun developing our design system,&nbsp;
-          <Link
-            href="https://github.com/Localitos/pluto"
-            target="_blank"
-            className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
-          >
-            pluto
-          </Link>
-        </div>
+        <HeartIcon className="h-4 inline" />: it was so much fun developing our
+        design system,&nbsp;
+        <Link
+          href="https://github.com/Localitos/pluto"
+          target="_blank"
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+        >
+          pluto
+        </Link>
       </>
     ),
     location: "remote / hamburg, germany",
@@ -46,23 +42,25 @@ export const jobs = [
       "frontend coding to automate large scale health insurance applications",
     learning: (
       <>
-        <HeartIcon className="h-4 w-4" />: i really honed my animation skills
+        <HeartIcon className="h-4 inline" />: i really honed my animation skills
       </>
     ),
     location: "remote / hamburg, germany",
   },
   {
-    companyName: "x-ion",
-    link: "https://www.x-ion.de/",
-    jobTitle: "junior frontend developer",
-    timeSpan: "june 2020 - february 2022",
+    companyName: "south high school",
+    link: "https://south.mpls.k12.mn.us/",
+    jobTitle: "teacher - english as a second language (esl)",
+    timeSpan: "october 2016 - june 2019",
     description:
-      "frontend coding to automate large scale health insurance applications",
+      "wrote, designed, and taught 10th, 11th, and 12th grade curriculum oriented towards racial and social justice." +
+      " helped over 1000 students learn english as a second language. coordinated a team of 10 teachers." +
+      " boosted the level of cultural relevance using 21st century apps and technology.",
     learning: (
       <>
-        <HeartIcon className="h-4 w-4" />: i really honed my animation skills
+        <HeartIcon className="h-4 inline" />: this was both the most rewarding and the most stressful job of my life. 
       </>
     ),
-    location: "remote / hamburg, germany",
+    location: "minneaplis, minnesota, usa",
   },
 ];

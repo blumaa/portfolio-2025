@@ -1,4 +1,4 @@
-import { WrenchScrewdriverIcon } from "@heroicons/react/24/solid";
+import { PaintBrushIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import LightSwitch from "../components/LightSwitch";
 
@@ -16,8 +16,8 @@ export default function DashboardLayout({
             {navHomeText}
           </Link>
           <div className="flex items-center space-x-2">
-            <WrenchScrewdriverIcon className="h-6 w-6" />
-            <div className="text-2xl">work</div>
+            <PaintBrushIcon className="h-6 w-6" />
+            <div className="text-2xl">creative</div>
           </div>
           <div className="flex justify-end w-3/12 md:w-1/3">
             <LightSwitch />

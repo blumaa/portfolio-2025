@@ -23,8 +23,8 @@ const WorkCard = ({ job }: { job: Job }) => {
           target={link ? "_blank" : "_self"}
           className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
             hover:no-underline`}
-        >{`${companyName} `}</Link>
-        {`${jobTitle}, `}
+        >{`${companyName}`}</Link>
+        {` ${jobTitle}, `}
         {`${location}, `}
         {`${timeSpan}. `}
         {`${description}. `}

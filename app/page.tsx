@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import LightSwitch from "./components/LightSwitch";
 import HomePageLink from "./components/HomePageLink";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 
 const myStuffLinks = ["work", "education", "creative"];
 const goodStuffLinks = ["books"];
@@ -62,6 +63,9 @@ export default function Home() {
                 alt="Blumenous Poetry"
               />
             </Link>
+            <a href="mailto:blumaa@gmail.com">
+              <PaperAirplaneIcon className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </main>

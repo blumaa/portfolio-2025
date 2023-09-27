@@ -15,8 +15,8 @@ const CreativeCard = ({ creativeThing }: { creativeThing: CreativeThing }) => {
           target={linkTarget}
           className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
             hover:no-underline`}
-        >{`${name} `}</Link>
-        {`${description}`}
+        >{`${name}`}</Link>
+        {` ${description}`}
       </span>
     </div>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import LightSwitch from "./components/LightSwitch";
 import HomePageLink from "./components/HomePageLink";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import SocialLink from "./components/SocialLink";
 
 const myStuffLinks = ["work", "education", "creative"];
 const goodStuffLinks = ["books"];
@@ -43,36 +44,26 @@ export default function Home() {
             </div>
             <div className="border border-slate-300 mb-2" />
             <div className="flex space-x-2 w-1/2">
-              <Link
+              <SocialLink
                 href="https://www.linkedin.com/in/aaron-blum-0904/"
-                target="_blank"
-              >
-                <Image
-                  src="/linkedin-logo.svg"
-                  width={20}
-                  height={20}
-                  alt="Aaron Blum's LinkedIn"
-                />
-              </Link>
-              <Link href="https://github.com/blumaa" target="_blank">
-                <Image
-                  src="/github-logo.svg"
-                  width={20}
-                  height={20}
-                  alt="Aaron Blum's Github"
-                />
-              </Link>
-              <Link href="https://desmondblume.substack.com/" target="_blank">
-                <Image
-                  src="/substack-logo.svg"
-                  width={20}
-                  height={20}
-                  alt="Blumenous Poetry"
-                />
-              </Link>
-              <a href="mailto:blumaa@gmail.com">
-                <PaperAirplaneIcon className="h-5 w-5" />
-              </a>
+                src="/linkedin-logo.svg"
+                alt="Aaron Blum's LinkedIn"
+              />
+              <SocialLink
+                href="https://github.com/blumaa"
+                src="/github-logo.svg"
+                alt="Aaron Blum's Github"
+              />
+              <SocialLink
+                href="https://desmondblume.substack.com/"
+                src="/substack-icon.svg"
+                alt="Blumenous Poetry"
+              />
+              <div className="hover:scale-125 duration-300">
+                <Link href="mailto:blumaa@gmail.com" target="_blank">
+                  <PaperAirplaneIcon className="h-5 w-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </main>

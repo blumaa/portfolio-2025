@@ -8,12 +8,12 @@ const variants = {
 };
 
 const backgroundVariants = {
-  on: { backgroundColor: "#fff" },
-  off: { backgroundColor: "#000" },
+  on: { backgroundColor: "#000" },
+  off: { backgroundColor: "#fff" },
 };
 
 const AnimatedLamp = () => {
-  const [lampOn, setLampOn] = useState(false);
+  const [lampOn, setLampOn] = useState(true);
   return (
     <motion.div
       initial={{ backgroundColor: "#000" }}
@@ -80,14 +80,19 @@ const AnimatedLamp = () => {
               strokeLinejoin: "round",
             }}
           />
-          <motion.path
-            animate={{ x: [0, 1, -1, 1, -1, 1, 0], y: [0, 1, -1, 1, -1, 1, 0] }}
-            transition={{ duration: 0.5, repeat: 3, repeatDelay: 1 }}
-            d="M260,200L260,200c0,5.5-4.5,10-10,10h-10l0,0v-20l0,0h10C255.5,190,260,194.5,260,200z"
-            fill="#168c84"
-            onClick={() => setLampOn(!lampOn)}
-            whileHover={{ scale: 1.1 }}
-          />
+          <g className="hover:cursor-pointer">
+            <motion.path
+              animate={{
+                x: [0, 1, -1, 1, -1, 1, 0],
+                y: [0, 1, -1, 1, -1, 1, 0],
+              }}
+              transition={{ duration: 0.5, repeat: 3, repeatDelay: 1 }}
+              d="M260,200L260,200c0,5.5-4.5,10-10,10h-10l0,0v-20l0,0h10C255.5,190,260,194.5,260,200z"
+              fill="#168c84"
+              onClick={() => setLampOn(!lampOn)}
+              whileHover={{ scale: 1.1 }}
+            />
+          </g>
         </g>
       </svg>
     </motion.div>

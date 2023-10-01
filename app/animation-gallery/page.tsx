@@ -14,24 +14,6 @@ export default function AnimationGallery() {
       <AnimationCard>
         <OctoDude />
       </AnimationCard>
-      <AnimationCard>
-        <AnimatedLamp />
-      </AnimationCard>
-      <AnimationCard>
-        <OctoDude />
-      </AnimationCard>
-      <AnimationCard>
-        <AnimatedLamp />
-      </AnimationCard>
-      <AnimationCard>
-        <OctoDude />
-      </AnimationCard>
-      <AnimationCard>
-        <AnimatedLamp />
-      </AnimationCard>
-      <AnimationCard>
-        <OctoDude />
-      </AnimationCard>
     </div>
   );
 }

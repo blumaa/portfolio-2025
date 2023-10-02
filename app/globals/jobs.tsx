@@ -42,7 +42,14 @@ export const jobs = [
       "frontend coding to automate large scale health insurance applications",
     learning: (
       <>
-        <HeartIcon className="h-4 inline" />: i really honed my animation skills
+        <HeartIcon className="h-4 inline" />: i really honed my&nbsp;
+        <Link
+          href="/animation-gallery"
+          target="_self"
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+        >
+          animation skills
+        </Link>
       </>
     ),
     location: "remote / hamburg, germany",
@@ -55,10 +62,11 @@ export const jobs = [
     description:
       "wrote, designed, and taught 10th, 11th, and 12th grade curriculum oriented towards racial and social justice." +
       " helped over 1000 students learn english as a second language. coordinated a team of 10 teachers." +
-      " boosted the level of cultural relevance using 21st century apps and technology.",
+      " boosted the level of cultural relevance using 21st century apps and technology",
     learning: (
       <>
-        <HeartIcon className="h-4 inline" />: this was both the most rewarding and the most stressful job of my life. 
+        <HeartIcon className="h-4 inline" />: this was both the most rewarding
+        and the most stressful job of my life.
       </>
     ),
     location: "minneaplis, minnesota, usa",

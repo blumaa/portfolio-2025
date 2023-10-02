@@ -7,26 +7,26 @@ export type Education = {
 };
 export const educations: Education[] = [
   {
-    name: "Flatiron School",
+    name: "flatiron school",
     link: "https://flatironschool.com/",
     linkTarget: "_blank",
     degree:
-      "Full Stack Web Development - Javascript and Ruby immersive program",
+      "full stack web development - javascript and ruby immersive program",
     graduationYear: "2019",
   },
   {
-    name: "University of Minnesota",
+    name: "university of minnesota",
     link: "https://twin-cities.umn.edu/",
     linkTarget: "_blank",
-    degree: "Masters of Education - Teaching English as a Second Language",
+    degree: "masters of education - teaching english as a second language",
     graduationYear: "2015",
   },
   {
-    name: "University of Minnesota",
+    name: "university of minnesota",
     link: "https://twin-cities.umn.edu/",
     linkTarget: "_blank",
     degree:
-      "Bachelor of Arts - Creative Writing, English Literature, and Philosophy",
+      "bachelor of arts - creative writing, english literature, and philosophy",
     graduationYear: "2007",
   },
 ];

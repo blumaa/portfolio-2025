@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LightSwitch from "../components/LightSwitch";
-import AnimatedMoon from "./AnimatedMoon";
+import AnimatedMoon from "./animations/AnimatedMoon";
+import AnimatedTitle from "./animations/AnimatedTitle";
 
 export default function AnimationLayout({
   children, // will be a page or nested layout
@@ -19,7 +20,7 @@ export default function AnimationLayout({
             <div className="h-8">
               <AnimatedMoon />
             </div>
-            <div className="text-2xl whitespace-nowrap">animation gallery</div>
+            <AnimatedTitle />
           </div>
           <div className="flex justify-end w-3/12 md:w-1/3">
             <LightSwitch />

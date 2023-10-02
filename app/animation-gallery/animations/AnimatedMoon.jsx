@@ -7,7 +7,7 @@ const AnimatedMoon = () => {
       viewBox="0 0 64 64"
       height="100%"
       animate={{ rotate: 360 }}
-      transition={{ duration: 2, repeat: Infinity }}
+      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
     >
       <path
         fill="#1d1d1b"

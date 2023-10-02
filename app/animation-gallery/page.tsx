@@ -1,6 +1,6 @@
 import AnimationCard from "./AnimationCard";
-import OctoDude from "./OctoDude";
-import AnimatedLamp from "./AnimatedLamp";
+import OctoDude from "./animations/OctoDude";
+import AnimatedLamp from "./animations/AnimatedLamp";
 
 export default function AnimationGallery() {
   return (

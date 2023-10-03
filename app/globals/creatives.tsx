@@ -22,7 +22,7 @@ export const creatives: CreativeThing[] = [
   },
   {
     name: "banjo player",
-    link: "/animation-gallery",
+    link: "#",
     linkTarget: "_self",
     description: (
       <>

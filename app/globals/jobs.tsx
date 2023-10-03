@@ -17,18 +17,18 @@ export const jobs = [
     jobTitle: "frontend developer",
     timeSpan: "june 2022 - present",
     description:
-      "frontend coding to help automate the tasks of case managers who assisted employees in global mobility",
+      "javascript fe (react and nextJs), ruby be. coding to help automate the tasks of case managers who assisted employees in global mobility",
     learning: (
       <>
-        <HeartIcon className="h-4 inline" />: it was so much fun developing our
-        design system,&nbsp;
+        <HeartIcon className="h-4 inline" />: it was so much fun helping to develop our
+        design system:&nbsp;
         <Link
           href="https://github.com/Localitos/pluto"
           target="_blank"
           className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
         >
           pluto
-        </Link>
+        </Link>.
       </>
     ),
     location: "remote / hamburg, germany",
@@ -49,7 +49,7 @@ export const jobs = [
           className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
         >
           animation skills
-        </Link>
+        </Link>.
       </>
     ),
     location: "remote / hamburg, germany",

@@ -6,8 +6,7 @@ const EducationCard = ({ school }: { school: Education }) => {
 
   return (
     <div
-      className={`flex border-gray-200 
-        rounded-lg w-full md:w-2/3 `}
+      className={`flex w-full md:w-1/2 `}
     >
       <span className="p-2">
         <Link

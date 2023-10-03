@@ -36,7 +36,7 @@ const AnimatedLamp = () => {
       >
         <g id="Layer_1-2">
           <path
-            class="st0"
+            className="st0"
             d="M180,40L180,40c27.6,0,50,22.4,50,50v200"
             style={{
               fill: "none",
@@ -59,7 +59,7 @@ const AnimatedLamp = () => {
             d="M10 300 110 80 170 80 160 300z"
           />
           <path
-            class="st0"
+            className="st0"
             d="M90,80l53.9-62.8c3.9-4.6,9.6-7.2,15.6-7.2l0,0c11.3,0,20.6,9.2,20.6,20.5c0,0,0,0,0,0V80H90z"
             style={{
               fill: "none",
@@ -70,7 +70,7 @@ const AnimatedLamp = () => {
             }}
           />
           <path
-            class="st0"
+            className="st0"
             d="M280 290 180 290"
             style={{
               fill: "none",

@@ -47,23 +47,28 @@ export default function Home() {
               <SocialLink
                 href="https://www.linkedin.com/in/aaron-blum-0904/"
                 src="/linkedin-logo.svg"
-                alt="Aaron Blum's LinkedIn"
+                alt="LinkedIn"
               />
               <SocialLink
                 href="https://github.com/blumaa"
                 src="/github-logo.svg"
-                alt="Aaron Blum's Github"
+                alt="Github"
               />
               <SocialLink
                 href="https://desmondblume.substack.com/"
                 src="/substack-icon.svg"
                 alt="Blumenous Poetry"
               />
-              <div className="hover:scale-125 duration-300">
-                <Link href="mailto:blumaa@gmail.com" target="_blank">
-                  <PaperAirplaneIcon className="h-5 w-5" />
-                </Link>
-              </div>
+              <SocialLink
+                href="mailto:blumaa@gmail.com"
+                src="/mail.svg"
+                alt="blumaa@gmail.com"
+              />
+              {/* <div className="hover:scale-125 duration-300"> */}
+              {/*   <Link href="mailto:blumaa@gmail.com" target="_blank"> */}
+              {/*     <PaperAirplaneIcon className="h-5 w-5" /> */}
+              {/*   </Link> */}
+              {/* </div> */}
             </div>
           </div>
         </main>

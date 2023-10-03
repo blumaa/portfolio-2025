@@ -57,7 +57,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
-    category: "teaching",
+    category: "coding",
   },
   {
     companyName: "south high school",
@@ -100,7 +100,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
-    category: "management and coordination",
+    category: "coordinating",
   },
   {
     companyName: "powderhorn porchfest",

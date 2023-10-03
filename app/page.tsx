@@ -64,11 +64,6 @@ export default function Home() {
                 src="/mail.svg"
                 alt="blumaa@gmail.com"
               />
-              {/* <div className="hover:scale-125 duration-300"> */}
-              {/*   <Link href="mailto:blumaa@gmail.com" target="_blank"> */}
-              {/*     <PaperAirplaneIcon className="h-5 w-5" /> */}
-              {/*   </Link> */}
-              {/* </div> */}
             </div>
           </div>
         </main>

@@ -9,6 +9,7 @@ export type Job = {
   description: string;
   learning: string | JSX.Element;
   location: string;
+  category?: string;
 };
 export const jobs = [
   {
@@ -33,6 +34,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
+    category: "coding",
   },
   {
     companyName: "x-ion",
@@ -55,6 +57,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
+    category: "teaching",
   },
   {
     companyName: "south high school",
@@ -72,6 +75,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
+    category: "teaching",
   },
   {
     companyName: "minneapolis public schools",
@@ -96,6 +100,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
+    category: "management and coordination",
   },
   {
     companyName: "powderhorn porchfest",
@@ -106,10 +111,12 @@ export const jobs = [
       "together with niky duxbury, we founded powderhorn porchfest- a free, neighborhood based music festival that brought people together and highlighted local musicians, food vendors, and artists. it's still going strong to this day",
     learning: (
       <>
-        <HeartIcon className="h-4 inline" />: seeing the community come out and gather in the streets to hear great music.
+        <HeartIcon className="h-4 inline" />: seeing the community come out and
+        gather in the streets to hear a lot of great local music.
       </>
     ),
     location: "minneaplis, minnesota, usa",
+    category: "organising",
   },
   {
     companyName: "americorps promise fellow",
@@ -125,6 +132,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
+    category: "teaching",
   },
   {
     companyName: "colegio carlos tercero",
@@ -135,10 +143,11 @@ export const jobs = [
       "served as lead english teacher, helping to improve the language skills of students",
     learning: (
       <>
-        <HeartIcon className="h-4 inline" />: i got to act in a pantomime! and i also got to walk the camino de
-        santiago- a life changing experience!
+        <HeartIcon className="h-4 inline" />: i got to act in a pantomime! i
+        also got to walk the camino de santiago- a life changing experience!
       </>
     ),
-    location: "Aranjuez, Madrid, Spain",
+    location: "aranjuez, madrid, spain",
+    category: "teaching",
   },
 ];

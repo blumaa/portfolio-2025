@@ -24,7 +24,7 @@ export default function EducationLayout({
           </div>
         </div>
       </nav>
-      <div>{children}</div>
+      <div className="flex justify-center">{children}</div>
     </section>
   );
 }

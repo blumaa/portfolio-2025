@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Job } from "../globals/jobs";
+import Pill from "../components/Pill";
 
 const WorkCard = ({ job }: { job: Job }) => {
   const {
     companyName,
+    category,
     link,
     jobTitle,
     timeSpan,
@@ -14,21 +16,22 @@ const WorkCard = ({ job }: { job: Job }) => {
 
   return (
     <div
-      className={`flex  border-gray-200 
-        rounded-lg  w-full md:w-2/3 `}
+      className={`flex border-gray-200 px-2
+        rounded-lg w-full md:w-2/3 `}
     >
-      <span className="p-2">
+      <span>
         <Link
           href={link || "#"}
           target={link ? "_blank" : "_self"}
-          className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
+          className={`font-bold text-xl decoration-sky-500 underline underline-offset-2 
             hover:no-underline`}
         >{`${companyName}`}</Link>
         {` ${jobTitle}, `}
         {`${location}, `}
         {`${timeSpan}. `}
         {`${description}. `}
-        {typeof learning === "string" ? `${learning}` : learning}
+        {typeof learning === "string" ? `${learning}` : learning}{" "}
+        {category && <Pill>{category}</Pill>}
       </span>
     </div>
   );

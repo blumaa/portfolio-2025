@@ -5,9 +5,7 @@ const EducationCard = ({ school }: { school: Education }) => {
   const { name, link, linkTarget, degree, graduationYear } = school;
 
   return (
-    <div
-      className={`flex w-full md:w-1/2 `}
-    >
+    <div className={`flex`}>
       <span className="p-2">
         <Link
           href={link || "#"}
@@ -15,8 +13,8 @@ const EducationCard = ({ school }: { school: Education }) => {
           className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
             hover:no-underline`}
         >{`${name}`}</Link>
-        {` ${degree},`}
-        {` ${graduationYear}`}
+        {` ${degree}`}
+        {graduationYear && ` ${graduationYear}`}
       </span>
     </div>
   );

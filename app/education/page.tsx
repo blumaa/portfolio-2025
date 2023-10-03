@@ -1,25 +1,27 @@
 import { educations } from "../globals/education";
+import Link from "next/link";
 import EducationCard from "./EducationCard";
 
 export default function Education() {
   return (
     <>
-      <div className="flex flex-col items-center space-y-2 pt-4 pb-4">
+      <div className="flex flex-col items-start space-y-2 pt-4 ">
         {educations.map((school) => (
           <EducationCard key={school.name} school={school} />
         ))}
-      </div>
-      <div className="flex justify-center w-full">
-        <div className="flex justify-center items-center w-1/2">
-          <div className={`flex justify-center w-full md:w-1/2 `}>
-            <span className="p-2">english native</span>
-          </div>
-          <div className={`flex justify-center w-full md:w-1/2 `}>
-            <span className="p-2">spanish C1</span>
-          </div>
-          <div className={`flex justify-center w-full md:w-1/2 `}>
-            <span className="p-2">german a2.1</span>
-          </div>
+        <div className="border self-center border-sky-500 mb-2 w-1/6" />
+        <div className={`flex`}>
+          <span className="p-2">
+            <Link
+              href={"#"}
+              target="_self"
+              className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
+          hover:no-underline`}
+            >
+              languages
+            </Link>
+            &nbsp; native english - spanish c1 - german a2.1
+          </span>
         </div>
       </div>
     </>

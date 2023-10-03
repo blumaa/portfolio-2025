@@ -3,10 +3,10 @@ export type Education = {
   link?: string;
   linkTarget?: "_blank" | "_self";
   degree: string;
-  graduationYear: string;
+  graduationYear?: string;
 };
 export const educations: Education[] = [
-  {
+    {
     name: "flatiron school",
     link: "https://flatironschool.com/",
     linkTarget: "_blank",

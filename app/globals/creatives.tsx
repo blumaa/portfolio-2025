@@ -45,8 +45,7 @@ export const creatives: CreativeThing[] = [
         >
           local television program
         </Link>
-        ! i have to say, they were even sweet enough to let me write some
-        articles, including this one&nbsp;
+        ! here is an article i wrote while in the group:&nbsp;
         <Link
           href="https://wildgoosechasecloggers.org/wordpress/on-the-embedded-racism-of-some-old-time-tunes-by-aaron-blum/"
           target="_blank"

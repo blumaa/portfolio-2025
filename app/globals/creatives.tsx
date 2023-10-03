@@ -1,8 +1,9 @@
+import Link from "next/link";
 export type CreativeThing = {
   name: string;
   link?: string;
   linkTarget: "_blank" | "_self";
-  description: string;
+  description: string | JSX.Element;
 };
 export const creatives: CreativeThing[] = [
   {
@@ -18,5 +19,43 @@ export const creatives: CreativeThing[] = [
     linkTarget: "_self",
     description:
       "what happens when you combine code and animations? you get to have fun and make cool things! sometimes i go down animation rabbit holes using svgs and differrent coding libraries like framer-motion, gsap, or just regular old css keyframes",
+  },
+  {
+    name: "banjo player",
+    link: "/animation-gallery",
+    linkTarget: "_self",
+    description: (
+      <>
+        &nbsp;although i play guitar, and dabble in the fiddle, for a while i
+        really became obsessed with playing the banjo and even joined a group
+        called the&nbsp;
+        <Link
+          href="https://wildgoosechasecloggers.org/"
+          target="_blank"
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+        >
+          wild goose chase cloggers
+        </Link>
+        . we toured all around the great state of minnesota and one year we even
+        got to tour in denmark and then in spain where we appeared on a&nbsp;
+        <Link
+          href="https://www.youtube.com/watch?v=fso_XZiJFDM&t=1s"
+          target="_blank"
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+        >
+          local television program
+        </Link>
+        ! i have to say, they were even sweet enough to let me write some
+        articles, including this one&nbsp;
+        <Link
+          href="https://wildgoosechasecloggers.org/wordpress/on-the-embedded-racism-of-some-old-time-tunes-by-aaron-blum/"
+          target="_blank"
+          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+        >
+          on the embedded racism of some old-time tunes
+        </Link>
+        .
+      </>
+    ),
   },
 ];

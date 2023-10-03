@@ -16,7 +16,7 @@ const CreativeCard = ({ creativeThing }: { creativeThing: CreativeThing }) => {
           className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
             hover:no-underline`}
         >{`${name}`}</Link>
-        {` ${description}`}
+        {typeof description === "string" ? ` ${description}` : description}
       </span>
     </div>
   );

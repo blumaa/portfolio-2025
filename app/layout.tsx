@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import "../styles/global.css";
 import type { Metadata } from "next";
 import { ThemeContextProvider } from "./context/theme";
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeContextProvider>
-        <ThemeWrapper>{children}</ThemeWrapper>
+        <ThemeWrapper>
+          {children}
+          <Analytics />
+        </ThemeWrapper>
       </ThemeContextProvider>
     </html>
   );

@@ -62,7 +62,7 @@ const AnimatedLamp = () => {
             className="st0"
             d="M90,80l53.9-62.8c3.9-4.6,9.6-7.2,15.6-7.2l0,0c11.3,0,20.6,9.2,20.6,20.5c0,0,0,0,0,0V80H90z"
             style={{
-              fill: "none",
+              fill: "#2d3642",
               stroke: "#2d3642",
               strokeWidth: "10",
               strokeLinecap: "round",

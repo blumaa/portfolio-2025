@@ -1,9 +1,6 @@
-import Link from "next/link";
 import { DM_Sans } from "next/font/google";
-import Image from "next/image";
 import LightSwitch from "./components/LightSwitch";
 import HomePageLink from "./components/HomePageLink";
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import SocialLink from "./components/SocialLink";
 
 const myStuffLinks = ["work", "education", "creative"];

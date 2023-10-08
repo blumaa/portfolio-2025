@@ -10,9 +10,9 @@ export default function Work() {
       >
         <div>
           <p className="pb-1 pl-6 pr-6">
-            i add a little bit of illustration into creative writing, a little
-            bit of creative writing into music, a little bit of music into
-            teaching, and a whole lot of all of these crafts into coding.
+            i put a little bit of illustration into my creative writing, a little
+            bit of creative writing into my music, a little bit of music into
+            my teaching, and a whole lot of all of these crafts into coding.
           </p>
         </div>
       </div>

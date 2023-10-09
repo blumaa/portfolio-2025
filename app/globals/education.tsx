@@ -6,12 +6,12 @@ export type Education = {
   graduationYear?: string;
 };
 export const educations: Education[] = [
-    {
+  {
     name: "flatiron school",
     link: "https://flatironschool.com/",
     linkTarget: "_blank",
     degree:
-      "full stack web development - javascript and ruby immersive program",
+      "full stack web development immersive program - javascript and ruby",
     graduationYear: "2019",
   },
   {

@@ -1,9 +1,8 @@
-import AnimatedBeaverMoon from "../animation-gallery/animations/AnimatedBeaverMoon";
-
+import CityScapeWrapper from "../animation-gallery/animations/CityScape/CityScapeWrapper";
 const Stage = () => {
   return (
     <div className="h-44 overflow-visible">
-      <AnimatedBeaverMoon />
+      <CityScapeWrapper />
     </div>
   );
 };

@@ -172,8 +172,8 @@ const CityScape = ({ mode }) => {
       ref={rootRef}
       style={{
         overflow: "hidden",
-        height: "90%",
-        flex: 4,
+        height: "100%",
+        flex: 18,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

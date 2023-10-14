@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import CityScape from "./CityScape";
 
+import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+
 const CityScapeWrapper = () => {
   // fetch the time of day from an api once every hour
   // and match the color of the sky to the correspondaing
@@ -20,43 +22,44 @@ const CityScapeWrapper = () => {
     setIsHovered(false);
   };
 
+  const buttonStyles = {
+    backgroundColor: isHovered ? "#F082AC" : "",
+    borderRadius: "30%",
+    // border: "1px solid teal",
+  };
   return (
     <div
       style={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "space-around",
+        // alignItems: "center",
+        gap: "10px",
+        // justifyContent: "space-around",
+        // flexDirection: "column",
         height: "100%",
+        paddingTop: "10px",
+        paddingBottom: "10px",
       }}
     >
-      <button
-        onClick={() => setMode(mode === "day" ? "night" : "day")}
-        style={{
-          flex: 1,
-          backgroundColor: isHovered
-            ? "#F082AC"
-            : mode === "night"
-            ? "#80deea"
-            : "#37474f",
-          color: mode === "day" ? "#80deea" : "#37474f",
-          margin: "20px",
-          borderRadius: "8px",
-          borderStyle: "none",
-          boxSizing: "border-box",
-          cursor: "pointer",
-          height: "30px",
-          padding: "2px 6px",
-          whiteSpace: "nowrap",
-          transition: "color 100ms",
-          userSelect: "none",
-          touchAction: "manipulation",
-        }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        Change to {mode === `day` ? `night` : `day`}
-      </button>
       <CityScape mode={mode} />
+      <div style={{ paddingRight: "15px", alignSelf: "flex-end", flex: 1 }}>
+        {mode === `day` ? (
+          <MoonIcon
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => setMode("night")}
+            className={`w-6 text-white hover:cursor-pointer`}
+            style={{ ...buttonStyles }}
+          />
+        ) : (
+          <SunIcon
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={{ ...buttonStyles }}
+            onClick={() => setMode("day")}
+            className="w-6 text-yellow-400 hover:cursor-pointer"
+          />
+        )}
+      </div>
     </div>
   );
 };

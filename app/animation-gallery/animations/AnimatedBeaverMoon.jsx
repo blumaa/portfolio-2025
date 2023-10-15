@@ -34,7 +34,7 @@ const AnimatedBeaverMoon = () => {
         alignItems: "center",
       }}
     >
-      <div className="w-1/6">
+      <div className="w-14">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 -100 288.78 970.85"

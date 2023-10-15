@@ -4,13 +4,13 @@ import AnimatedLamp from "./animations/AnimatedLamp";
 import AlienMoon from "./animations/AlienMoon";
 import AnimatedBeaverMoon from "./animations/AnimatedBeaverMoon";
 import CityScapeWrapper from "./animations/CityScape/CityScapeWrapper";
-import AnimatedSwitch2 from './animations/AnimatedSwitch2'
+import AnimatedSwitch2 from "./animations/AnimatedSwitch2";
 
 export default function AnimationGallery() {
   return (
     <div
-      className={`flex flex-wrap flex-col md:flex-row md:justify-center
-      md:space-x-4 items-center space-y-4 pt-4`}
+      className={`flex flex-wrap flex-col md:flex-row justify-center
+        items-center pt-4 w-full`}
     >
       <AnimationCard>
         <AnimatedSwitch2 />

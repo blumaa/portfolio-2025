@@ -27,13 +27,14 @@ const item = {
 const AnimatedBeaverMoon = () => {
   return (
     <div
+      className="border border-violet-500 h-full"
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "flex-end",
+        alignItems: "center",
       }}
     >
-      <div style={{ width: "50px" }}>
+      <div className="w-1/6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 -100 288.78 970.85"

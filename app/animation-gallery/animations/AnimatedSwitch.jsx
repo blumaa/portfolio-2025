@@ -29,7 +29,6 @@ const AnimatedSwitch = () => {
   const [switchOn, setSwitchOn] = useState(false);
   const constraintsRef = useRef(null);
   const targetRef = useRef(null);
-  // console.log("switchOn", switchOn);
 
   return (
     <div className="flex items-center justify-center h-full border border-black border-solid">

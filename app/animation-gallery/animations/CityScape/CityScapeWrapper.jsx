@@ -25,40 +25,39 @@ const CityScapeWrapper = () => {
   const buttonStyles = {
     backgroundColor: isHovered ? "#F082AC" : "",
     borderRadius: "30%",
-    // border: "1px solid teal",
   };
   return (
     <div
       style={{
         display: "flex",
-        // alignItems: "center",
         gap: "10px",
-        // justifyContent: "space-around",
-        // flexDirection: "column",
+        flexDirection: "column",
         height: "100%",
         paddingTop: "10px",
         paddingBottom: "10px",
       }}
     >
       <CityScape mode={mode} />
-      <div style={{ paddingRight: "15px", alignSelf: "flex-end", flex: 1 }}>
-        {mode === `day` ? (
-          <MoonIcon
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => setMode("night")}
-            className={`w-6 text-white hover:cursor-pointer`}
-            style={{ ...buttonStyles }}
-          />
-        ) : (
-          <SunIcon
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            style={{ ...buttonStyles }}
-            onClick={() => setMode("day")}
-            className="w-6 text-yellow-400 hover:cursor-pointer"
-          />
-        )}
+      <div className="flex justify-end overflow-visible h-0">
+        <div style={{ paddingRight: "15px", alignSelf: "flex-end" }}>
+          {mode === `day` ? (
+            <MoonIcon
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => setMode("night")}
+              className={`w-6 text-white hover:cursor-pointer`}
+              style={{ ...buttonStyles }}
+            />
+          ) : (
+            <SunIcon
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              style={{ ...buttonStyles }}
+              onClick={() => setMode("day")}
+              className="w-6 text-yellow-400 hover:cursor-pointer"
+            />
+          )}
+        </div>
       </div>
     </div>
   );

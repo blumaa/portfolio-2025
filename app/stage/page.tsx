@@ -1,8 +1,8 @@
-import CityScapeWrapper from "../animation-gallery/animations/CityScape/CityScapeWrapper";
+import AnimatedLoadingAirplane from "../animation-gallery/animations/AnimatedLoadingAirplane";
 const Stage = () => {
   return (
     <div className="h-44 overflow-visible">
-      <CityScapeWrapper />
+    <AnimatedLoadingAirplane />
     </div>
   );
 };

@@ -13,6 +13,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": ["bun-types"],
+    "target": "esnext",
     "plugins": [
       {
         "name": "next"

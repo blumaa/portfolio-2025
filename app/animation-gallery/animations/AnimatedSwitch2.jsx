@@ -10,7 +10,7 @@ function App() {
     <div className={`flex items-center justify-center h-full`}>
       <div>
         <div
-          className={`cursor-pointer	w-16 h-10 flex items-center bg-gray-300 rounded-full p-1 ${
+          className={`cursor-pointer	w-16 h-10 flex items-center bg-gray-300 rounded-full border border-sky-500 p-1 ${
             isSelected ? "bg-green-200 justify-end" : "justify-start"
           }`}
           onClick={() => setSelected(!isSelected)}

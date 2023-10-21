@@ -23,7 +23,7 @@ export default function AnimationGallery() {
         <CityScapeWrapper />
       </AnimationCard>
       <AnimationCard>
-        <AnimatedBeaverMoon />
+        <AnimatedBeaverMoon width={"w-14"} />
       </AnimationCard>
       <AnimationCard>
         <AlienMoon />

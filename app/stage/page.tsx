@@ -1,8 +1,9 @@
-import AnimatedLoadingAirplane from "../animation-gallery/animations/AnimatedLoadingAirplane";
+import AnimatedBeaverMoon from "../animation-gallery/animations/AnimatedBeaverMoon";
+
 const Stage = () => {
   return (
-    <div className="h-44 overflow-visible">
-    <AnimatedLoadingAirplane />
+    <div className="h-screen overflow-visible ">
+      <AnimatedBeaverMoon />
     </div>
   );
 };

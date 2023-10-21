@@ -1,9 +1,10 @@
 "use client";
+
 import { gsap } from "gsap";
 
 import React, { useEffect } from "react";
 
-const AnimatedLoadingAirplane = () => {
+const AnimatedLoadingAirplane: React.FC = () => {
   useEffect(() => {
     gsap.set(".cloud", { opacity: 0 });
     gsap.fromTo(
@@ -16,15 +17,15 @@ const AnimatedLoadingAirplane = () => {
         duration: 4,
         stagger: 2,
         repeat: -1,
-      }
+      },
     );
 
-    function random(min, max) {
+    function random(min: number, max: number) {
       const delta = max - min;
       return (direction = 1) => (min + delta * Math.random()) * direction;
     }
 
-    const can = document.querySelector("#plane");
+    const can = "#plane";
 
     const randomX = random(1, 2);
     const randomY = random(2, 3);
@@ -39,7 +40,7 @@ const AnimatedLoadingAirplane = () => {
       rotation: randomAngle(-1),
     });
 
-    function rotate(target, direction) {
+    function rotate(target: string, direction: number) {
       gsap.to(target, {
         rotation: randomAngle(direction),
         delay: randomDelay(),
@@ -50,7 +51,7 @@ const AnimatedLoadingAirplane = () => {
       });
     }
 
-    function moveX(target, direction) {
+    function moveX(target: string, direction: number) {
       gsap.to(target, {
         x: randomX(direction),
         ease: "sine.inOut",
@@ -60,7 +61,7 @@ const AnimatedLoadingAirplane = () => {
       });
     }
 
-    function moveY(target, direction) {
+    function moveY(target: string, direction: number) {
       gsap.to(target, {
         y: randomY(direction),
         ease: "sine.inOut",

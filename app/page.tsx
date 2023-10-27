@@ -25,19 +25,19 @@ export default function Home() {
             </div>
             <div className="md:flex md:space-x-4 pb-4">
               <div className="flex-col items-center justify-center">
-                <div className="text-xl">my stuff</div>
+                {/* <div className="text-xl">my stuff</div> */}
                 <div className="flex-col">
                   {myStuffLinks.map((link) => (
                     <HomePageLink key={link} name={link} />
                   ))}
                 </div>
               </div>
-              <div className="flex-col ">
-                <div className="text-xl">good stuff</div>
-                {goodStuffLinks.map((link) => (
-                  <HomePageLink key={link} name={link} />
-                ))}
-              </div>
+              {/* <div className="flex-col "> */}
+              {/*   <div className="text-xl">good stuff</div> */}
+              {/*   {goodStuffLinks.map((link) => ( */}
+              {/*     <HomePageLink key={link} name={link} /> */}
+              {/*   ))} */}
+              {/* </div> */}
             </div>
             <div className="border border-slate-300 mb-2" />
             <div className="flex space-x-2 w-1/2">

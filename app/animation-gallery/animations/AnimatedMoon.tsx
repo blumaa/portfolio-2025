@@ -6,8 +6,13 @@ const AnimatedMoon = () => {
     <motion.svg
       viewBox="0 0 64 64"
       height="100%"
-      animate={{ rotate: 360 }}
-      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+      animate={{ rotate: 360, scale: 1.2 }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      }}
     >
       <path
         fill="#1d1d1b"

@@ -4,6 +4,7 @@ import {
   PaintBrushIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/solid";
+import AnimatedMoon from "../animation-gallery/animations/AnimatedMoon";
 
 const linkIconStyles = "h-4 w-4";
 
@@ -29,5 +30,14 @@ export const LINKS: LinksType = {
     title: "books",
     icon: <BookOpenIcon className={linkIconStyles} />,
     href: "/books",
+  },
+  animationGallery: {
+    title: "animations",
+    icon: (
+      <div className="w-4">
+        <AnimatedMoon />
+      </div>
+    ),
+    href: "/animation-gallery",
   },
 };

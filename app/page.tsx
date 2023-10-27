@@ -3,7 +3,7 @@ import LightSwitch from "./components/LightSwitch";
 import HomePageLink from "./components/HomePageLink";
 import SocialLink from "./components/SocialLink";
 
-const myStuffLinks = ["work", "education", "creative"];
+const myStuffLinks = ["work", "education", "creative", "animationGallery"];
 const goodStuffLinks = ["books"];
 
 const dmSans = DM_Sans({

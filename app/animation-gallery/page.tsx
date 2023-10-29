@@ -6,6 +6,7 @@ import AnimatedBeaverMoon from "./animations/AnimatedBeaverMoon";
 import CityScapeWrapper from "./animations/CityScape/CityScapeWrapper";
 import AnimatedSwitch2 from "./animations/AnimatedSwitch2";
 import AnimatedLoadingAirplane from "./animations/AnimatedLoadingAirplane";
+import AnimatedGearScene from "./animations/AnimatedGearScene";
 
 export default function AnimationGallery() {
   return (
@@ -13,6 +14,11 @@ export default function AnimationGallery() {
       className={`flex flex-wrap flex-col md:flex-row justify-center
         items-center pt-4 w-full`}
     >
+      <AnimationCard>
+        <div className="flex justify-center items-center h-full ">
+          <AnimatedGearScene />
+        </div>
+      </AnimationCard>
       <AnimationCard>
         <AnimatedLoadingAirplane />
       </AnimationCard>

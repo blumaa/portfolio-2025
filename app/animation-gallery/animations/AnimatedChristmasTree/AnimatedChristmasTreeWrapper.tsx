@@ -11,7 +11,7 @@ const AnimatedChristmasTreeWrapper = () => {
         <div className="w-1/4 flex items-center justify-center">
           <AnimatedChristmasTreeSwitch play={play} setPlay={setPlay} />
         </div>
-        <div className="w-1/2">
+        <div className="w-2/5">
           <AnimatedChristmasTree play={play} />
         </div>
       </div>

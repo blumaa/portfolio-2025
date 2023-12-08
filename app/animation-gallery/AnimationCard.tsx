@@ -8,7 +8,7 @@ const AnimationCard = ({ children }: { children: React.ReactNode }) => {
       className={`overflow-hidden border border-sky-500 ${
         isDarkMode ? "bg-gray-900" : "bg-slate-300"
       } 
-        rounded-3xl shadow h-48 w-3/4 md:w-1/4 m-2 `}
+        rounded-3xl shadow-lg h-48 w-3/4 md:w-1/4 m-2 `}
     >
       {children}
     </div>

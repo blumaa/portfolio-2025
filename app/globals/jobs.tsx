@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/solid";
 
+export enum JobCategory {
+  "coding" = "coding",
+  "teaching" = "teaching",
+  "coordinating" = "coordinating",
+  "organising" = "organising",
+}
 export type Job = {
   companyName: string;
   link?: string;
@@ -9,7 +15,7 @@ export type Job = {
   description: string;
   learning: string | JSX.Element;
   location: string;
-  category?: string;
+  category?: JobCategory;
 };
 export const jobs = [
   {
@@ -18,11 +24,11 @@ export const jobs = [
     jobTitle: "frontend developer",
     timeSpan: "june 2022 - present",
     description:
-      "javascript fe (react and nextJs), ruby be. coding to help automate the tasks of case managers who assisted employees in global mobility",
+      "javascript frontend (react and nextJs), ruby on rails backend. coding to help automate the tasks of case managers who assisted employees in global mobility",
     learning: (
       <>
         <HeartIcon className="h-4 inline" />: it was so much fun helping to
-        develop our design system:&nbsp;
+        develop the design system:&nbsp;
         <Link
           href="https://github.com/Localitos/pluto"
           target="_blank"
@@ -34,7 +40,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
-    category: "coding",
+    category: JobCategory.coding,
   },
   {
     companyName: "x-ion",
@@ -57,7 +63,7 @@ export const jobs = [
       </>
     ),
     location: "remote / hamburg, germany",
-    category: "coding",
+    category: JobCategory.coding,
   },
   {
     companyName: "south high school",
@@ -75,7 +81,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
-    category: "teaching",
+    category: JobCategory.teaching,
   },
   {
     companyName: "minneapolis public schools",
@@ -100,7 +106,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
-    category: "coordinating",
+    category: JobCategory.coordinating,
   },
   {
     companyName: "powderhorn porchfest",
@@ -116,7 +122,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
-    category: "organising",
+    category: JobCategory.organising,
   },
   {
     companyName: "americorps promise fellow",
@@ -132,7 +138,7 @@ export const jobs = [
       </>
     ),
     location: "minneaplis, minnesota, usa",
-    category: "teaching",
+    category: JobCategory.teaching,
   },
   {
     companyName: "colegio carlos tercero",
@@ -148,6 +154,6 @@ export const jobs = [
       </>
     ),
     location: "aranjuez, madrid, spain",
-    category: "teaching",
+    category: JobCategory.teaching,
   },
 ];

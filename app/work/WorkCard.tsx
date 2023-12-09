@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Job } from "../globals/jobs";
+import { Job, iconStyles } from "../globals/jobs";
 import Pill from "../components/Pill";
+import { WrenchScrewdriverIcon } from "@heroicons/react/24/solid";
 
 const WorkCard = ({ job }: { job: Job }) => {
   const {
@@ -33,6 +34,7 @@ const WorkCard = ({ job }: { job: Job }) => {
         <Pill>{jobTitle}</Pill>
         {` ${location}, `}
         {`${timeSpan}. `}
+        <WrenchScrewdriverIcon className={iconStyles} />
         {`${description}. `}
         {typeof learning === "string" ? `${learning}` : learning}{" "}
       </span>

@@ -25,7 +25,7 @@ export const jobs = [
     companyName: "localyze",
     link: "https://localyze.com/",
     jobTitle: "frontend developer",
-    timeSpan: "june 2022 - present",
+    timeSpan: "june 2022 - dec 2023",
     description:
       ": javascript frontend (react and nextJs), ruby on rails backend. coding to help automate the tasks of case managers who assisted employees in global mobility",
     learning: (

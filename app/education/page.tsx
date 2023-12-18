@@ -20,7 +20,7 @@ export default function Education() {
             >
               languages
             </Link>
-            &nbsp; native english - spanish c1 - german a2.1
+            &nbsp; native english - spanish c1 - german b1.2
           </span>
         </div>
       </div>

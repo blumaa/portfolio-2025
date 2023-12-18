@@ -5,7 +5,7 @@ import { ThemeContextProvider } from "./context/theme";
 import ThemeWrapper from "./ThemeWrapper";
 
 export const metadata: Metadata = {
-  title: "Aaron Blum Portfolio",
+  title: "Aaron Blum",
   description: "this is my work as a coder",
 };
 

@@ -1,8 +1,7 @@
 "use client";
 import { gsap } from "gsap";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 
-const speed = 0.5;
 const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
   const treeRef = useRef(null);
 
@@ -11,8 +10,11 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (play) {
+        const speed = gsap.utils.random(1, 5);
+        const stagger = gsap.utils.random(0.1, 0.5);
+        console.log('stagger', stagger)
         tl.current = gsap
-          .timeline()
+          .timeline({ repeat: -1, repeatRefresh: true, yoyo: true })
           .addLabel("start")
           .fromTo(
             ".ornament-green",
@@ -20,9 +22,8 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
             {
               opacity: 0,
               duration: speed,
-              stagger: 0.2,
-              yoyo: true,
-              repeat: -1,
+              stagger,
+              repeatRefresh: true,
             },
             "start"
           )
@@ -32,10 +33,9 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
             {
               opacity: 0,
               duration: speed,
-              stagger: 0.2,
-              yoyo: true,
+              stagger,
               delay: 0.5,
-              repeat: -1,
+              repeatRefresh: true,
             },
             "start"
           )
@@ -45,10 +45,9 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
             {
               opacity: 0,
               duration: speed,
-              stagger: 0.2,
-              yoyo: true,
+              stagger,
               delay: 1,
-              repeat: -1,
+              repeatRefresh: true,
             },
             "start"
           )
@@ -56,10 +55,10 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
             "#star",
             {
               rotate: 360,
-              duration: 10,
+              duration: gsap.utils.random(0.1, 10),
               ease: "inOut",
               transformOrigin: "center center",
-              repeat: -1,
+              repeatRefresh: true,
             },
             "start"
           );
@@ -74,7 +73,7 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         viewBox="0 0 36 36"
-        style={{ width: "100%" }}
+        className="w-full"
       >
         <path
           fill="#662113"

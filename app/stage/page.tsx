@@ -1,11 +1,12 @@
+import AnimationCard from "../animation-gallery/AnimationCard";
 import AnimatedChristmasTreeWrapper from "../animation-gallery/animations/AnimatedChristmasTree/AnimatedChristmasTreeWrapper";
 
 const Stage = () => {
   return (
     <div className="p-4 h-full flex items-center justify-center ">
-      <div className="w-2/5 border border-sky-500 rounded-3xl overflow-hidden">
+      <AnimationCard codeLink="#">
         <AnimatedChristmasTreeWrapper />
-      </div>
+      </AnimationCard>
     </div>
   );
 };

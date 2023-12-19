@@ -3,7 +3,7 @@ import { useState } from "react";
 import AnimatedChristmasTree from "./AnimatedChristmasTree";
 import AnimatedChristmasTreeSwitch from "./AnimatedChristmasTreeSwitch";
 const AnimatedChristmasTreeWrapper = () => {
-  const [play, setPlay] = useState(false);
+  const [play, setPlay] = useState(true);
 
   return (
     <div className="flex items-center justify-center h-full">

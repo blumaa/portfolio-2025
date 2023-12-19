@@ -23,7 +23,7 @@ export default function AnimationGallery() {
           <AnimatedGearScene />
         </div>
       </AnimationCard>
-      <AnimationCard>
+      <AnimationCard codeLink="https://stackblitz.com/edit/animatedloadingairplane?file=app%2FAnimatedLoadingAirplane.tsx">
         <AnimatedLoadingAirplane />
       </AnimationCard>
       <AnimationCard>

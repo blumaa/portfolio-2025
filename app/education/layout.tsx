@@ -1,30 +1,22 @@
 import { BuildingLibraryIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
-import LightSwitch from "../components/LightSwitch";
+import { Header } from "../header/header";
+import { Footer } from "../footer/footer";
 
 export default function EducationLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
-  const navHomeText = "aaron blum";
   return (
-    <section>
-      <nav>
-        <div className="flex items-center justify-between">
-          <Link className="pl-2 md:text-xl w-3/12 md:w-1/3" href="/">
-            {navHomeText}
-          </Link>
-          <div className="flex items-center space-x-2">
-            <BuildingLibraryIcon className="h-6 w-6" />
-            <div className="text-2xl">education</div>
-          </div>
-          <div className="flex justify-end w-3/12 md:w-1/3">
-            <LightSwitch />
-          </div>
+    <div className="flex flex-col h-screen">
+      <Header>
+        <div className="flex items-center space-x-2">
+          <BuildingLibraryIcon className="h-6 w-6" />
+          <div className="text-2xl">education</div>
         </div>
-      </nav>
-      <div className="flex justify-center">{children}</div>
-    </section>
+      </Header>
+      <div className="grow flex justify-center">{children}</div>
+      <Footer />
+    </div>
   );
 }

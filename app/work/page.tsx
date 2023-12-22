@@ -1,6 +1,6 @@
 "use client";
 import WorkCard from "./WorkCard";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Job, jobs } from "../globals/jobs";
 import { useEffect, useState } from "react";
 import Pill from "../components/Pill";
@@ -24,7 +24,7 @@ export default function Work() {
 
   useEffect(() => {
     const updatedFilteredJobs = jobs.filter((job) =>
-      filters.includes(job.category),
+      filters.includes(job.category)
     );
     setFilteredJobs(updatedFilteredJobs);
   }, [filters]);

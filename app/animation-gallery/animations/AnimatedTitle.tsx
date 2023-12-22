@@ -40,4 +40,4 @@ const AnimatedTitle = () => {
   );
 };
 
-export default AnimatedTitle;
+export { AnimatedTitle };

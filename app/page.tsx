@@ -2,6 +2,7 @@ import { DM_Sans } from "next/font/google";
 import LightSwitch from "./components/LightSwitch";
 import HomePageLink from "./components/HomePageLink";
 import SocialLink from "./components/SocialLink";
+import { Footer } from "./footer/footer";
 
 const myStuffLinks = ["work", "education", "creative", "animationGallery"];
 const goodStuffLinks = ["books"];
@@ -64,6 +65,7 @@ export default function Home() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </div>
   );

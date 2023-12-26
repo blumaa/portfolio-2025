@@ -12,7 +12,6 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
       if (play) {
         const speed = gsap.utils.random(1, 5);
         const stagger = gsap.utils.random(0.1, 0.5);
-        console.log('stagger', stagger)
         tl.current = gsap
           .timeline({ repeat: -1, repeatRefresh: true, yoyo: true })
           .addLabel("start")
@@ -25,7 +24,7 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
               stagger,
               repeatRefresh: true,
             },
-            "start"
+            "start",
           )
           .fromTo(
             ".ornament-yellow",
@@ -37,7 +36,7 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
               delay: 0.5,
               repeatRefresh: true,
             },
-            "start"
+            "start",
           )
           .fromTo(
             ".ornament-red",
@@ -49,7 +48,7 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
               delay: 1,
               repeatRefresh: true,
             },
-            "start"
+            "start",
           )
           .to(
             "#star",
@@ -60,7 +59,7 @@ const AnimatedChristmasTree = ({ play }: { play: boolean }) => {
               transformOrigin: "center center",
               repeatRefresh: true,
             },
-            "start"
+            "start",
           );
       }
     }, treeRef);

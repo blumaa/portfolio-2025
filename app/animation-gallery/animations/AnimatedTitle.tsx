@@ -28,10 +28,7 @@ const AnimatedTitle = () => {
     >
       {title.split("").map((char, index) => {
         return (
-          <motion.span
-            key={char + index}
-            variants={letter}
-          >
+          <motion.span key={char + index} variants={letter}>
             {char}
           </motion.span>
         );

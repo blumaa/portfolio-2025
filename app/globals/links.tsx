@@ -26,10 +26,10 @@ export const LINKS: LinksType = {
     icon: <PaintBrushIcon className={linkIconStyles} />,
     href: "/creative",
   },
-  books: {
-    title: "books",
+  readings: {
+    title: "readings",
     icon: <BookOpenIcon className={linkIconStyles} />,
-    href: "/books",
+    href: "/readings",
   },
   animationGallery: {
     title: "animations",
@@ -41,3 +41,11 @@ export const LINKS: LinksType = {
     href: "/animation-gallery",
   },
 };
+
+export const myStuffLinks = [
+  "work",
+  "education",
+  "creative",
+  "animationGallery",
+];
+export const goodStuffLinks = ["readings"];

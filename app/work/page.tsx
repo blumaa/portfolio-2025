@@ -24,7 +24,7 @@ export default function Work() {
 
   useEffect(() => {
     const updatedFilteredJobs = jobs.filter((job) =>
-      filters.includes(job.category)
+      filters.includes(job.category),
     );
     setFilteredJobs(updatedFilteredJobs);
   }, [filters]);

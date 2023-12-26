@@ -94,9 +94,9 @@ const CityScape = ({ mode }) => {
                 repeat: 7,
                 yoyo: true,
                 ease: "elastic",
-              }
+              },
             ),
-            0
+            0,
           );
         });
 
@@ -106,7 +106,7 @@ const CityScape = ({ mode }) => {
           {
             opacity: 1,
             duration: duration,
-          }
+          },
         );
         gsap.fromTo(
           [".cloud, #daylight, #window_off"],
@@ -114,17 +114,17 @@ const CityScape = ({ mode }) => {
           {
             opacity: 0,
             duration: duration,
-          }
+          },
         );
         gsap.fromTo(
           "#sun",
           { y: 0 },
-          { y: 50, opacity: 0, duration: duration, ease: orbEase }
+          { y: 50, opacity: 0, duration: duration, ease: orbEase },
         );
         gsap.fromTo(
           "#moon",
           { y: 50 },
-          { y: 0, opacity: 1, duration: duration, ease: orbEase }
+          { y: 0, opacity: 1, duration: duration, ease: orbEase },
         );
       }
 
@@ -143,12 +143,12 @@ const CityScape = ({ mode }) => {
           {
             opacity: 1,
             duration: duration,
-          }
+          },
         );
         gsap.fromTo(
           "#sun",
           { y: 50 },
-          { y: 0, opacity: 1, duration: duration, ease: orbEase }
+          { y: 0, opacity: 1, duration: duration, ease: orbEase },
         );
         gsap.to("#sun", {
           transformOrigin: "center",
@@ -159,7 +159,7 @@ const CityScape = ({ mode }) => {
         gsap.fromTo(
           "#moon",
           { y: 0 },
-          { y: 50, opacity: 0, duration: duration, ease: orbEase }
+          { y: 50, opacity: 0, duration: duration, ease: orbEase },
         );
       }
     }, rootRef); // scope selector text

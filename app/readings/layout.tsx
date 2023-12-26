@@ -12,7 +12,7 @@ export default function BooksLayout({
       <Header>
         <div className="flex items-center space-x-2">
           <BookOpenIcon className="h-6 w-6" />
-          <div className="text-2xl">books</div>
+          <div className="text-2xl">Readings</div>
         </div>
       </Header>
       <div className="grow">{children}</div>

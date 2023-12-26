@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { Book } from "../globals/books";
-import Pill from "../components/Pill";
+import { Reading } from "../globals/books";
 
-const BookCard = ({ book }: { book: Book }) => {
-  const { title, link, linkTarget, author, description, type } = book;
+const ReadingCard = ({ reading }: { reading: Reading }) => {
+  const { title, link, linkTarget, author, description, type } = reading;
 
   return (
     <Link
@@ -33,4 +32,4 @@ const BookCard = ({ book }: { book: Book }) => {
   );
 };
 
-export default BookCard;
+export default ReadingCard;

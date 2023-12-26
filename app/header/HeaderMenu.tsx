@@ -8,8 +8,8 @@ import { useThemeContext } from "../context/theme";
 const HeaderMenu = () => {
   const { isDarkMode } = useThemeContext();
   return (
-    <div className="group absolute relative">
-      <Link className="pl-2 md:text-xl w-3/12 md:w-1/3" href="/">
+    <div className="group relative">
+      <Link className="pl-2 md:text-xl " href="/">
         aaron blum
       </Link>
       <AnimatePresence>

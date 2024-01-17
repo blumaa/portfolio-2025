@@ -3,7 +3,9 @@ import AnimatedBeaverMoon from "./animation-gallery/animations/AnimatedBeaverMoo
 const Loading = () => {
   return (
     <div className="h-screen flex justify-center items-center">
-      <AnimatedBeaverMoon />
+      <div className="w-36">
+        <AnimatedBeaverMoon />
+      </div>
     </div>
   );
 };

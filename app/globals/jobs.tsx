@@ -22,6 +22,20 @@ export const iconStyles = "h-4 inline fill-sky-300";
 
 export const jobs = [
   {
+    companyName: "fluege",
+    link: "https://fluege.de/",
+    jobTitle: "frontend developer",
+    timeSpan: "february 2024 - current",
+    description: ": WEB-COMPONENTS!!",
+    learning: (
+      <>
+        <HeartIcon className={iconStyles} />: love the team.
+      </>
+    ),
+    location: "remote / leipzig, germany",
+    category: JobCategory.coding,
+  },
+  {
     companyName: "localyze",
     link: "https://localyze.com/",
     jobTitle: "frontend developer",

@@ -15,9 +15,9 @@ export default function AnimationGallery() {
       className={`flex flex-wrap flex-col md:flex-row justify-center
         items-center pt-4 w-full`}
     >
-      <AnimationCard codeLink="https://stackblitz.com/edit/animated-christmas-tree">
-        <AnimatedChristmasTreeWrapper />
-      </AnimationCard>
+      {/* <AnimationCard codeLink="https://stackblitz.com/edit/animated-christmas-tree"> */}
+      {/*   <AnimatedChristmasTreeWrapper /> */}
+      {/* </AnimationCard> */}
       <AnimationCard>
         <div className="flex justify-center items-center h-full ">
           <AnimatedGearScene />

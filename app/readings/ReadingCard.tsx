@@ -12,23 +12,19 @@ const ReadingCard = ({ reading }: { reading: Reading }) => {
       className="md:w-1/2 border border-gray-500 p-2 rounded-sm shadow-md hover:scale-105 ease-out duration-300"
     >
       <div>
-        <div className={`flex justify-center`}>
-          <div className="flex items-center justify-center space-x-6">
+        <div className="grid grid-cols-4 items-center justify-items-center gap-2">
+          <div className="border border-yellow-400">
             {imageUrl && <Image src={imageUrl} alt={title} width={100} height={100} />}
-            <div className="flex flex-col basis-1/3">
-              <div
-                className={`font-bold text-2xl decoration-sky-500 underline underline-offset-1 
-            hover:no-underline`}
-              >{`${title}`}</div>
-              {author && <span>{author}</span>}
-            </div>
-            {/* <div>pic</div> */}
           </div>
-          <div className="flex basis-2/3 items-center">{description}</div>
+          <div>
+            <div
+              className="font-bold text-2xl decoration-sky-500 underline underline-offset-1 
+                hover:no-underline"
+            >{title}</div>
+            {author && <span>{author}</span>}
+          </div>
+          <div className="col-span-2">{description}</div>
         </div>
-        {/* <div className="flex justify-end pt-2 pr-2"> */}
-        {/*   <Pill>{type}</Pill> */}
-        {/* </div> */}
       </div>
     </Link>
   );

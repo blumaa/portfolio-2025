@@ -26,7 +26,7 @@ export const jobs = [
     link: "https://fluege.de/",
     jobTitle: "frontend developer",
     timeSpan: "february 2024 - current",
-    description: ": WEB-COMPONENTS!!",
+    description: ": web-components + atomic design system = amazing developer experience (with flexibility, reusibiliity, scalability, and consistency)!",
     learning: (
       <>
         <HeartIcon className={iconStyles} />: love the team.

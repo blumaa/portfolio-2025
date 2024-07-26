@@ -12,6 +12,7 @@ export type Reading = {
   linkTarget?: "_blank" | "_self";
   description: string;
   type: ReadingType;
+  imageUrl: string;
 };
 
 export const readings: Reading[] = [
@@ -21,7 +22,8 @@ export const readings: Reading[] = [
     link: "https://atomicdesign.bradfrost.com/",
     linkTarget: "_blank",
     description:
-      "This book is the bible for frontend architecture and component design. It is something I will think about in every project in which I am invovled from here on out. If you are a designer, developer, or involved in application architecture in any way, I highly recommend it.",
+      "This book is essential reading for frontend architecture and component design. It is something I will think about in every project in which I am invovled from here on out. If you are a designer, developer, or involved in application architecture in any way, I highly recommend it.",
     type: ReadingType.code,
+    imageUrl: "/atomic-design.png",
   },
 ];

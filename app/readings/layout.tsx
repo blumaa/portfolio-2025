@@ -1,4 +1,4 @@
-import { BookOpenIcon } from "@heroicons/react/24/solid";
+import { BookOpenIcon, DocumentPlusIcon } from "@heroicons/react/24/solid";
 import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
 
@@ -13,6 +13,9 @@ export default function BooksLayout({
         <div className="flex items-center space-x-2">
           <BookOpenIcon className="h-6 w-6" />
           <div className="text-2xl">Readings</div>
+          <div className="text-xl"> & </div>
+          <DocumentPlusIcon className="h-6 w-6" />
+          <div className="text-2xl">Resources</div>
         </div>
       </Header>
       <div className="grow">{children}</div>

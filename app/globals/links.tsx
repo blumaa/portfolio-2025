@@ -3,6 +3,7 @@ import {
   BookOpenIcon,
   PaintBrushIcon,
   WrenchScrewdriverIcon,
+  DocumentPlusIcon
 } from "@heroicons/react/24/solid";
 import AnimatedMoon from "../animation-gallery/animations/AnimatedMoon";
 
@@ -31,6 +32,11 @@ export const LINKS: LinksType = {
     icon: <BookOpenIcon className={linkIconStyles} />,
     href: "/readings",
   },
+  resources: {
+    title: "resources",
+    icon: <DocumentPlusIcon className={linkIconStyles} />,
+    href: "/readings",
+  },
   animationGallery: {
     title: "animations",
     icon: (
@@ -48,4 +54,4 @@ export const myStuffLinks = [
   "creative",
   "animationGallery",
 ];
-export const goodStuffLinks = ["readings"];
+export const goodStuffLinks = ["readings", "resources"];

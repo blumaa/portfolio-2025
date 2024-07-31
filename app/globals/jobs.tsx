@@ -159,7 +159,7 @@ export const jobs = [
   },
   {
     companyName: "colegio carlos tercero",
-    link: "https://auxiliaresdeconversacion.org/",
+    link: "https://conversaspain.com/auxiliares-de-conversacion/",
     jobTitle: "english teacher",
     timeSpan: "september 2009 - 2011",
     description:

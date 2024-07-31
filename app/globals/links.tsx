@@ -1,6 +1,5 @@
 import {
   BuildingLibraryIcon,
-  BookOpenIcon,
   PaintBrushIcon,
   WrenchScrewdriverIcon,
   DocumentPlusIcon
@@ -27,11 +26,6 @@ export const LINKS: LinksType = {
     icon: <PaintBrushIcon className={linkIconStyles} />,
     href: "/creative",
   },
-  readings: {
-    title: "readings",
-    icon: <BookOpenIcon className={linkIconStyles} />,
-    href: "/readings",
-  },
   resources: {
     title: "resources",
     icon: <DocumentPlusIcon className={linkIconStyles} />,
@@ -54,4 +48,4 @@ export const myStuffLinks = [
   "creative",
   "animationGallery",
 ];
-export const goodStuffLinks = ["readings", "resources"];
+export const goodStuffLinks = ["resources"];

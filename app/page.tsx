@@ -6,7 +6,7 @@ import { Footer } from "./footer/footer";
 import { goodStuffLinks, myStuffLinks } from "./globals/links";
 
 const dmSans = DM_Sans({
-  weight: "400",
+  weight: '400',
   subsets: ["latin"],
 });
 

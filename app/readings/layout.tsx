@@ -10,10 +10,7 @@ export default function BooksLayout({
   return (
     <div className="flex flex-col h-screen">
       <Header>
-        <div className="flex items-center space-x-2">
-          <BookOpenIcon className="h-6 w-6" />
-          <div className="text-2xl">Readings</div>
-          <div className="text-xl"> & </div>
+        <div className="flex items-center">
           <DocumentPlusIcon className="h-6 w-6" />
           <div className="text-2xl">Resources</div>
         </div>

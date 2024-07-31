@@ -23,7 +23,7 @@ export const iconStyles = "h-4 inline fill-sky-300";
 export const jobs = [
   {
     companyName: "fluege",
-    link: "https://fluege.de/",
+    link: "https://go.fluege.de/",
     jobTitle: "frontend developer",
     timeSpan: "february 2024 - current",
     description: ": web-components + atomic design system = amazing developer experience (with flexibility, reusibiliity, scalability, and consistency)!",

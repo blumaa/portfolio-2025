@@ -9,10 +9,10 @@ export default function LightSwitch() {
 
   return (
     <div className="pr-2">
-      {isDarkMode ? (
+      {!isDarkMode ? (
         <SunIcon
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="w-6 text-yellow-400 hover:cursor-pointer"
+          className="w-6 text-yellow-500 hover:cursor-pointer"
         />
       ) : (
         <MoonIcon

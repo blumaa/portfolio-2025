@@ -38,17 +38,12 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="border border-slate-300 mb-2" />
+            <div className="border border-slate-500 border-0.5 mb-4" />
             <div className="flex space-x-2 w-1/2">
               <SocialLink
-                href="https://www.linkedin.com/in/aaron-blum-0904/"
-                src="/linkedin-logo.svg"
-                alt="LinkedIn"
-              />
-              <SocialLink
-                href="https://github.com/blumaa"
-                src="/github-logo.svg"
-                alt="Github"
+                href="https://bsky.app/profile/punkpoet.bsky.social"
+                src="/bluesky.svg"
+                alt="BlueSky"
               />
               <SocialLink
                 href="https://desmondblume.substack.com/"
@@ -56,9 +51,19 @@ export default function Home() {
                 alt="Blumenous Poetry"
               />
               <SocialLink
+                href="https://github.com/blumaa"
+                src="/github-logo.svg"
+                alt="Github"
+              />
+              <SocialLink
                 href="mailto:blumaa@gmail.com"
                 src="/mail.svg"
                 alt="blumaa@gmail.com"
+              />
+              <SocialLink
+                href="https://www.linkedin.com/in/aaron-blum-0904/"
+                src="/linkedin-logo.svg"
+                alt="LinkedIn"
               />
             </div>
           </div>

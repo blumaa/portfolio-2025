@@ -4,11 +4,12 @@ import {
   WrenchScrewdriverIcon,
   DocumentPlusIcon
 } from "@heroicons/react/24/solid";
+import { ReactElement } from "react";
 import AnimatedMoon from "../animation-gallery/animations/AnimatedMoon";
 
 const linkIconStyles = "h-4 w-4";
 
-type LinksType = Record<string, Record<string, JSX.Element | string>>;
+type LinksType = Record<string, Record<string, ReactElement | string>>;
 
 export const LINKS: LinksType = {
   work: {

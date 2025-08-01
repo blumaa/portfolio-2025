@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { ReactElement } from "react";
+
 export type CreativeThing = {
   name: string;
   link?: string;
   linkTarget: "_blank" | "_self";
-  description: string | JSX.Element;
+  description: string | ReactElement;
 };
 export const creatives: CreativeThing[] = [
   {

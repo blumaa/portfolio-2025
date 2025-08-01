@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/solid";
+import { ReactElement } from "react";
 
 export enum JobCategory {
   "coding" = "coding",
@@ -13,7 +14,7 @@ export type Job = {
   jobTitle: string;
   timeSpan: string;
   description: string;
-  learning: string | JSX.Element;
+  learning: string | ReactElement;
   location: string;
   category?: JobCategory;
 };

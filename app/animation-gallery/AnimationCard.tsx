@@ -36,7 +36,7 @@ const AnimationCard = ({
                 <CodeBracketIcon width={20} height={20} />
               </Link>
               <AnimatePresence>
-                <motion.span
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 2, ease: "easeOut" }}
@@ -44,7 +44,7 @@ const AnimationCard = ({
                   className="absolute w-24 left-8 bottom-[-5px] scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 z-50"
                 >
                   ✨ click to see the code!
-                </motion.span>
+                </motion.div>
               </AnimatePresence>
             </div>
           </div>

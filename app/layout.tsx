@@ -1,8 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import "../styles/global.css";
 import type { Metadata } from "next";
-import { ThemeContextProvider } from "./context/theme";
-import ThemeWrapper from "./ThemeWrapper";
+import { AppThemeProvider } from "./providers/AppThemeProvider";
 
 export const metadata: Metadata = {
   title: "Aaron Blum",
@@ -16,12 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeContextProvider>
-        <ThemeWrapper>
+      <body>
+        <AppThemeProvider>
           {children}
           <Analytics />
-        </ThemeWrapper>
-      </ThemeContextProvider>
+        </AppThemeProvider>
+      </body>
     </html>
   );
 }

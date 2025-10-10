@@ -1,29 +1,27 @@
+"use client";
+
+import { Box, Text, Divider, Link } from "@mond-design-system/theme";
+import { useAppTheme } from "../hooks/useAppTheme";
 import { educations } from "../globals/education";
-import Link from "next/link";
-import EducationCard from "./EducationCard";
+import EducationCard from "../components/cards/EducationCard";
 
 export default function Education() {
+  const { isDarkMode } = useAppTheme();
+
   return (
-    <>
-      <div className="flex flex-col items-start space-y-2 pt-4 ">
-        {educations.map((school) => (
-          <EducationCard key={school.name} school={school} />
-        ))}
-        <div className="border self-center border-sky-500 mb-2 w-1/6" />
-        <div className={`flex`}>
-          <span className="p-2">
-            <Link
-              href={"#"}
-              target="_self"
-              className={`font-bold text-l decoration-sky-500 underline underline-offset-1 
-          hover:no-underline`}
-            >
-              languages
-            </Link>
-            &nbsp; native english - spanish c1 - german b1.2
-          </span>
-        </div>
-      </div>
-    </>
+    <Box display="flex" flexDirection="column" alignItems="flex-start" gap="sm" pt="md" isDarkMode={isDarkMode}>
+      {educations.map((school, index) => (
+        <EducationCard key={`${school.name}-${index}`} school={school} />
+      ))}
+      <Divider width="16.666667%" mb="sm" isDarkMode={isDarkMode} />
+      <Box p="sm" isDarkMode={isDarkMode}>
+        <Text variant="body-md" semantic="primary" isDarkMode={isDarkMode}>
+          <Link href="#" isDarkMode={isDarkMode}>
+            languages
+          </Link>
+          &nbsp; native english - spanish c1 - german b1.2
+        </Text>
+      </Box>
+    </Box>
   );
 }

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { ReactElement } from "react";
+import { Link, Icon } from "@mond-design-system/theme";
 
 export enum JobCategory {
   "coding" = "coding",
@@ -14,12 +14,10 @@ export type Job = {
   jobTitle: string;
   timeSpan: string;
   description: string;
-  learning: string | ReactElement;
+  learning: (isDarkMode: boolean) => string | ReactElement;
   location: string;
   category?: JobCategory;
 };
-
-export const iconStyles = "h-4 inline fill-sky-300";
 
 export const jobs = [
   {
@@ -28,9 +26,12 @@ export const jobs = [
     jobTitle: "frontend developer",
     timeSpan: "february 2024 - current",
     description: ": web-components + atomic design system = amazing developer experience (with flexibility, reusibiliity, scalability, and consistency)!",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: love the team.
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : love the team.
       </>
     ),
     location: "remote / leipzig, germany",
@@ -43,14 +44,17 @@ export const jobs = [
     timeSpan: "june 2022 - dec 2023",
     description:
       ": javascript frontend (react and nextJs), ruby on rails backend. coding to help automate the tasks of case managers who assisted employees in global mobility",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: it was so much fun helping to
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : it was so much fun helping to
         develop the design system:&nbsp;
         <Link
           href="https://github.com/Localitos/pluto"
           target="_blank"
-          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+          isDarkMode={isDarkMode}
         >
           pluto
         </Link>
@@ -67,13 +71,16 @@ export const jobs = [
     timeSpan: "june 2020 - february 2022",
     description:
       ": frontend coding to automate large scale health insurance applications",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: i really honed my&nbsp;
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : i really honed my&nbsp;
         <Link
           href="/animation-gallery"
           target="_self"
-          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+          isDarkMode={isDarkMode}
         >
           animation skills
         </Link>
@@ -92,9 +99,12 @@ export const jobs = [
       ": wrote, designed, and taught 10th, 11th, and 12th grade curriculum oriented towards racial and social justice." +
       " helped over 1000 students learn english as a second language. coordinated a team of 10 teachers." +
       " boosted the level of cultural relevance using 21st century apps and technology",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: this was both the most rewarding
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : this was both the most rewarding
         and the most stressful job of my life.
       </>
     ),
@@ -109,14 +119,17 @@ export const jobs = [
     description:
       ": helped to coordinate after school programming for thousands of children in the minneapolis area. " +
       "maintained, updated, and developed the community education websites",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: it was my honour to meet, be
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : it was my honour to meet, be
         mentored by, and work with the greatly inspirational artist:&nbsp;
         <Link
           href="https://www.candidagonzalez.com/"
           target="_blank"
-          className="underline-offset-1 decoration-sky-500 underline hover:no-underline cursor-pointer"
+          isDarkMode={isDarkMode}
         >
           c&#225;ndida gonz&#225;lez
         </Link>
@@ -133,9 +146,12 @@ export const jobs = [
     timeSpan: "2012 - 2014",
     description:
       ": together with niky duxbury, we founded powderhorn porchfest- a free, neighborhood based music festival that brought people together and highlighted local musicians, food vendors, and artists. it's still going strong to this day",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: seeing the community come out and
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : seeing the community come out and
         gather in the streets to hear a lot of great local music.
       </>
     ),
@@ -148,9 +164,12 @@ export const jobs = [
     jobTitle: "art teacher",
     timeSpan: "october 2011 - 2012",
     description: ": designed and implemented art oriented curriculum for youth",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: together, with the students, built
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : together, with the students, built
         an enormous robot sculpture using only recycled materials and we had two
         pet rats in the classroom.
       </>
@@ -165,9 +184,12 @@ export const jobs = [
     timeSpan: "september 2009 - 2011",
     description:
       ": served as lead english teacher, helping to improve the language skills of students",
-    learning: (
+    learning: (isDarkMode: boolean) => (
       <>
-        <HeartIcon className={iconStyles} />: i got to act in a pantomime! i
+        <Icon size="sm" isDarkMode={isDarkMode}>
+          <HeartIcon />
+        </Icon>
+        : i got to act in a pantomime! i
         also got to walk the camino de santiago- a life changing experience!
       </>
     ),

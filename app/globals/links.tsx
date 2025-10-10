@@ -5,37 +5,56 @@ import {
   DocumentPlusIcon
 } from "@heroicons/react/24/solid";
 import { ReactElement } from "react";
+import { Icon } from "@mond-design-system/theme";
 import AnimatedMoon from "../animation-gallery/animations/AnimatedMoon";
 
-const linkIconStyles = "h-4 w-4";
-
-type LinksType = Record<string, Record<string, ReactElement | string>>;
+type LinksType = Record<string, {
+  title: string;
+  icon: (isDarkMode: boolean) => ReactElement;
+  href: string;
+}>;
 
 export const LINKS: LinksType = {
   work: {
     title: "work",
-    icon: <WrenchScrewdriverIcon className={linkIconStyles} />,
+    icon: (isDarkMode: boolean) => (
+      <Icon size="sm" isDarkMode={isDarkMode}>
+        <WrenchScrewdriverIcon />
+      </Icon>
+    ),
     href: "/work",
   },
   education: {
     title: "education",
-    icon: <BuildingLibraryIcon className={linkIconStyles} />,
+    icon: (isDarkMode: boolean) => (
+      <Icon size="sm" isDarkMode={isDarkMode}>
+        <BuildingLibraryIcon />
+      </Icon>
+    ),
     href: "/education",
   },
   creative: {
     title: "creative",
-    icon: <PaintBrushIcon className={linkIconStyles} />,
+    icon: (isDarkMode: boolean) => (
+      <Icon size="sm" isDarkMode={isDarkMode}>
+        <PaintBrushIcon />
+      </Icon>
+    ),
     href: "/creative",
   },
   resources: {
     title: "resources",
-    icon: <DocumentPlusIcon className={linkIconStyles} />,
+    icon: (isDarkMode: boolean) => (
+      <Icon size="sm" isDarkMode={isDarkMode}>
+        <DocumentPlusIcon />
+      </Icon>
+    ),
     href: "/readings",
   },
   animationGallery: {
     title: "animations",
-    icon: (
-      <div className="w-4">
+    icon: (isDarkMode: boolean) => (
+      <div style={{ width: "1rem" }}>
         <AnimatedMoon />
       </div>
     ),

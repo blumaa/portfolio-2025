@@ -1,4 +1,8 @@
-import AnimationCard from "./AnimationCard";
+"use client";
+
+import { Box } from "@mond-design-system/theme";
+import { useAppTheme } from "../hooks/useAppTheme";
+import AnimationCard from "../components/cards/AnimationCard";
 import OctoDude from "./animations/OctoDude";
 import AnimatedLamp from "./animations/AnimatedLamp";
 import AlienMoon from "./animations/AlienMoon";
@@ -10,10 +14,19 @@ import AnimatedGearScene from "./animations/AnimatedGearScene";
 import AnimatedChristmasTreeWrapper from "./animations/AnimatedChristmasTree/AnimatedChristmasTreeWrapper";
 
 export default function AnimationGallery() {
+  const { isDarkMode } = useAppTheme();
+
   return (
-    <div
-      className={`flex flex-wrap flex-col md:flex-row justify-center
-        items-center pt-4 w-full`}
+    <Box
+      display="flex"
+      flexWrap="wrap"
+      flexDirection="row"
+      width="100%"
+      justifyContent="center"
+      alignItems="center"
+      pt="md"
+      gap={10}
+      isDarkMode={isDarkMode}
     >
       {/* <AnimationCard codeLink="https://stackblitz.com/edit/animated-christmas-tree"> */}
       {/*   <AnimatedChristmasTreeWrapper /> */}
@@ -44,6 +57,6 @@ export default function AnimationGallery() {
       <AnimationCard>
         <OctoDude />
       </AnimationCard>
-    </div>
+    </Box>
   );
 }

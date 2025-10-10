@@ -1,22 +1,34 @@
+"use client";
+
 import { WrenchScrewdriverIcon } from "@heroicons/react/24/solid";
-import { Header } from "../header/header";
-import { Footer } from "../footer/footer";
+import { Box, Text, Icon } from "@mond-design-system/theme";
+import { useAppTheme } from "../hooks/useAppTheme";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
 
 export default function WorkLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
+  const { isDarkMode } = useAppTheme();
+
   return (
-    <div className="flex flex-col h-screen">
+    <Box display="flex" flexDirection="column" minHeight="100vh" bg="surface.background" isDarkMode={isDarkMode}>
       <Header>
-        <div className="flex items-center space-x-2">
-          <WrenchScrewdriverIcon className="h-6 w-6" />
-          <div className="text-2xl">work</div>
-        </div>
+        <Box display="flex" alignItems="center" gap="sm" isDarkMode={isDarkMode}>
+          <Icon size="md" isDarkMode={isDarkMode}>
+            <WrenchScrewdriverIcon />
+          </Icon>
+          <Text variant="body-lg" semantic="primary" isDarkMode={isDarkMode}>
+            work
+          </Text>
+        </Box>
       </Header>
-      <div className="grow">{children}</div>
+      <Box flex="1" isDarkMode={isDarkMode}>
+        {children}
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 }

@@ -1,36 +1,43 @@
 {
-  "name": "portfolio-2023",
+  "name": "portfolio-2025",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
-    "@mond-design-system/theme": "^1.0.4",
+    "@mond-design-system/theme": "^1.21.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "@vercel/analytics": "^1.1.0",
-    "autoprefixer": "10.4.15",
-    "eslint": "8.49.0",
+    "eslint": "^8.57.0",
     "eslint-config-next": "^15.4.5",
     "framer-motion": "^12.23.12",
     "gsap": "^3.12.2",
     "next": "^15.4.5",
-    "postcss": "8.4.29",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "3.3.3",
     "typescript": "^5.0.0"
   },
-  "module": "index.ts",
-  "type": "esnext",
   "devDependencies": {
-    "@types/node": "20.8.7",
-    "bun-types": "^1.0.6"
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.12.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/coverage-v8": "^3.2.4",
+    "bun-types": "^1.0.6",
+    "jsdom": "^27.0.0",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

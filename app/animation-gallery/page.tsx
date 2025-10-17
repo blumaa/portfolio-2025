@@ -10,6 +10,8 @@ import CityScapeWrapper from "./animations/CityScape/CityScapeWrapper";
 import AnimatedSwitch2 from "./animations/AnimatedSwitch2";
 import AnimatedLoadingAirplane from "./animations/AnimatedLoadingAirplane";
 import AnimatedGearScene from "./animations/AnimatedGearScene";
+import NuclearPhysics1 from "./animations/NuclearPhysics1";
+import Bird from "./animations/Bird";
 
 export default function AnimationGallery() {
   return (
@@ -45,6 +47,12 @@ export default function AnimationGallery() {
       </AnimationCard>
       <AnimationCard>
         <OctoDude />
+      </AnimationCard>
+      <AnimationCard>
+        <NuclearPhysics1 />
+      </AnimationCard>
+      <AnimationCard>
+          <Bird />
       </AnimationCard>
     </Box>
   );

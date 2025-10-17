@@ -2,13 +2,13 @@
 
 import AnimationCard from "../components/cards/AnimationCard";
 import { Box } from "@mond-design-system/theme";
-import CityScapeWrapper from "../animation-gallery/animations/CityScape/CityScapeWrapper";
+import OctoDude from "../animation-gallery/animations/OctoDude";
 
 const Stage = () => {
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" flex={1} >
+    <Box display="flex" alignItems="center" justifyContent="center" flex={1}>
       <Box width="30%">
-        <CityScapeWrapper />
+          <OctoDude />
       </Box>
     </Box>
   );

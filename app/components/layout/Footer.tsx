@@ -12,7 +12,7 @@ const Footer = () => {
             Aaron Blum
           </Link>
           {" "}
-          made with the
+          built with the
           {" "}
           <Link href="https:github.com/blumaa/mond-design-system" size="small" target="_blank">
             Mond Design System

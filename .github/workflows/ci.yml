@@ -11,42 +11,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci --legacy-peer-deps
-      - run: npm run lint
+          bun-version: latest
+      - run: bun install
+      - run: bun run lint
 
   typecheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci --legacy-peer-deps
-      - run: npx tsc --noEmit
+          bun-version: latest
+      - run: bun install
+      - run: bunx tsc --noEmit
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci --legacy-peer-deps
-      - run: npm run test
+          bun-version: latest
+      - run: bun install
+      - run: bun run test
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci --legacy-peer-deps
-      - run: npm run build
+          bun-version: latest
+      - run: bun install
+      - run: bun run build

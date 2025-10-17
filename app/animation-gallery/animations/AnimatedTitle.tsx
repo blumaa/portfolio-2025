@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Text } from "@mond-design-system/theme";
 
 const sentence = {
   hidden: { opacity: 0 },
@@ -24,13 +25,19 @@ const AnimatedTitle = () => {
       variants={sentence}
       initial="hidden"
       animate="visible"
-      className="text-2xl whitespace-nowrap"
+      style={{ fontSize: "1.5rem", whiteSpace: "nowrap" }}
     >
       {title.split("").map((char, index) => {
         return (
-          <motion.span key={char + index} variants={letter}>
+          <Text
+            variant="title"
+            semantic="primary"
+            as={motion.span}
+            key={char + index}
+            variants={letter}
+          >
             {char}
-          </motion.span>
+          </Text>
         );
       })}
     </motion.div>

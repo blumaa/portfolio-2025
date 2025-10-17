@@ -3,82 +3,101 @@
 import { gsap } from "gsap";
 
 import React, { useEffect } from "react";
+import { Box } from "@mond-design-system/theme";
 
 const AnimatedLoadingAirplane: React.FC = () => {
   useEffect(() => {
-    gsap.set(".cloud", { opacity: 0 });
-    gsap.fromTo(
-      ".cloud",
-      { y: -1000, x: 1000, opacity: 0 },
-      {
-        opacity: 1,
-        y: 1000,
-        x: -1000,
-        duration: 4,
-        stagger: 2,
-        repeat: -1,
-      },
-    );
+    const ctx = gsap.context(() => {
+      // Check if plane element exists before animating
+      const planeElement = document.querySelector("#plane");
+      if (!planeElement) return;
 
-    function random(min: number, max: number) {
-      const delta = max - min;
-      return (direction = 1) => (min + delta * Math.random()) * direction;
-    }
+      gsap.set(".cloud", { opacity: 0 });
+      gsap.fromTo(
+        ".cloud",
+        { y: -1000, x: 1000, opacity: 0 },
+        {
+          opacity: 1,
+          y: 1000,
+          x: -1000,
+          duration: 4,
+          stagger: 2,
+          repeat: -1,
+        },
+      );
 
-    const can = "#plane";
+      function random(min: number, max: number) {
+        const delta = max - min;
+        return (direction = 1) => (min + delta * Math.random()) * direction;
+      }
 
-    const randomX = random(1, 2);
-    const randomY = random(2, 3);
-    const randomDelay = random(0, 1);
-    const randomTime = random(3, 5);
-    const randomTime2 = random(5, 10);
-    const randomAngle = random(8, 12);
+      const can = "#plane";
 
-    gsap.set(can, {
-      x: randomX(-1),
-      y: randomX(1),
-      rotation: randomAngle(-1),
+      const randomX = random(1, 2);
+      const randomY = random(2, 3);
+      const randomDelay = random(0, 1);
+      const randomTime = random(3, 5);
+      const randomTime2 = random(5, 10);
+      const randomAngle = random(8, 12);
+
+      gsap.set(can, {
+        x: randomX(-1),
+        y: randomX(1),
+        rotation: randomAngle(-1),
+        transformOrigin: "center center",
+      });
+
+      function rotate(target: string, direction: number) {
+        gsap.to(target, {
+          rotation: randomAngle(direction),
+          delay: randomDelay(),
+          duration: randomTime2(),
+          ease: "sine.inOut",
+          onComplete: rotate,
+          onCompleteParams: [target, direction * -1],
+        });
+      }
+
+      function moveX(target: string, direction: number) {
+        gsap.to(target, {
+          x: randomX(direction),
+          ease: "sine.inOut",
+          duration: randomTime(),
+          onComplete: moveX,
+          onCompleteParams: [target, direction * -1],
+        });
+      }
+
+      function moveY(target: string, direction: number) {
+        gsap.to(target, {
+          y: randomY(direction),
+          ease: "sine.inOut",
+          duration: randomTime(),
+          onComplete: moveY,
+          onCompleteParams: [target, direction * -1],
+        });
+      }
+
+      moveX(can, 1);
+      moveY(can, -1);
+      rotate(can, 1);
     });
 
-    function rotate(target: string, direction: number) {
-      gsap.to(target, {
-        rotation: randomAngle(direction),
-        delay: randomDelay(),
-        duration: randomTime2(),
-        ease: "sine.inOut",
-        onComplete: rotate,
-        onCompleteParams: [target, direction * -1],
-      });
-    }
-
-    function moveX(target: string, direction: number) {
-      gsap.to(target, {
-        x: randomX(direction),
-        ease: "sine.inOut",
-        duration: randomTime(),
-        onComplete: moveX,
-        onCompleteParams: [target, direction * -1],
-      });
-    }
-
-    function moveY(target: string, direction: number) {
-      gsap.to(target, {
-        y: randomY(direction),
-        ease: "sine.inOut",
-        duration: randomTime(),
-        onComplete: moveY,
-        onCompleteParams: [target, direction * -1],
-      });
-    }
-
-    moveX(can, 1);
-    moveY(can, -1);
-    rotate(can, 1);
+    return () => ctx.revert(); // Cleanup all GSAP animations
   }, []);
 
   return (
-    <div className="flex justify-center items-center h-full">
-      <div className="flex justify-center items-center w-44 h-44 bg-sky-900 rounded-full overflow-auto">
+    <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="176px"
+        height="176px"
+        bg="#0c4a6e"
+        borderRadius="50%"
+        overflow="auto"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon"
@@ -121,8 +140,8 @@ const AnimatedLoadingAirplane: React.FC = () => {
             d="M418.346 864.17c-5.287 0-10.303.855-15.16 2.053 2.446-5.296 3.838-11.074 3.838-17.155a50.946 45.304 0 0 0-50.946-45.304 50.482 44.891 0 0 0-30.579 9.272 73.555 65.409 0 0 0-71.313-49.542 73.555 65.409 0 0 0-69.412 43.864 90.571 80.54 0 1 0-26.82 157.486h260.392c31.27 0 56.607-22.53 56.607-50.337 0-27.807-25.338-50.338-56.607-50.338zM363.655 239.073c-5.287 0-10.302.856-15.159 2.054 2.445-5.295 3.838-11.074 3.838-17.155a50.946 45.304 0 0 0-50.946-45.304 50.482 44.891 0 0 0-30.58 9.272 73.555 65.409 0 0 0-71.313-49.542 73.555 65.409 0 0 0-69.411 43.864 90.571 80.54 0 1 0-26.82 157.487h260.391c31.27 0 56.607-22.532 56.607-50.338 0-27.807-25.337-50.338-56.607-50.338z"
           />
         </svg>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 export default AnimatedLoadingAirplane;

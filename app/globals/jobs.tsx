@@ -1,5 +1,6 @@
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { ReactElement } from "react";
+import NextLink from "next/link";
 import { Link, Icon } from "@mond-design-system/theme";
 
 export enum JobCategory {
@@ -14,7 +15,7 @@ export type Job = {
   jobTitle: string;
   timeSpan: string;
   description: string;
-  learning: (isDarkMode: boolean) => string | ReactElement;
+  learning: () => string | ReactElement;
   location: string;
   category?: JobCategory;
 };
@@ -26,9 +27,9 @@ export const jobs = [
     jobTitle: "frontend developer",
     timeSpan: "february 2024 - current",
     description: ": web-components + atomic design system = amazing developer experience (with flexibility, reusibiliity, scalability, and consistency)!",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : love the team.
@@ -44,9 +45,9 @@ export const jobs = [
     timeSpan: "june 2022 - dec 2023",
     description:
       ": javascript frontend (react and nextJs), ruby on rails backend. coding to help automate the tasks of case managers who assisted employees in global mobility",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : it was so much fun helping to
@@ -54,7 +55,6 @@ export const jobs = [
         <Link
           href="https://github.com/Localitos/pluto"
           target="_blank"
-          isDarkMode={isDarkMode}
         >
           pluto
         </Link>
@@ -71,16 +71,15 @@ export const jobs = [
     timeSpan: "june 2020 - february 2022",
     description:
       ": frontend coding to automate large scale health insurance applications",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : i really honed my&nbsp;
         <Link
+          as={NextLink}
           href="/animation-gallery"
-          target="_self"
-          isDarkMode={isDarkMode}
         >
           animation skills
         </Link>
@@ -99,9 +98,9 @@ export const jobs = [
       ": wrote, designed, and taught 10th, 11th, and 12th grade curriculum oriented towards racial and social justice." +
       " helped over 1000 students learn english as a second language. coordinated a team of 10 teachers." +
       " boosted the level of cultural relevance using 21st century apps and technology",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : this was both the most rewarding
@@ -119,9 +118,9 @@ export const jobs = [
     description:
       ": helped to coordinate after school programming for thousands of children in the minneapolis area. " +
       "maintained, updated, and developed the community education websites",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : it was my honour to meet, be
@@ -129,7 +128,6 @@ export const jobs = [
         <Link
           href="https://www.candidagonzalez.com/"
           target="_blank"
-          isDarkMode={isDarkMode}
         >
           c&#225;ndida gonz&#225;lez
         </Link>
@@ -146,9 +144,9 @@ export const jobs = [
     timeSpan: "2012 - 2014",
     description:
       ": together with niky duxbury, we founded powderhorn porchfest- a free, neighborhood based music festival that brought people together and highlighted local musicians, food vendors, and artists. it's still going strong to this day",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : seeing the community come out and
@@ -164,9 +162,9 @@ export const jobs = [
     jobTitle: "art teacher",
     timeSpan: "october 2011 - 2012",
     description: ": designed and implemented art oriented curriculum for youth",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : together, with the students, built
@@ -184,9 +182,9 @@ export const jobs = [
     timeSpan: "september 2009 - 2011",
     description:
       ": served as lead english teacher, helping to improve the language skills of students",
-    learning: (isDarkMode: boolean) => (
+    learning: () => (
       <>
-        <Icon size="sm" isDarkMode={isDarkMode}>
+        <Icon size="sm">
           <HeartIcon />
         </Icon>
         : i got to act in a pantomime! i

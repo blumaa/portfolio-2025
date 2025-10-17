@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '../../test-utils'
 import WorkCard from './WorkCard'
-import { Job } from '../../globals/jobs'
+import { Job, JobCategory } from '../../globals/jobs'
 
 // Mock useAppTheme
 vi.mock('../../hooks/useAppTheme', () => ({
@@ -25,8 +25,8 @@ describe('WorkCard', () => {
     location: 'San Francisco',
     timeSpan: '2020-2021',
     description: 'Built amazing things',
-    learning: 'Learned React',
-    category: 'coding',
+    learning: () => 'Learned React',
+    category: JobCategory.coding,
     link: 'https://example.com',
   }
 

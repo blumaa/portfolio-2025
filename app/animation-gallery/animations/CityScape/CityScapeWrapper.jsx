@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import CityScape from "./CityScape";
+import { Box } from "@mond-design-system/theme";
 
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
@@ -27,39 +28,41 @@ const CityScapeWrapper = () => {
     borderRadius: "30%",
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "10px",
-        flexDirection: "column",
-        height: "100%",
-        paddingTop: "10px",
-        paddingBottom: "10px",
-      }}
+    <Box
+      display="flex"
+      gap="10px"
+      flexDirection="column"
+      height="100%"
+      pt="10px"
+      pb="10px"
     >
       <CityScape mode={mode} />
-      <div className="flex justify-end overflow-visible h-0">
-        <div style={{ paddingRight: "15px", alignSelf: "flex-end" }}>
+      <Box display="flex" justifyContent="flex-end" overflow="visible" height="0">
+        <Box pr="15px" alignSelf="flex-end">
           {mode === `day` ? (
             <MoonIcon
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onClick={() => setMode("night")}
-              className={`w-6 text-white hover:cursor-pointer`}
-              style={{ ...buttonStyles }}
+              width="24px"
+              height="24px"
+              color="#fff"
+              style={{ ...buttonStyles, cursor: "pointer" }}
             />
           ) : (
             <SunIcon
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              style={{ ...buttonStyles }}
+              style={{ ...buttonStyles, cursor: "pointer" }}
               onClick={() => setMode("day")}
-              className="w-6 text-yellow-400 hover:cursor-pointer"
+              width="24px"
+              height="24px"
+              color="#facc15"
             />
           )}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

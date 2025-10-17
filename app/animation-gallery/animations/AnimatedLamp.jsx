@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Box } from "@mond-design-system/theme";
 
 const variants = {
   on: { opacity: 1, originY: 100 },
@@ -15,7 +16,8 @@ const backgroundVariants = {
 const AnimatedLamp = () => {
   const [lampOn, setLampOn] = useState(true);
   return (
-    <motion.div
+    <Box
+      as={motion.div}
       initial={{ backgroundColor: "#000" }}
       animate={lampOn ? "on" : "off"}
       variants={backgroundVariants}
@@ -23,7 +25,10 @@ const AnimatedLamp = () => {
         type: "spring",
         duration: 1.5,
       }}
-      className={`flex items-end justify-center h-full `}
+      display="flex"
+      alignItems="flex-end"
+      justifyContent="center"
+      height="100%"
     >
       <svg
         viewBox="0 0 300 300"
@@ -91,11 +96,12 @@ const AnimatedLamp = () => {
               fill="#168c84"
               onClick={() => setLampOn(!lampOn)}
               whileHover={{ scale: 1.1 }}
+              cursor={"pointer"}
             />
           </g>
         </g>
       </svg>
-    </motion.div>
+    </Box>
   );
 };
 

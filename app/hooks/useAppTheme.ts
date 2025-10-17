@@ -1,6 +1,10 @@
-import { useContext } from 'react';
-import { AppThemeContext } from '../contexts/AppThemeContext';
+import { useThemeContext } from '@mond-design-system/theme';
 
 export function useAppTheme() {
-  return useContext(AppThemeContext);
+  const { colorScheme } = useThemeContext();
+  return {
+    colorScheme,
+    isDarkMode: colorScheme === 'dark',
+    toggleColorScheme: () => {}, // Deprecated - use useToggleTheme instead
+  };
 }

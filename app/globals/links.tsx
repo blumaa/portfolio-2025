@@ -10,15 +10,15 @@ import AnimatedMoon from "../animation-gallery/animations/AnimatedMoon";
 
 type LinksType = Record<string, {
   title: string;
-  icon: (isDarkMode: boolean) => ReactElement;
+  icon: () => ReactElement;
   href: string;
 }>;
 
 export const LINKS: LinksType = {
   work: {
     title: "work",
-    icon: (isDarkMode: boolean) => (
-      <Icon size="sm" isDarkMode={isDarkMode}>
+    icon: () => (
+      <Icon size="sm">
         <WrenchScrewdriverIcon />
       </Icon>
     ),
@@ -26,8 +26,8 @@ export const LINKS: LinksType = {
   },
   education: {
     title: "education",
-    icon: (isDarkMode: boolean) => (
-      <Icon size="sm" isDarkMode={isDarkMode}>
+    icon: () => (
+      <Icon size="sm">
         <BuildingLibraryIcon />
       </Icon>
     ),
@@ -35,8 +35,8 @@ export const LINKS: LinksType = {
   },
   creative: {
     title: "creative",
-    icon: (isDarkMode: boolean) => (
-      <Icon size="sm" isDarkMode={isDarkMode}>
+    icon: () => (
+      <Icon size="sm">
         <PaintBrushIcon />
       </Icon>
     ),
@@ -44,8 +44,8 @@ export const LINKS: LinksType = {
   },
   resources: {
     title: "resources",
-    icon: (isDarkMode: boolean) => (
-      <Icon size="sm" isDarkMode={isDarkMode}>
+    icon: () => (
+      <Icon size="sm">
         <DocumentPlusIcon />
       </Icon>
     ),
@@ -53,7 +53,7 @@ export const LINKS: LinksType = {
   },
   animationGallery: {
     title: "animations",
-    icon: (isDarkMode: boolean) => (
+    icon: () => (
       <div style={{ width: "1rem" }}>
         <AnimatedMoon />
       </div>

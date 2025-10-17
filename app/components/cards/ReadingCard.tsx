@@ -2,21 +2,19 @@
 
 import Image from "next/image";
 import { Box, Text, Link } from "@mond-design-system/theme";
-import { useAppTheme } from "../../hooks/useAppTheme";
-import { Reading } from "../../globals/books";
+import { Reading } from "../../globals/readings";
 
 const ReadingCard = ({ reading }: { reading: Reading }) => {
   const { title, link, linkTarget, author, description, type, imageUrl } = reading;
-  const { isDarkMode } = useAppTheme();
 
   return (
-    <Box width="50%" maxWidth="50%" isDarkMode={isDarkMode}>
+    <Box width="50%" maxWidth="50%">
       <Box
-        p="sm"
-        borderRadius="2px"
+        p={10}
+        border="1px solid"
+        borderRadius="10px"
         transition="transform 0.3s ease-out"
         cursor="pointer"
-        isDarkMode={isDarkMode}
         onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
           (e.currentTarget as HTMLElement).style.transform = "scale(1.05)";
         }}
@@ -24,26 +22,26 @@ const ReadingCard = ({ reading }: { reading: Reading }) => {
           (e.currentTarget as HTMLElement).style.transform = "scale(1)";
         }}
       >
-        <Box display="flex" flexDirection="column" isDarkMode={isDarkMode}>
-          <Box display="flex" pt="sm" alignItems="flex-end" isDarkMode={isDarkMode}>
+        <Box display="flex" flexDirection="column">
+          <Box display="flex" pt={2} alignItems="flex-end">
             {imageUrl && (
-              <Box isDarkMode={isDarkMode}>
+              <Box>
                 <Image src={imageUrl} alt={title} width={100} height={100} />
               </Box>
             )}
-            <Box p="sm" display="flex" justifyContent="center" flexDirection="column" isDarkMode={isDarkMode}>
-              <Link href={link || "#"} target={linkTarget} isDarkMode={isDarkMode} size="large">
+            <Box p={2} display="flex" justifyContent="center" flexDirection="column">
+              <Link href={link || "#"} target={linkTarget} size="large">
                 {title}
               </Link>
               {author && (
-                <Text variant="body-sm" semantic="secondary" isDarkMode={isDarkMode}>
+                <Text variant="body-sm" semantic="secondary">
                   {author}
                 </Text>
               )}
             </Box>
           </Box>
-          <Box py="sm" isDarkMode={isDarkMode}>
-            <Text variant="body-md" semantic="primary" isDarkMode={isDarkMode}>
+          <Box py={2}>
+            <Text variant="body-md" semantic="primary">
               {description}
             </Text>
           </Box>

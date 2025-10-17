@@ -1,26 +1,30 @@
 "use client";
 
+import NextLink from "next/link";
 import { Box, Text, Link } from "@mond-design-system/theme";
-import { useAppTheme } from "../../hooks/useAppTheme";
 import { CreativeThing } from "../../globals/creatives";
 
 const CreativeCard = ({ creativeThing }: { creativeThing: CreativeThing }) => {
   const { name, link, linkTarget, description } = creativeThing;
-  const { isDarkMode } = useAppTheme();
+  const isInternalLink = link?.startsWith('/');
 
   return (
     <Box
       width="100%"
       maxWidth="66.666667%"
-      p="md"
+      p={4}
       borderRadius="8px"
-      isDarkMode={isDarkMode}
     >
-      <Text variant="body-md" semantic="primary" isDarkMode={isDarkMode}>
-        <Link href={link || "#"} target={linkTarget} isDarkMode={isDarkMode}>
+      <Text variant="body-md" semantic="primary">
+        <Link
+          as={isInternalLink ? NextLink : undefined}
+          href={link || "#"}
+          target={isInternalLink ? undefined : linkTarget}
+          size="large"
+        >
           {name}
         </Link>
-        {typeof description(isDarkMode) === "string" ? ` ${description(isDarkMode)}` : description(isDarkMode)}
+        {typeof description() === "string" ? ` ${description()}` : description()}
       </Text>
     </Box>
   );

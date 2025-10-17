@@ -3,6 +3,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 // import "./cityScape.scss";
 import { gsap } from "gsap";
+import { Box } from "@mond-design-system/theme";
 
 const CityScape = ({ mode }) => {
   const duration = 4;
@@ -10,12 +11,13 @@ const CityScape = ({ mode }) => {
   const rootRef = useRef(null);
 
   useEffect(() => {
+    const can = document.querySelector("#moon");
+    if (!can) return;
+
     function random(min, max) {
       const delta = max - min;
       return (direction = 1) => (min + delta * Math.random()) * direction;
     }
-
-    const can = document.querySelector("#moon");
 
     const randomX = random(1, 2);
     const randomY = random(2, 3);
@@ -24,44 +26,51 @@ const CityScape = ({ mode }) => {
     const randomTime2 = random(5, 10);
     const randomAngle = random(8, 12);
 
-    gsap.set(can, {
-      x: randomX(-1),
-      y: randomX(1),
-      rotation: randomAngle(-1),
+    const ctx = gsap.context(() => {
+      gsap.set(can, {
+        x: randomX(-1),
+        y: randomX(1),
+        rotation: randomAngle(-1),
+      });
+
+      function rotate(target, direction) {
+        gsap.to(target, {
+          rotation: randomAngle(direction),
+          delay: randomDelay(),
+          duration: randomTime2(),
+          ease: "sine.inOut",
+          onComplete: rotate,
+          onCompleteParams: [target, direction * -1],
+        });
+      }
+
+      function moveX(target, direction) {
+        gsap.to(target, {
+          x: randomX(direction),
+          duration: randomTime(),
+          ease: "sine.inOut",
+          onComplete: moveX,
+          onCompleteParams: [target, direction * -1],
+        });
+      }
+
+      function moveY(target, direction) {
+        gsap.to(target, {
+          y: randomY(direction),
+          duration: randomTime(),
+          ease: "sine.inOut",
+          onComplete: moveY,
+          onCompleteParams: [target, direction * -1],
+        });
+      }
+
+      moveX(can, 1);
+      /* moveY(can, -1); */
+      rotate(can, 1);
     });
 
-    function rotate(target, direction) {
-      gsap.to(target, randomTime2(), {
-        rotation: randomAngle(direction),
-        delay: randomDelay(),
-        ease: "sine.inOut",
-        onComplete: rotate,
-        onCompleteParams: [target, direction * -1],
-      });
-    }
-
-    function moveX(target, direction) {
-      gsap.to(target, randomTime(), {
-        x: randomX(direction),
-        ease: "sine.inOut",
-        onComplete: moveX,
-        onCompleteParams: [target, direction * -1],
-      });
-    }
-
-    function moveY(target, direction) {
-      gsap.to(target, randomTime(), {
-        y: randomY(direction),
-        ease: "sine.inOut",
-        onComplete: moveY,
-        onCompleteParams: [target, direction * -1],
-      });
-    }
-
-    moveX(can, 1);
-    /* moveY(can, -1); */
-    rotate(can, 1);
-  }, [mode]);
+    return () => ctx.revert();
+  }, []);
 
   useLayoutEffect(() => {
     const stars = [
@@ -77,16 +86,21 @@ const CityScape = ({ mode }) => {
       "#star10",
     ];
     let ctx = gsap.context(() => {
+      // Always set clouds to stable position (no clearProps to avoid conflicts)
+      gsap.set(".cityscape-cloud", { x: 0, y: 0, scale: 1, rotation: 0 });
+
       if (mode === "night") {
+        // Set initial star state before animating
+        gsap.set(stars, { opacity: 1 });
+        // Ensure clouds stay stationary and start fade out from current state
+        gsap.set(".cityscape-cloud", { x: 0, y: 0 });
+
         let tl = gsap.timeline({ repeat: -1 });
 
         stars.forEach((star) => {
           tl.add(
-            gsap.fromTo(
+            gsap.to(
               star,
-              {
-                opacity: 1,
-              },
               {
                 opacity: 0,
                 /* duration: 0.2, */
@@ -101,16 +115,15 @@ const CityScape = ({ mode }) => {
         });
 
         gsap.fromTo(
-          ["#nightlight, #window_on"],
+          ["#nightlight", "#window_on"],
           { opacity: 0 },
           {
             opacity: 1,
             duration: duration,
           },
         );
-        gsap.fromTo(
-          [".cloud, #daylight, #window_off"],
-          { opacity: 1 },
+        gsap.to(
+          [".cityscape-cloud", "#daylight", "#window_off"],
           {
             opacity: 0,
             duration: duration,
@@ -129,16 +142,23 @@ const CityScape = ({ mode }) => {
       }
 
       if (mode === "day") {
-        gsap.to([...stars], {
+        // Ensure clouds stay stationary
+        gsap.set(".cityscape-cloud", { x: 0, y: 0 });
+
+        gsap.to(stars, {
           opacity: 0,
           duration: 1,
         });
-        gsap.to(["#nightlight", "#window_on"], {
-          opacity: 0,
-          duration: duration,
-        });
         gsap.fromTo(
-          [".cloud", "#daylight", "#window_off"],
+          ["#nightlight", "#window_on"],
+          { opacity: 1 },
+          {
+            opacity: 0,
+            duration: duration,
+          },
+        );
+        gsap.fromTo(
+          [".cityscape-cloud", "#daylight", "#window_off"],
           { opacity: 0 },
           {
             opacity: 1,
@@ -168,16 +188,14 @@ const CityScape = ({ mode }) => {
   }, [mode]);
 
   return (
-    <div
+    <Box
       ref={rootRef}
-      style={{
-        overflow: "hidden",
-        height: "100%",
-        flex: 18,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      overflow="hidden"
+      height="100%"
+      flex={18}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -343,7 +361,7 @@ const CityScape = ({ mode }) => {
             </g>
           </g>
           <g id="cloud">
-            <g className="cloud" data-name="cloud 3">
+            <g className="cityscape-cloud" data-name="cloud 3">
               <path
                 d="M32.62,37a4.38,4.38,0,0,0-4.35-3.92,4.49,4.49,0,0,0-1.22.17A4.39,4.39,0,0,1,30.19,37a2.45,2.45,0,0,1-.91,4.75h2.43A2.45,2.45,0,0,0,32.62,37Z"
                 transform="translate(-7.35 -7.37)"
@@ -355,7 +373,7 @@ const CityScape = ({ mode }) => {
                 fill="#fff"
               />
             </g>
-            <g className="cloud" data-name="cloud 2">
+            <g className="cityscape-cloud" data-name="cloud 2">
               <path
                 d="M51.38,26.24a4.38,4.38,0,0,0-5.56-3.74A4.37,4.37,0,0,1,49,26.24,2.46,2.46,0,0,1,48,31h2.43a2.46,2.46,0,0,0,.91-4.76Z"
                 transform="translate(-7.35 -7.37)"
@@ -367,7 +385,7 @@ const CityScape = ({ mode }) => {
                 fill="#fff"
               />
             </g>
-            <g className="cloud" data-name="cloud 1">
+            <g className="cityscape-cloud" data-name="cloud 1">
               <path
                 d="M103.07,47A4.36,4.36,0,0,0,98.72,43a4.42,4.42,0,0,0-1.21.17A4.38,4.38,0,0,1,100.64,47a2.44,2.44,0,0,1,1.6,2.29,2.47,2.47,0,0,1-2.5,2.46h2.43a2.47,2.47,0,0,0,2.5-2.46A2.44,2.44,0,0,0,103.07,47Z"
                 transform="translate(-7.35 -7.37)"
@@ -538,7 +556,7 @@ const CityScape = ({ mode }) => {
           </g>
         </g>
       </svg>
-    </div>
+    </Box>
   );
 };
 export default CityScape;

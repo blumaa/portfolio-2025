@@ -1,6 +1,7 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Box } from "@mond-design-system/theme";
 
 const AnimatedGearScene = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -128,6 +129,7 @@ const AnimatedGearScene = () => {
       viewBox="0 0 1920.003 960.001"
       height="100%"
       xmlSpace="preserve"
+      width="300px"
       style={{ overflow: "hidden" }}
     >
       <g data-name="big-cloud-top-middle">
@@ -709,7 +711,7 @@ const AnimatedGearScene = () => {
       />
       <motion.g
         id="play-button"
-        className="hover:cursor-pointer"
+        style={{ cursor: "pointer" }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onTap={() => !isFlying && setIsPlaying(true)}

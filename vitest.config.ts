@@ -22,10 +22,16 @@ export default defineConfig({
         '**/animations/**',
       ],
     },
+    server: {
+      deps: {
+        inline: ['@mond-design-system/theme'],
+      },
+    },
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './app'),
     },
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
   },
 })

@@ -2,7 +2,8 @@ import {
   BuildingLibraryIcon,
   PaintBrushIcon,
   WrenchScrewdriverIcon,
-  DocumentPlusIcon
+  DocumentPlusIcon,
+  TvIcon
 } from "@heroicons/react/24/solid";
 import { ReactElement } from "react";
 import { Icon } from "@mond-design-system/theme";
@@ -60,6 +61,15 @@ export const LINKS: LinksType = {
     ),
     href: "/animation-gallery",
   },
+  television: {
+    title: "television",
+    icon: () => (
+      <Icon size="sm">
+        <TvIcon />
+      </Icon>
+    ),
+    href: "/television",
+  },
 };
 
 export const myStuffLinks = [
@@ -67,5 +77,6 @@ export const myStuffLinks = [
   "education",
   "creative",
   "animationGallery",
+  "television",
 ];
 export const goodStuffLinks = ["resources"];

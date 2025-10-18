@@ -144,11 +144,11 @@ export default function TelevisionFacade({
       />
 
       {/* Screen Highlight */}
-      <path
-        style={{ fill: "#D8D8D7" }}
-        d="M118.2,206.9c0-4.4,3.6-8,8-8h32.3c-13.7,7-31.5,12-40.3,53.6C118.2,252.5,118.2,206.9,118.2,206.9z"
-        id="path13"
-      />
+      {/* <path */}
+      {/*   style={{ fill: "#D8D8D7" }} */}
+      {/*   d="M118.2,206.9c0-4.4,3.6-8,8-8h32.3c-13.7,7-31.5,12-40.3,53.6C118.2,252.5,118.2,206.9,118.2,206.9z" */}
+      {/*   id="path13" */}
+      {/* /> */}
 
       {/* Screen Content Area - foreignObject for React components */}
       <foreignObject x="112.3" y="194.8" width="234" height="165">

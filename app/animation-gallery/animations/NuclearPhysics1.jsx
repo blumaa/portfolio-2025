@@ -79,7 +79,7 @@ export default function NuclearPhysics1() {
         height="90%"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle fill="#FD8469" cx="253" cy="253" r="253"/>
+        <circle fill="#FD8469" cx="253" cy="253" r="253" style={{opacity: ".8"}}/>
 
         <g id="orbitalSystem">
           <path id="orbit1" fill="none" stroke="#324A5E" strokeWidth="15" d="M 423,253 A 170,65 0 1,1 83,253 A 170,65 0 1,1 423,253" transform="rotate(-35 253 253)" />

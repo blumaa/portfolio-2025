@@ -5,6 +5,8 @@ import CityScapeWrapper from "../../animation-gallery/animations/CityScape/CityS
 import AlienMoon from "../../animation-gallery/animations/AlienMoon";
 import NuclearPhysics1 from "../../animation-gallery/animations/NuclearPhysics1";
 import Bird from "../../animation-gallery/animations/Bird";
+import AnimatedEyeball from "@/app/animation-gallery/animations/AnimatedEyeball";
+import RustlingGrass from "@/app/animation-gallery/animations/RustlingGrass";
 
 /**
  * Central registry for all animations displayed in the television.
@@ -18,4 +20,6 @@ export const ANIMATIONS: ComponentType<any>[] = [
   AlienMoon,
   NuclearPhysics1,
   Bird,
+  AnimatedEyeball,
+  RustlingGrass
 ];

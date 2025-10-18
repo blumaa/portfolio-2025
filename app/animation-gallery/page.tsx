@@ -12,6 +12,8 @@ import AnimatedLoadingAirplane from "./animations/AnimatedLoadingAirplane";
 import AnimatedGearScene from "./animations/AnimatedGearScene";
 import NuclearPhysics1 from "./animations/NuclearPhysics1";
 import Bird from "./animations/Bird";
+import AnimatedEyeball from "./animations/AnimatedEyeball";
+import RustlingGrass from "./animations/RustlingGrass";
 
 export default function AnimationGallery() {
   return (
@@ -24,8 +26,23 @@ export default function AnimationGallery() {
       alignItems="center"
       gap={10}
     >
+      {/* <AnimationCard> */}
+      {/*   <AnimatedGearScene /> */}
+      {/* </AnimationCard> */}
       <AnimationCard>
-        <AnimatedGearScene />
+        <RustlingGrass />
+      </AnimationCard>
+      <AnimationCard>
+        <OctoDude />
+      </AnimationCard>
+      <AnimationCard>
+        <NuclearPhysics1 />
+      </AnimationCard>
+      <AnimationCard>
+        <Bird />
+      </AnimationCard>
+      <AnimationCard>
+        <AnimatedEyeball />
       </AnimationCard>
       <AnimationCard codeLink="https://stackblitz.com/edit/animatedloadingairplane?file=app%2FAnimatedLoadingAirplane.tsx">
         <AnimatedLoadingAirplane />
@@ -44,15 +61,6 @@ export default function AnimationGallery() {
       </AnimationCard>
       <AnimationCard>
         <AnimatedLamp />
-      </AnimationCard>
-      <AnimationCard>
-        <OctoDude />
-      </AnimationCard>
-      <AnimationCard>
-        <NuclearPhysics1 />
-      </AnimationCard>
-      <AnimationCard>
-          <Bird />
       </AnimationCard>
     </Box>
   );

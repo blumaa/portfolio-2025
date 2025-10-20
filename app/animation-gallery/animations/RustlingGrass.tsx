@@ -55,81 +55,113 @@ export default function RustlingGrass() {
         delay: randomDelay,
       });
 
-      // Create wind streaks dynamically
-      const numStreaks = 6;
+      // Create wind streaks dynamically as paths (not lines) so we can morph their shape
+      const numStreaks = 35;
       for (let i = 0; i < numStreaks; i++) {
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        const randomY = gsap.utils.random(0, 450); // Only in top 2/3 of viewbox
-        const randomLength = gsap.utils.random(15, 55);
-        const randomOpacity = gsap.utils.random(0.8, 1);
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        const randomY = gsap.utils.random(0, 450);
+        const randomLength = gsap.utils.random(30, 200);
 
-        line.setAttribute("x1", "0");
-        line.setAttribute("y1", randomY.toString());
-        line.setAttribute("x2", randomLength.toString());
-        line.setAttribute("y2", randomY.toString());
-        line.setAttribute("stroke", windColor);
-        line.setAttribute("stroke-opacity", randomOpacity.toString());
-        line.setAttribute("stroke-width", "2");
-        line.setAttribute("stroke-linecap", "round");
-        line.classList.add("wind-streak");
+        // Start as a straight line
+        path.setAttribute("d", `M 0,${randomY} L ${randomLength},${randomY}`);
+        path.setAttribute("stroke", windColor);
+        path.setAttribute("stroke-width", "2");
+        path.setAttribute("stroke-linecap", "butt");
+        path.setAttribute("fill", "none");
+        path.classList.add("wind-streak");
+
+        // Store the original data for animation
+        path.setAttribute("data-start-y", randomY.toString());
+        path.setAttribute("data-length", randomLength.toString());
 
         // Insert after the background circle (first child) so wind is visible
         const bgCircle = container.current.firstChild;
         if (bgCircle && bgCircle.nextSibling) {
-          container.current.insertBefore(line, bgCircle.nextSibling);
+          container.current.insertBefore(path, bgCircle.nextSibling);
         } else {
-          container.current.appendChild(line);
+          container.current.appendChild(path);
         }
       }
 
-      // Wind streak animations
+      // Wind streak animations - simple short lines moving in circular paths
       const windStreaks = container.current.querySelectorAll(".wind-streak");
 
       windStreaks.forEach((streak) => {
         const randomDelay = gsap.utils.random(0, 5);
-        const randomDuration = gsap.utils.random(1.5, 2.5);
-        const randomWaveAmplitude = gsap.utils.random(15, 35); // How much it waves up/down
-        const randomWaveFrequency = gsap.utils.random(2, 4); // How many waves
+        const randomX = gsap.utils.random(-200, 800);
+        const startY = parseFloat(streak.getAttribute("data-start-y") || "0");
+        const loopRadius = gsap.utils.random(20, 35);
+        const straightLength = gsap.utils.random(40, 90); // Length of straight parts
+
+        // Create path: straight → circle → straight
+        // Circle center is below the x-axis, so top of circle touches x-axis
+        const startX = randomX;
+        const loopStartX = startX + straightLength;
+
+        // Circle center positioned below the line
+        const centerX = loopStartX + loopRadius;
+        const centerY = startY + loopRadius;
+
+        // Only one point on the circle touches the x-axis: the top (centerX, startY)
+        // Enter and exit at this point (with tiny offset for full circle)
+        const circleStartX = centerX;
+        const circleStartY = startY;
+
+        const circleEndX = centerX - 0.01; // Tiny offset to complete the circle
+        const circleEndY = startY;
+
+        const endX = centerX + loopRadius + straightLength;
+
+        // Build the full path
+        // large-arc-flag=1 (full circle), sweep-flag=0 (goes down below axis)
+        const fullPath = `
+          M ${startX},${startY}
+          L ${circleStartX},${circleStartY}
+          A ${loopRadius},${loopRadius} 0 1,0 ${circleEndX},${circleEndY}
+          L ${endX},${startY}
+        `;
+
+        // Calculate total path length
+        const circleLength = 2 * Math.PI * loopRadius;
+        const pathLength = straightLength + circleLength + straightLength;
+        const visibleLength = gsap.utils.random(20, 30); // Length of visible wind streak
+
+        // Set up the path with dasharray to show only a small segment
+        gsap.set(streak, {
+          attr: { d: fullPath },
+          strokeDasharray: `${visibleLength} ${pathLength}`,
+          strokeDashoffset: 0,
+          opacity: 0
+        });
 
         const tl = gsap.timeline({ repeat: -1, delay: randomDelay });
 
-        // Animate x position linearly
-        tl.fromTo(
-          streak,
-          { x: -200, opacity: 0 },
-          {
-            x: 800,
-            opacity: 0.7,
-            duration: randomDuration,
-            ease: "none",
-            onUpdate: function() {
-              // Fade in when entering view, fade out when leaving
-              const progress = this.progress();
-              if (progress < 0.1) {
-                gsap.set(streak, { opacity: progress * 10 * 0.7 });
-              } else if (progress > 0.9) {
-                gsap.set(streak, { opacity: (1 - progress) * 10 * 0.7 });
-              } else {
-                gsap.set(streak, { opacity: 0.7 });
-              }
-            }
-          },
-          0
-        );
+        // Fade in quickly
+        tl.to(streak, {
+          opacity: 0.6,
+          duration: 0.1,
+          ease: "power2.out"
+        });
 
-        // Animate y position with a wave pattern
-        tl.fromTo(
-          streak,
-          { y: 0 },
-          {
-            y: `+=${randomWaveAmplitude}`,
-            duration: randomDuration / randomWaveFrequency,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: randomWaveFrequency * 2 - 1,
-          },
-          0
-        );
+        // Animate the visible segment traveling along the entire path (left to right)
+        // Fast at start (zoom in), slow at end (slowly go out)
+        tl.to(streak, {
+          strokeDashoffset: -pathLength,
+          duration: 2.2,
+          ease: "power2.out"
+        });
+
+        // Fade out quickly - start earlier since ease makes streak arrive early
+        tl.to(streak, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.in"
+        }, "-=1.4"); // Start 0.6s before movement ends
+
+        // Pause before next cycle
+        tl.to(streak, {
+          duration: gsap.utils.random(0.5, 2)
+        });
       });
     },
     { scope: container, dependencies: [grassColor, windColor, bgColor, grassOpacity] },

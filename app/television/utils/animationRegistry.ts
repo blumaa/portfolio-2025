@@ -7,6 +7,7 @@ import NuclearPhysics1 from "../../animation-gallery/animations/NuclearPhysics1"
 import Bird from "../../animation-gallery/animations/Bird";
 import AnimatedEyeball from "@/app/animation-gallery/animations/AnimatedEyeball";
 import RustlingGrass from "@/app/animation-gallery/animations/RustlingGrass";
+import Bus from "@/app/animation-gallery/animations/Bus";
 
 /**
  * Central registry for all animations displayed in the television.
@@ -14,6 +15,7 @@ import RustlingGrass from "@/app/animation-gallery/animations/RustlingGrass";
  * The television component will automatically scale to support the new channel.
  */
 export const ANIMATIONS: ComponentType<any>[] = [
+  Bus,
   OctoDude,
   AnimatedLoadingAirplane,
   CityScapeWrapper,

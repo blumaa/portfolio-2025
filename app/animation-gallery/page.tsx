@@ -14,6 +14,7 @@ import NuclearPhysics1 from "./animations/NuclearPhysics1";
 import Bird from "./animations/Bird";
 import AnimatedEyeball from "./animations/AnimatedEyeball";
 import RustlingGrass from "./animations/RustlingGrass";
+import Bus from "./animations/Bus";
 
 export default function AnimationGallery() {
   return (
@@ -29,6 +30,9 @@ export default function AnimationGallery() {
       {/* <AnimationCard> */}
       {/*   <AnimatedGearScene /> */}
       {/* </AnimationCard> */}
+      <AnimationCard>
+        <Bus />
+      </AnimationCard>
       <AnimationCard>
         <RustlingGrass />
       </AnimationCard>

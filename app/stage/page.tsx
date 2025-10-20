@@ -2,14 +2,14 @@
 
 import AnimationCard from "../components/cards/AnimationCard";
 import { Box } from "@mond-design-system/theme";
-import RustlingGrass from "../animation-gallery/animations/RustlingGrass";
+import Bus from "../animation-gallery/animations/Bus";
 
 const Stage = () => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center" flex={1}>
-      <Box width="100%" overflow="visible" p={10}>
+      <Box width="80%" overflow="visible" p={10}>
         {/* <AnimationCard> */}
-          <RustlingGrass />
+          <Bus />
         {/* </AnimationCard> */}
       </Box>
     </Box>

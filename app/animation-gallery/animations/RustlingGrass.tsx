@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useAppTheme } from "../../providers/AppThemeProvider";
@@ -10,15 +10,25 @@ gsap.registerPlugin(useGSAP);
 export default function RustlingGrass() {
   const container = useRef<SVGSVGElement>(null);
   const stemPlantRef = useRef<SVGGElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const { colorScheme } = useAppTheme();
   const grassColor = colorScheme === 'dark' ? '#414A4C' : '#DDE6ED';
   const windColor = grassColor; // Wind should be the same color as grass
   const bgColor = colorScheme === 'dark' ? '#F2F3F4' : '#27374D';
   const grassOpacity = 0.9;
 
+  // Ensure component is fully mounted before animations start
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   useGSAP(
     () => {
-      if (!container.current) return;
+      if (!isMounted || !container.current || !stemPlantRef.current) return;
+
+      // Verify DOM is ready
+      const bgCircle = container.current.firstChild;
+      if (!bgCircle) return;
 
       // Get all individual path elements with the blade class
       const individualPaths = container.current.querySelectorAll(".blade");
@@ -164,7 +174,7 @@ export default function RustlingGrass() {
         });
       });
     },
-    { scope: container, dependencies: [grassColor, windColor, bgColor, grassOpacity] },
+    { scope: container, dependencies: [isMounted, grassColor, windColor, bgColor, grassOpacity] },
   );
 
   return (

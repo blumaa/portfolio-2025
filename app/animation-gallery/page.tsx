@@ -33,7 +33,7 @@ export default function AnimationGallery() {
       <AnimationCard>
         <Bus />
       </AnimationCard>
-      <AnimationCard>
+      <AnimationCard codeLink="https://stackblitz.com/edit/stackblitz-starters-chxr4y43?file=app%2FRustlingGrass.tsx">
         <RustlingGrass />
       </AnimationCard>
       <AnimationCard>

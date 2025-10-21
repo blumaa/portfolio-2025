@@ -7,7 +7,7 @@ import Bus from "../animation-gallery/animations/Bus";
 const Stage = () => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center" flex={1}>
-      <Box width="80%" overflow="visible" p={10}>
+      <Box width="90%" overflow="visible" p={10}>
         {/* <AnimationCard> */}
           <Bus />
         {/* </AnimationCard> */}

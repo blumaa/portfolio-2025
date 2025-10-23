@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mond-design-system/theme";
 import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";

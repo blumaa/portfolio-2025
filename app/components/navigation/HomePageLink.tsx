@@ -1,5 +1,3 @@
-"use client";
-
 import NextLink from "next/link";
 import { Box, Link } from "@mond-design-system/theme";
 import { LINKS } from "../../globals/links";

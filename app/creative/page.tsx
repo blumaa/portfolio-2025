@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mond-design-system/theme";
 import { creatives } from "../globals/creatives";
 import CreativeCard from "../components/cards/CreativeCard";

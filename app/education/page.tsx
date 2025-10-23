@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Link, Text, Divider } from "@mond-design-system/theme";
 import { educations } from "../globals/education";
 import EducationCard from "../components/cards/EducationCard";

@@ -1,9 +1,8 @@
 "use client";
 
-import { useAppTheme } from "../../providers/AppThemeProvider";
+import { useAppTheme } from "../../hooks/useAppTheme";
 import { Box, Icon } from "@mond-design-system/theme";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-
 
 export default function LightSwitch() {
   const { colorScheme, toggleColorScheme } = useAppTheme();
@@ -11,13 +10,13 @@ export default function LightSwitch() {
 
   return (
     <Box pr={2} cursor="pointer" onClick={toggleColorScheme}>
-      {!isDarkMode ? (
+      {isDarkMode ? (
         <Icon size="md">
-          <SunIcon />
+          <MoonIcon />
         </Icon>
       ) : (
         <Icon size="md">
-          <MoonIcon />
+          <SunIcon />
         </Icon>
       )}
     </Box>

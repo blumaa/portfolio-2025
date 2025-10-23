@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Text, Link } from "@mond-design-system/theme";
 import { Education } from "../../globals/education";
 

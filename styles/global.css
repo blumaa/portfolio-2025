@@ -1,3 +1,6 @@
+@import '@mond-design-system/theme/styles.css';
+@import '@mond-design-system/theme/theme.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -7,4 +10,13 @@
 body {
   margin: 0;
   min-height: 100vh;
+}
+
+/* Theme wrapper needs to fill viewport and have themed background */
+.theme-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mond-surface-background);
+  color: var(--mond-text-primary);
 }

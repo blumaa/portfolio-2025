@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mond-design-system/theme";
 import LightSwitch from "../components/ui/LightSwitch";
 

@@ -13,6 +13,7 @@ import AnimatedGearScene from "./animations/AnimatedGearScene";
 import NuclearPhysics1 from "./animations/NuclearPhysics1";
 import Bird from "./animations/Bird";
 import AnimatedEyeball from "./animations/AnimatedEyeball";
+import AnimatedEyeballWatching from "./animations/AnimatedEyeballWatching";
 import RustlingGrass from "./animations/RustlingGrass";
 import Bus from "./animations/Bus";
 
@@ -45,8 +46,11 @@ export default function AnimationGallery() {
       <AnimationCard>
         <Bird />
       </AnimationCard>
+      {/* <AnimationCard> */}
+      {/*   <AnimatedEyeball /> */}
+      {/* </AnimationCard> */}
       <AnimationCard>
-        <AnimatedEyeball />
+        <AnimatedEyeballWatching />
       </AnimationCard>
       <AnimationCard codeLink="https://stackblitz.com/edit/animatedloadingairplane?file=app%2FAnimatedLoadingAirplane.tsx">
         <AnimatedLoadingAirplane />

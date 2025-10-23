@@ -6,6 +6,7 @@ import AlienMoon from "../../animation-gallery/animations/AlienMoon";
 import NuclearPhysics1 from "../../animation-gallery/animations/NuclearPhysics1";
 import Bird from "../../animation-gallery/animations/Bird";
 import AnimatedEyeball from "@/app/animation-gallery/animations/AnimatedEyeball";
+import AnimatedEyeballWatching from "@/app/animation-gallery/animations/AnimatedEyeballWatching";
 import RustlingGrass from "@/app/animation-gallery/animations/RustlingGrass";
 import Bus from "@/app/animation-gallery/animations/Bus";
 
@@ -22,6 +23,7 @@ export const ANIMATIONS: ComponentType<any>[] = [
   AlienMoon,
   NuclearPhysics1,
   Bird,
-  AnimatedEyeball,
+  // AnimatedEyeball,
+  AnimatedEyeballWatching,
   RustlingGrass
 ];

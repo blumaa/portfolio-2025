@@ -16,6 +16,7 @@ import AnimatedEyeball from "./animations/AnimatedEyeball";
 import AnimatedEyeballWatching from "./animations/AnimatedEyeballWatching";
 import RustlingGrass from "./animations/RustlingGrass";
 import Bus from "./animations/Bus";
+import NoirCarChase from "./animations/NoirCarChase";
 
 export default function AnimationGallery() {
   return (
@@ -31,6 +32,9 @@ export default function AnimationGallery() {
       {/* <AnimationCard> */}
       {/*   <AnimatedGearScene /> */}
       {/* </AnimationCard> */}
+        <AnimationCard>
+          <NoirCarChase />
+        </AnimationCard>
       <AnimationCard>
         <Bus />
       </AnimationCard>

@@ -23,6 +23,9 @@ const AnimationCard = ({
         border="1px solid"
         borderRadius="12px"
         height="200px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
       >
         {children}
       </Box>

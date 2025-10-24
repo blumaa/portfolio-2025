@@ -9,6 +9,7 @@ import AnimatedEyeball from "@/app/animation-gallery/animations/AnimatedEyeball"
 import AnimatedEyeballWatching from "@/app/animation-gallery/animations/AnimatedEyeballWatching";
 import RustlingGrass from "@/app/animation-gallery/animations/RustlingGrass";
 import Bus from "@/app/animation-gallery/animations/Bus";
+import NoirCarChase from "@/app/animation-gallery/animations/NoirCarChase";
 
 /**
  * Central registry for all animations displayed in the television.
@@ -16,6 +17,7 @@ import Bus from "@/app/animation-gallery/animations/Bus";
  * The television component will automatically scale to support the new channel.
  */
 export const ANIMATIONS: ComponentType<any>[] = [
+  NoirCarChase,
   Bus,
   OctoDude,
   AnimatedLoadingAirplane,
@@ -25,5 +27,5 @@ export const ANIMATIONS: ComponentType<any>[] = [
   Bird,
   // AnimatedEyeball,
   AnimatedEyeballWatching,
-  RustlingGrass
+  RustlingGrass,
 ];

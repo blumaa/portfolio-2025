@@ -39,10 +39,9 @@ export default function Television() {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      width="100%"
-      py={20}
+      flex={1}
     >
-      <Box width="100%" maxWidth="600px">
+      <Box width="100%" maxWidth="1200px">
         <TelevisionFacade
           onPowerClick={handlePowerClick}
           onChannelClick={handleChannelClick}
@@ -50,7 +49,9 @@ export default function Television() {
           isChangingChannel={isChangingChannel}
           hasBeenPoweredOn={hasBeenPoweredOn}
         >
-          {isPoweredOn && !isChangingChannel && CurrentAnimation && <CurrentAnimation />}
+          {isPoweredOn && !isChangingChannel && CurrentAnimation && (
+            <CurrentAnimation />
+          )}
         </TelevisionFacade>
       </Box>
     </Box>

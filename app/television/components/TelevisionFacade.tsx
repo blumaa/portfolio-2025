@@ -57,12 +57,9 @@ export default function TelevisionFacade({
     <svg
       version="1.1"
       id="Layer_1"
-      viewBox="0 0 496.2 496.2"
+      viewBox="0 69 496.2 325"
       xmlSpace="preserve"
       style={{
-        width: "100%",
-        maxWidth: "600px",
-        height: "auto",
         filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))"
       }}
     >

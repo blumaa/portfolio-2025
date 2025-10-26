@@ -2,6 +2,7 @@
 
 import { Box } from "@mond-design-system/theme";
 import MuppetPodcaster from "../animation-gallery/animations/MuppetPodcaster";
+import Modcast from "../modcast/Modcast";
 
 const Stage = () => {
   return (
@@ -11,7 +12,7 @@ const Stage = () => {
         overflow="visible"
         border="1px solid yellow"
       >
-        <MuppetPodcaster />
+        <Modcast />
       </Box>
     </Box>
   );

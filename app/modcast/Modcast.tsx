@@ -56,6 +56,7 @@ export default function Modcast() {
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
   const animationFrameRef = useRef<number | null>(null);
 
   // BPM detection state
@@ -157,14 +158,21 @@ export default function Modcast() {
         analyserRef.current.smoothingTimeConstant = 0.5; // More responsive (lower = faster response)
       }
 
-      // Create source node and connect to analyser
+      // Create gain node if it doesn't exist
+      if (!gainNodeRef.current) {
+        gainNodeRef.current = audioContextRef.current.createGain();
+        gainNodeRef.current.gain.value = isMuted ? 0 : 1;
+      }
+
+      // Create source node and connect: source -> analyser -> gain -> destination
       sourceNodeRef.current = audioContextRef.current.createMediaElementSource(audioElement);
       sourceNodeRef.current.connect(analyserRef.current);
-      analyserRef.current.connect(audioContextRef.current.destination);
+      analyserRef.current.connect(gainNodeRef.current);
+      gainNodeRef.current.connect(audioContextRef.current.destination);
     } catch (err) {
       console.error("Failed to initialize Web Audio API:", err);
     }
-  }, []);
+  }, [isMuted]);
 
   // Analyze audio frequency data and detect beats for BPM
   const analyzeAudioFrequency = useCallback(() => {
@@ -250,15 +258,30 @@ export default function Modcast() {
     setIsMuted((prev) => {
       const newMuted = !prev;
 
-      // Apply mute to both audio sources
+      // Apply mute to TTS audio (Safari compatible)
       if (ttsAudioRef.current) {
-        ttsAudioRef.current.volume = newMuted ? 0 : 1;
+        ttsAudioRef.current.muted = newMuted;
       }
+
+      // Apply mute to song audio through Web Audio API gain node
+      if (gainNodeRef.current) {
+        gainNodeRef.current.gain.value = newMuted ? 0 : 1;
+      }
+
+      // Also apply to the audio element as backup
       if (songAudioRef.current) {
-        songAudioRef.current.volume = newMuted ? 0 : 1;
+        songAudioRef.current.muted = newMuted;
       }
 
       return newMuted;
+    });
+  }, []);
+
+  // Move to next segment
+  const moveToNextSegment = useCallback(() => {
+    setCurrentSegmentIndex((prev) => {
+      const next = (prev + 1) % modcastPlaylist.length;
+      return next;
     });
   }, []);
 
@@ -277,6 +300,7 @@ export default function Modcast() {
 
       // Create and setup audio element
       const audio = new Audio(audioUrl);
+      audio.muted = isMuted; // Apply current mute state
       ttsAudioRef.current = audio;
 
       // Start mouth animation when audio plays
@@ -315,7 +339,7 @@ export default function Modcast() {
       setError(err instanceof Error ? err.message : "Failed to generate speech");
       setIsLoading(false);
     }
-  }, [generateTTS, startMouthAnimation, stopMouthAnimation]);
+  }, [generateTTS, startMouthAnimation, stopMouthAnimation, moveToNextSegment, isMuted]);
 
   // Play song segment
   const playSongSegment = useCallback((segment: ModcastSegment) => {
@@ -337,10 +361,11 @@ export default function Modcast() {
     songAudioRef.current = audio;
 
     // Apply current mute state
-    audio.volume = isMuted ? 0 : 1;
+    audio.muted = isMuted;
 
-    // Reset source node to allow reconnection for new audio element
+    // Reset source node and gain node to allow reconnection for new audio element
     sourceNodeRef.current = null;
+    gainNodeRef.current = null;
 
     // Initialize Web Audio API for visualization
     initAudioContext(audio);
@@ -367,15 +392,7 @@ export default function Modcast() {
       setIsPlaying(false);
       stopMusicVisualization();
     });
-  }, [currentSegmentIndex, isMuted, initAudioContext, startMusicVisualization, stopMusicVisualization]);
-
-  // Move to next segment
-  const moveToNextSegment = useCallback(() => {
-    setCurrentSegmentIndex((prev) => {
-      const next = (prev + 1) % modcastPlaylist.length;
-      return next;
-    });
-  }, []);
+  }, [currentSegmentIndex, isMuted, initAudioContext, startMusicVisualization, stopMusicVisualization, moveToNextSegment]);
 
   // Play current segment
   const playCurrentSegment = useCallback(() => {

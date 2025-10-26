@@ -10,6 +10,7 @@ import AnimatedEyeballWatching from "@/app/animation-gallery/animations/Animated
 import RustlingGrass from "@/app/animation-gallery/animations/RustlingGrass";
 import Bus from "@/app/animation-gallery/animations/Bus";
 import NoirCarChase from "@/app/animation-gallery/animations/NoirCarChase";
+import AnimatedBeaverMoon from "@/app/animation-gallery/animations/AnimatedBeaverMoon";
 
 /**
  * Central registry for all animations displayed in the television.
@@ -17,6 +18,9 @@ import NoirCarChase from "@/app/animation-gallery/animations/NoirCarChase";
  * The television component will automatically scale to support the new channel.
  */
 export const ANIMATIONS: ComponentType<any>[] = [
+  AnimatedEyeballWatching,
+  Bird,
+  AnimatedBeaverMoon,
   NoirCarChase,
   Bus,
   OctoDude,
@@ -24,8 +28,6 @@ export const ANIMATIONS: ComponentType<any>[] = [
   CityScapeWrapper,
   AlienMoon,
   NuclearPhysics1,
-  Bird,
   // AnimatedEyeball,
-  AnimatedEyeballWatching,
   RustlingGrass,
 ];

@@ -11,7 +11,7 @@ export default function AnimatedEyeballWatching() {
   const rightIrisRef = useRef(null);
   const leftEyeRef = useRef(null);
   const rightEyeRef = useRef(null);
-  const container = useRef(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const mousePos = useRef({
     x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0,
     y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0
@@ -24,35 +24,47 @@ export default function AnimatedEyeballWatching() {
   useGSAP(
     () => {
       // Wait for refs to be ready
-      if (!leftEyeRef.current || !rightEyeRef.current || !leftIrisRef.current || !rightIrisRef.current) {
+      if (!leftEyeRef.current || !rightEyeRef.current || !leftIrisRef.current || !rightIrisRef.current || !svgRef.current) {
         return;
       }
 
       // Function to look at mouse
       const trackMouse = () => {
-        if (!leftEyeRef.current || !rightEyeRef.current || !leftIrisRef.current || !rightIrisRef.current) return;
+        if (!leftIrisRef.current || !rightIrisRef.current || !svgRef.current) return;
+
+        // Convert screen coordinates to SVG coordinates using SVG's coordinate system
+        const svg = svgRef.current;
+        const pt = svg.createSVGPoint();
+        pt.x = mousePos.current.x;
+        pt.y = mousePos.current.y;
+
+        // Transform the point from screen space to SVG space
+        const svgP = pt.matrixTransform(svg.getScreenCTM()?.inverse());
+        const svgMouseX = svgP.x;
+        const svgMouseY = svgP.y;
+
+        // Left eye center is at 256, 256 in the viewBox
+        const leftCenterX = 256;
+        const leftCenterY = 256;
+
+        // Right eye center is at 612 + 256 = 868, 256 in the viewBox
+        const rightCenterX = 868;
+        const rightCenterY = 256;
+
+        const maxDistance = 100;
 
         // Track left eye
-        const leftEyeRect = (leftEyeRef.current as SVGSVGElement).getBoundingClientRect();
-        const leftCenterX = leftEyeRect.left + leftEyeRect.width / 2;
-        const leftCenterY = leftEyeRect.top + leftEyeRect.height / 2;
-
-        const leftDeltaX = mousePos.current.x - leftCenterX;
-        const leftDeltaY = mousePos.current.y - leftCenterY;
+        const leftDeltaX = svgMouseX - leftCenterX;
+        const leftDeltaY = svgMouseY - leftCenterY;
         const leftDistance = Math.sqrt(leftDeltaX * leftDeltaX + leftDeltaY * leftDeltaY);
-        const maxDistance = 100;
         const leftConstrainedDistance = Math.min(leftDistance * 0.2, maxDistance);
         const leftAngle = Math.atan2(leftDeltaY, leftDeltaX);
         const leftIrisX = Math.cos(leftAngle) * leftConstrainedDistance;
         const leftIrisY = Math.sin(leftAngle) * leftConstrainedDistance;
 
         // Track right eye
-        const rightEyeRect = (rightEyeRef.current as SVGSVGElement).getBoundingClientRect();
-        const rightCenterX = rightEyeRect.left + rightEyeRect.width / 2;
-        const rightCenterY = rightEyeRect.top + rightEyeRect.height / 2;
-
-        const rightDeltaX = mousePos.current.x - rightCenterX;
-        const rightDeltaY = mousePos.current.y - rightCenterY;
+        const rightDeltaX = svgMouseX - rightCenterX;
+        const rightDeltaY = svgMouseY - rightCenterY;
         const rightDistance = Math.sqrt(rightDeltaX * rightDeltaX + rightDeltaY * rightDeltaY);
         const rightConstrainedDistance = Math.min(rightDistance * 0.2, maxDistance);
         const rightAngle = Math.atan2(rightDeltaY, rightDeltaX);
@@ -144,11 +156,14 @@ export default function AnimatedEyeballWatching() {
 
       window.addEventListener('mousemove', handleMouseMove);
 
-      // Start with tracking mode
-      startTracking();
+      // Delay initialization to ensure SVG is fully laid out
+      const initDelay = setTimeout(() => {
+        // Start with tracking mode
+        startTracking();
 
-      // Initial look at mouse position
-      trackMouse();
+        // Initial look at mouse position
+        trackMouse();
+      }, 100);
 
       // Blink animation - blink each eye separately
       const blinkLeft = () => {
@@ -183,6 +198,7 @@ export default function AnimatedEyeballWatching() {
 
       // Cleanup
       return () => {
+        clearTimeout(initDelay);
         window.removeEventListener('mousemove', handleMouseMove);
         if (trackingInterval.current) {
           clearInterval(trackingInterval.current);
@@ -195,18 +211,20 @@ export default function AnimatedEyeballWatching() {
         }
       };
     },
-    { dependencies: [leftEyeRef, rightEyeRef, leftIrisRef, rightIrisRef] }
+    { dependencies: [leftEyeRef, rightEyeRef, leftIrisRef, rightIrisRef, svgRef] }
   );
 
   return (
-    <div ref={container} style={{ display: 'flex', gap: '20px', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+    <svg
+      ref={svgRef}
+      viewBox="0 0 1124 512"
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      style={{ overflow: 'visible' }}
+    >
       {/* Left Eye */}
-      <svg
-        ref={leftEyeRef}
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ width: '45%', height: '100%', overflow: 'visible' }}
-      >
+      <g ref={leftEyeRef}>
         {/* Outer white eyeball */}
         <path
           style={{ fill: "#FFFFFF", filter:"drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))" }}
@@ -247,15 +265,10 @@ export default function AnimatedEyeballWatching() {
 			c0-70.286-28.338-133.946-74.194-180.208L75.799,437.795z"
           />
         </g>
-      </svg>
+      </g>
 
-      {/* Right Eye */}
-      <svg
-        ref={rightEyeRef}
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ width: '45%', height: '100%', overflow: 'visible' }}
-      >
+      {/* Right Eye - translated to x=612 (512 + 100 gap) */}
+      <g ref={rightEyeRef} transform="translate(612, 0)">
         {/* Outer white eyeball */}
         <path
           style={{ fill: "#FFFFFF", filter:"drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))" }}
@@ -296,7 +309,7 @@ export default function AnimatedEyeballWatching() {
 			c0-70.286-28.338-133.946-74.194-180.208L75.799,437.795z"
           />
         </g>
-      </svg>
-    </div>
+      </g>
+    </svg>
   );
 }

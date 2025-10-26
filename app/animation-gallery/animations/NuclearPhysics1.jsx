@@ -66,7 +66,6 @@ export default function NuclearPhysics1() {
   return (
     <Box
       height="100%"
-      position="relative"
       overflow="hidden"
       display="flex"
       alignItems="center"

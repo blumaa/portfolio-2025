@@ -1,20 +1,24 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Box } from "@mond-design-system/theme";
 
 export default function OctoDude() {
   return (
-    <Box
-      height="160px"
-      position="relative"
-      overflow="hidden"
+    <svg
+      viewBox="0 0 160 160"
+      xmlns="http://www.w3.org/2000/svg"
+      height="100%"
+      style={{ overflow: "visible" }}
     >
-      {/* Wide bubbles that span the full card width */}
-      <motion.div
+      {/* Bubbles behind octopus */}
+      <motion.circle
+        cx="16"
+        cy="80"
+        r="6"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [-5, 5, -3, 0],
+          cy: [160, 0],
+          cx: [16, 18, 14, 16],
           opacity: [0, 0.7, 0.7, 0]
         }}
         transition={{
@@ -22,19 +26,15 @@ export default function OctoDude() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        style={{
-          position: "absolute",
-          left: "10%",
-          width: "12px",
-          height: "12px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
+      <motion.circle
+        cx="40"
+        cy="80"
+        r="4"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [3, -4, 2, 0],
+          cy: [160, 0],
+          cx: [40, 37, 42, 40],
           opacity: [0, 0.7, 0.7, 0]
         }}
         transition={{
@@ -43,19 +43,15 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 0.7,
         }}
-        style={{
-          position: "absolute",
-          left: "25%",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
+      <motion.circle
+        cx="120"
+        cy="80"
+        r="5"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [-4, 6, -2, 0],
+          cy: [160, 0],
+          cx: [120, 118, 123, 120],
           opacity: [0, 0.7, 0.7, 0]
         }}
         transition={{
@@ -64,19 +60,15 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 1.4,
         }}
-        style={{
-          position: "absolute",
-          right: "25%",
-          width: "10px",
-          height: "10px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
+      <motion.circle
+        cx="144"
+        cy="80"
+        r="4.5"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [5, -3, 4, 0],
+          cy: [160, 0],
+          cx: [144, 142, 146, 144],
           opacity: [0, 0.7, 0.7, 0]
         }}
         transition={{
@@ -85,19 +77,15 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 2.1,
         }}
-        style={{
-          position: "absolute",
-          right: "10%",
-          width: "9px",
-          height: "9px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
+      <motion.circle
+        cx="80"
+        cy="80"
+        r="3.5"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [-3, 4, -2, 0],
+          cy: [160, 0],
+          cx: [80, 78, 82, 80],
           opacity: [0, 0.7, 0.7, 0]
         }}
         transition={{
@@ -106,51 +94,39 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 2.8,
         }}
-        style={{
-          position: "absolute",
-          left: "50%",
-          width: "7px",
-          height: "7px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
-        initial={{ y: -20 }}
-        animate={{ y: 30 }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-        }}
-      >
-        <svg
-          viewBox="0 0 64 64"
-          height="60%"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{
-            overflow: "visible",
+
+      {/* Octopus - centered at 80,80 (middle of 160x160 viewBox) */}
+      <g transform="translate(40, 40)">
+        <motion.g
+          initial={{ y: -20 }}
+          animate={{ y: 30 }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            repeatType: "reverse",
           }}
         >
+          <motion.g
+            animate={{ scale: 1.2 }}
+            transition={{
+              duration: 1.1,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          >
           <g fill="none" fillRule="evenodd">
             <g stroke="#d650c7" strokeLinecap="round" strokeWidth="2">
               <motion.path
-                animate={{ rotate: 25 }}
+                animate={{ rotate: 25, y: -5 }}
                 transition={{
                   duration: 1,
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
                 style={{
-                  transformBox: "view-box",
-                  /* originX: "50%", */
-                  originY: "50%",
+                  // transformBox: "content-box",
+                  originY: "top center",
                 }}
                 d="m17 41v12.0062606c0 3.3102509-2.6930342 5.9937394-6 5.9937394-3.3137085 0-6-2.6947819-6-5.9937394"
               />
@@ -162,8 +138,8 @@ export default function OctoDude() {
                   repeatType: "reverse",
                 }}
                 style={{
-                  transformBox: "view-box",
-                  originY: "50%",
+                  // transformBox: "content-box",
+                  originY: "top center",
                 }}
               >
                 <path
@@ -181,19 +157,14 @@ export default function OctoDude() {
                 }}
                 style={{
                   transformBox: "fill-box",
-                  originY: "0%",
+                  transformOrigin: "50% 100%",
+                  originY: "50%",
                 }}
                 d="m31 40v18m-7-24v18m14-18v18"
                 strokeLinejoin="round"
               />
             </g>
             <motion.path
-              animate={{ scale: 1.2 }}
-              transition={{
-                duration: 1.1,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
               d="m8 22c0-11.045695 8.9511199-20 20.0090152-20h5.9819696c11.0506739 0 20.0090152 8.9518764 20.0090152 20v20h-46z"
               fill="#ff78c7"
             />
@@ -244,13 +215,19 @@ export default function OctoDude() {
               />
             </motion.g>
           </g>
-        </svg>
-      </motion.div>
+        </motion.g>
+      </motion.g>
+      </g>
+
       {/* Bubbles in front of octopus */}
-      <motion.div
+      <motion.circle
+        cx="24"
+        cy="80"
+        r="5"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [4, -5, 3, 0],
+          cy: [160, 0],
+          cx: [24, 22, 26, 24],
           opacity: [0, 0.6, 0.6, 0]
         }}
         transition={{
@@ -259,19 +236,15 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 0.5,
         }}
-        style={{
-          position: "absolute",
-          left: "15%",
-          width: "10px",
-          height: "10px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
+      <motion.circle
+        cx="128"
+        cy="80"
+        r="5.5"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [-3, 5, -2, 0],
+          cy: [160, 0],
+          cx: [128, 126, 130, 128],
           opacity: [0, 0.6, 0.6, 0]
         }}
         transition={{
@@ -280,19 +253,15 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 1.8,
         }}
-        style={{
-          position: "absolute",
-          right: "20%",
-          width: "11px",
-          height: "11px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-      <motion.div
+      <motion.circle
+        cx="96"
+        cy="80"
+        r="4"
+        fill="#7dd3fc"
         animate={{
-          bottom: ["0%", "100%"],
-          x: [2, -3, 4, 0],
+          cy: [160, 0],
+          cx: [96, 94, 98, 96],
           opacity: [0, 0.6, 0.6, 0]
         }}
         transition={{
@@ -301,15 +270,7 @@ export default function OctoDude() {
           ease: "easeInOut",
           delay: 0.9,
         }}
-        style={{
-          position: "absolute",
-          left: "60%",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          backgroundColor: "#7dd3fc",
-        }}
       />
-    </Box>
+    </svg>
   );
 }

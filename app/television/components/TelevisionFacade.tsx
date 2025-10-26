@@ -2,12 +2,13 @@
 
 import React, { ReactNode, useState } from "react";
 import { motion } from "framer-motion";
+import StaticEffect from "@/app/animation-gallery/animations/StaticEffect";
 
 interface TelevisionFacadeProps {
   onPowerClick: () => void;
   onChannelClick: () => void;
   isPoweredOn: boolean;
-  isChangingChannel?: boolean;
+  showStatic?: boolean;
   hasBeenPoweredOn?: boolean;
   children?: ReactNode;
 }
@@ -21,7 +22,7 @@ export default function TelevisionFacade({
   onPowerClick,
   onChannelClick,
   isPoweredOn,
-  isChangingChannel = false,
+  showStatic = false,
   hasBeenPoweredOn = false,
   children,
 }: TelevisionFacadeProps) {
@@ -32,27 +33,6 @@ export default function TelevisionFacade({
     onChannelClick();
   };
 
-  // Static effect component
-  const StaticEffect = () => (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0.3, 0.5, 0.4, 0.6, 0.3] }}
-      transition={{ duration: 0.2, repeat: Infinity }}
-      style={{
-        width: "100%",
-        height: "100%",
-        background: `
-          repeating-linear-gradient(
-            0deg,
-            #666 0px,
-            #444 1px,
-            #666 2px,
-            #555 3px
-          )
-        `,
-      }}
-    />
-  );
   return (
     <svg
       version="1.1"
@@ -60,7 +40,8 @@ export default function TelevisionFacade({
       viewBox="0 69 496.2 325"
       xmlSpace="preserve"
       style={{
-        filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))"
+        filter:
+          "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))",
       }}
     >
       <defs id="defs18" />
@@ -148,30 +129,36 @@ export default function TelevisionFacade({
       {/* /> */}
 
       {/* Screen Content Area - foreignObject for React components */}
-      <foreignObject x="112.3" y="194.8" width="234" height="165">
-        <motion.div
-          animate={{
-            backgroundColor: isPoweredOn ? "#000" : "#3a3a38",
-          }}
-          transition={{ duration: 0.3 }}
-          style={{
-            // border: "2px solid green",
-            borderRadius: "10px",
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {isChangingChannel ? (
-            <StaticEffect />
-          ) : (
-            children
-          )}
-        </motion.div>
-      </foreignObject>
+      {/* Use <g> transform for Safari compatibility - responsive sizing inside */}
+      <g transform="translate(112.4, 194.8)">
+        <foreignObject width="234.4" height="165.9">
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "hidden",
+            }}
+          >
+            <motion.div
+              animate={{
+                backgroundColor: isPoweredOn ? "#000" : "#3a3a38",
+              }}
+              transition={{ duration: 0.3 }}
+              style={{
+                borderRadius: "10px",
+                width: "100%",
+                height: "100%",
+                overflow: "hidden",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {showStatic ? <StaticEffect /> : children}
+            </motion.div>
+          </div>
+        </foreignObject>
+      </g>
 
       {/* Power Button Group with Attention Animation */}
       <motion.g
@@ -197,7 +184,11 @@ export default function TelevisionFacade({
       >
         {/* Power Button Outer */}
         <circle
-          style={{ fill: "#B79251", cursor: "pointer", transition: "fill 0.2s" }}
+          style={{
+            fill: "#B79251",
+            cursor: "pointer",
+            transition: "fill 0.2s",
+          }}
           cx="384.9"
           cy="208.3"
           r="18.8"
@@ -209,7 +200,10 @@ export default function TelevisionFacade({
 
         {/* Power Button Inner */}
         <circle
-          style={{ fill: isPoweredOn ? "#4ade80" : "#3A3A38", transition: "fill 0.3s" }}
+          style={{
+            fill: isPoweredOn ? "#4ade80" : "#3A3A38",
+            transition: "fill 0.3s",
+          }}
           cx="384.9"
           cy="208.3"
           r="12.5"
@@ -234,7 +228,11 @@ export default function TelevisionFacade({
       >
         {/* Channel Button Outer */}
         <circle
-          style={{ fill: "#B79251", cursor: "pointer", transition: "fill 0.2s" }}
+          style={{
+            fill: "#B79251",
+            cursor: "pointer",
+            transition: "fill 0.2s",
+          }}
           cx="384.9"
           cy="255.4"
           r="18.8"

@@ -12,24 +12,32 @@ import { ANIMATIONS } from "./utils/animationRegistry";
 export default function Television() {
   const [isPoweredOn, setIsPoweredOn] = useState(false);
   const [currentChannel, setCurrentChannel] = useState(0);
-  const [isChangingChannel, setIsChangingChannel] = useState(false);
+  const [showStatic, setShowStatic] = useState(false);
   const [hasBeenPoweredOn, setHasBeenPoweredOn] = useState(false);
 
   const handlePowerClick = () => {
-    setIsPoweredOn((prev) => !prev);
-    if (!hasBeenPoweredOn) {
-      setHasBeenPoweredOn(true);
+    const newState = !isPoweredOn;
+    setIsPoweredOn(newState);
+
+    if (newState) {
+      // Show static when turning on
+      setShowStatic(true);
+      setTimeout(() => setShowStatic(false), 1000);
+
+      if (!hasBeenPoweredOn) {
+        setHasBeenPoweredOn(true);
+      }
     }
   };
 
   const handleChannelClick = () => {
     if (!isPoweredOn) return;
 
-    setIsChangingChannel(true);
+    setShowStatic(true);
     setTimeout(() => {
       setCurrentChannel((prev) => (prev + 1) % ANIMATIONS.length);
-      setIsChangingChannel(false);
-    }, 500); // Static duration
+      setShowStatic(false);
+    }, 500);
   };
 
   const CurrentAnimation = ANIMATIONS[currentChannel];
@@ -46,10 +54,10 @@ export default function Television() {
           onPowerClick={handlePowerClick}
           onChannelClick={handleChannelClick}
           isPoweredOn={isPoweredOn}
-          isChangingChannel={isChangingChannel}
+          showStatic={showStatic}
           hasBeenPoweredOn={hasBeenPoweredOn}
         >
-          {isPoweredOn && !isChangingChannel && CurrentAnimation && (
+          {isPoweredOn && !showStatic && CurrentAnimation && (
             <CurrentAnimation />
           )}
         </TelevisionFacade>

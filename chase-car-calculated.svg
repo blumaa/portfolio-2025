@@ -1,0 +1,366 @@
+<svg width="2000" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vanishing Point Reference -->
+  <circle cx="1000" cy="400" r="5" fill="red" opacity="0.3"/>
+  <text x="1000" y="385" text-anchor="middle" fill="red" font-size="12">VP (1000, 400)</text>
+
+  <!-- Chase Car: Police Vehicle (Closer to Camera, Right of Center) -->
+  <!-- Mathematical calculations:
+       - Rear face center: (1150, 760) - right of VP, closer to camera
+       - Dimensions: 350px wide × 125px tall (125% scale)
+       - Convergence: 40% toward VP (1000, 400)
+
+       Rear corners (full size):
+       - Top Left: (975, 697.5)
+       - Top Right: (1325, 697.5)
+       - Bottom Left: (975, 822.5)
+       - Bottom Right: (1325, 822.5)
+
+       Front corners (40% toward VP):
+       - Top Left: (975, 697.5) + 0.4×(25, -297.5) = (985, 578.5)
+       - Top Right: (1325, 697.5) + 0.4×(-325, -297.5) = (1195, 578.5)
+       - Bottom Left: (975, 822.5) + 0.4×(25, -422.5) = (985, 653.5)
+       - Bottom Right: (1325, 822.5) + 0.4×(-325, -422.5) = (1195, 653.5)
+
+       Visible faces: LEFT side (car is right of VP)
+  -->
+  <g id="chaseCar" opacity="1">
+    <!-- Left Side Panel (visible because car is right of VP) -->
+    <path
+      d="M 975,697.5 L 985,578.5 L 985,653.5 L 975,822.5 Z"
+      fill="#2a2a2a"
+      stroke="#1a1a1a"
+      stroke-width="2"
+    />
+
+    <!-- Top Face -->
+    <path
+      d="M 975,697.5 L 985,578.5 L 1195,578.5 L 1325,697.5 Z"
+      fill="#3a3a3a"
+      stroke="#1a1a1a"
+      stroke-width="2"
+    />
+
+    <!-- Rear Face (main body) -->
+    <rect
+      x="975"
+      y="697.5"
+      width="350"
+      height="125"
+      fill="#1a1a1a"
+      stroke="#000"
+      stroke-width="3"
+    />
+
+    <!-- Rear Window -->
+    <rect
+      x="1010"
+      y="712.5"
+      width="280"
+      height="50"
+      fill="#0a0a0a"
+      opacity="0.9"
+    />
+
+    <!-- Window Highlights (noir reflection) -->
+    <rect
+      x="1015"
+      y="717.5"
+      width="80"
+      height="8"
+      fill="#4a4a4a"
+      opacity="0.6"
+    />
+
+    <!-- Police Light Bar (centered on top) -->
+    <g id="policeLight">
+      <!-- Light bar base -->
+      <rect
+        x="1100"
+        y="685"
+        width="100"
+        height="12"
+        fill="#2a2a2a"
+        stroke="#1a1a1a"
+        stroke-width="1"
+      />
+      <!-- Red light (left) -->
+      <ellipse
+        cx="1125"
+        cy="691"
+        rx="15"
+        ry="6"
+        fill="#cc0000"
+        opacity="0.8"
+      >
+        <animate
+          attributeName="opacity"
+          values="0.8;0.3;0.8"
+          dur="0.8s"
+          repeatCount="indefinite"
+        />
+      </ellipse>
+      <!-- Blue light (right) -->
+      <ellipse
+        cx="1175"
+        cy="691"
+        rx="15"
+        ry="6"
+        fill="#0044cc"
+        opacity="0.8"
+      >
+        <animate
+          attributeName="opacity"
+          values="0.3;0.8;0.3"
+          dur="0.8s"
+          repeatCount="indefinite"
+        />
+      </ellipse>
+    </g>
+
+    <!-- Taillights (red, glowing) -->
+    <g id="taillights">
+      <!-- Left taillight -->
+      <ellipse
+        cx="1030"
+        cy="795"
+        rx="25"
+        ry="18"
+        fill="#660000"
+      />
+      <ellipse
+        cx="1030"
+        cy="795"
+        rx="18"
+        ry="12"
+        fill="#cc0000"
+        opacity="0.9"
+      >
+        <animate
+          attributeName="opacity"
+          values="0.9;0.6;0.9"
+          dur="1.2s"
+          repeatCount="indefinite"
+        />
+      </ellipse>
+
+      <!-- Right taillight -->
+      <ellipse
+        cx="1270"
+        cy="795"
+        rx="25"
+        ry="18"
+        fill="#660000"
+      />
+      <ellipse
+        cx="1270"
+        cy="795"
+        rx="18"
+        ry="12"
+        fill="#cc0000"
+        opacity="0.9"
+      >
+        <animate
+          attributeName="opacity"
+          values="0.9;0.6;0.9"
+          dur="1.2s"
+          repeatCount="indefinite"
+        />
+      </ellipse>
+    </g>
+
+    <!-- Wheels (in perspective) -->
+    <!-- Rear Left Wheel (larger, closer to camera) -->
+    <g id="rearLeftWheel">
+      <ellipse
+        cx="1005"
+        cy="822.5"
+        rx="45"
+        ry="35"
+        fill="#1a1a1a"
+        stroke="#000"
+        stroke-width="3"
+      />
+      <ellipse
+        cx="1005"
+        cy="822.5"
+        rx="25"
+        ry="20"
+        fill="#333"
+      />
+      <!-- Hubcap detail -->
+      <circle
+        cx="1005"
+        cy="822.5"
+        r="10"
+        fill="#555"
+      />
+    </g>
+
+    <!-- Rear Right Wheel (larger, closer to camera) -->
+    <g id="rearRightWheel">
+      <ellipse
+        cx="1295"
+        cy="822.5"
+        rx="45"
+        ry="35"
+        fill="#1a1a1a"
+        stroke="#000"
+        stroke-width="3"
+      />
+      <ellipse
+        cx="1295"
+        cy="822.5"
+        rx="25"
+        ry="20"
+        fill="#333"
+      />
+      <!-- Hubcap detail -->
+      <circle
+        cx="1295"
+        cy="822.5"
+        r="10"
+        fill="#555"
+      />
+    </g>
+
+    <!-- Front Left Wheel (smaller, further from camera) -->
+    <g id="frontLeftWheel">
+      <ellipse
+        cx="985"
+        cy="653.5"
+        rx="32"
+        ry="25"
+        fill="#1a1a1a"
+        stroke="#000"
+        stroke-width="2"
+      />
+      <ellipse
+        cx="985"
+        cy="653.5"
+        rx="18"
+        ry="14"
+        fill="#333"
+      />
+      <!-- Hubcap detail -->
+      <circle
+        cx="985"
+        cy="653.5"
+        r="7"
+        fill="#555"
+      />
+    </g>
+
+    <!-- Front Right Wheel (smaller, further from camera) -->
+    <g id="frontRightWheel">
+      <ellipse
+        cx="1195"
+        cy="653.5"
+        rx="32"
+        ry="25"
+        fill="#1a1a1a"
+        stroke="#000"
+        stroke-width="2"
+      />
+      <ellipse
+        cx="1195"
+        cy="653.5"
+        rx="18"
+        ry="14"
+        fill="#333"
+      />
+      <!-- Hubcap detail -->
+      <circle
+        cx="1195"
+        cy="653.5"
+        r="7"
+        fill="#555"
+      />
+    </g>
+
+    <!-- Police Markings -->
+    <text
+      x="1150"
+      y="755"
+      text-anchor="middle"
+      fill="#fff"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold"
+      opacity="0.9"
+    >POLICE</text>
+
+    <!-- Badge/Shield -->
+    <path
+      d="M 1145,770 L 1155,770 L 1157,780 L 1150,785 L 1143,780 Z"
+      fill="#c0c0c0"
+      stroke="#fff"
+      stroke-width="0.5"
+      opacity="0.8"
+    />
+
+    <!-- Exhaust smoke (subtle noir atmosphere) -->
+    <g id="exhaust" opacity="0.3">
+      <ellipse
+        cx="1030"
+        cy="835"
+        rx="20"
+        ry="10"
+        fill="#666"
+      >
+        <animate
+          attributeName="rx"
+          values="20;30;20"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="opacity"
+          values="0.3;0.1;0.3"
+          dur="2s"
+          repeatCount="indefinite"
+        />
+      </ellipse>
+      <ellipse
+        cx="1270"
+        cy="835"
+        rx="20"
+        ry="10"
+        fill="#666"
+      >
+        <animate
+          attributeName="rx"
+          values="20;30;20"
+          dur="2s"
+          begin="0.5s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="opacity"
+          values="0.3;0.1;0.3"
+          dur="2s"
+          begin="0.5s"
+          repeatCount="indefinite"
+        />
+      </ellipse>
+    </g>
+  </g>
+
+  <!-- Measurement Annotations -->
+  <g id="annotations" opacity="0.5">
+    <!-- Rear face width -->
+    <line x1="975" y1="850" x2="1325" y2="850" stroke="blue" stroke-width="1"/>
+    <text x="1150" y="870" text-anchor="middle" fill="blue" font-size="12">350px (rear)</text>
+
+    <!-- Front face width -->
+    <line x1="985" y1="560" x2="1195" y2="560" stroke="blue" stroke-width="1"/>
+    <text x="1090" y="550" text-anchor="middle" fill="blue" font-size="12">210px (front)</text>
+
+    <!-- Height -->
+    <line x1="960" y1="697.5" x2="960" y2="822.5" stroke="green" stroke-width="1"/>
+    <text x="940" y="760" text-anchor="end" fill="green" font-size="12">125px</text>
+
+    <!-- Center position -->
+    <circle cx="1150" cy="760" r="3" fill="orange"/>
+    <text x="1150" y="780" text-anchor="middle" fill="orange" font-size="11">(1150, 760)</text>
+  </g>
+</svg>

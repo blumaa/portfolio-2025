@@ -370,7 +370,15 @@ export default function Modcast() {
     // Initialize Web Audio API for visualization
     initAudioContext(audio);
 
-    audio.onplay = () => {
+    audio.onplay = async () => {
+      // Resume AudioContext for iOS Safari compatibility
+      if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+        try {
+          await audioContextRef.current.resume();
+        } catch (err) {
+          console.error('Failed to resume AudioContext:', err);
+        }
+      }
       setIsPlaying(true);
       startMusicVisualization();
     };
@@ -416,7 +424,7 @@ export default function Modcast() {
   }, [currentSegment, playIntroSegment, playSongSegment, stopMouthAnimation]);
 
   // Handle play/pause toggle
-  const handlePlayPause = useCallback(() => {
+  const handlePlayPause = useCallback(async () => {
     if (isPlaying) {
       // Pause
       if (ttsAudioRef.current) {
@@ -429,6 +437,15 @@ export default function Modcast() {
       }
       setIsPlaying(false);
     } else {
+      // Resume AudioContext for iOS Safari compatibility (must be in user interaction)
+      if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+        try {
+          await audioContextRef.current.resume();
+        } catch (err) {
+          console.error('Failed to resume AudioContext:', err);
+        }
+      }
+
       // Resume or start
       if (ttsAudioRef.current && ttsAudioRef.current.paused) {
         ttsAudioRef.current.play();

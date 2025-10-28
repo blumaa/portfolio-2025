@@ -17,6 +17,7 @@ import AnimatedEyeballWatching from "./animations/AnimatedEyeballWatching";
 import RustlingGrass from "./animations/RustlingGrass";
 import Bus from "./animations/Bus";
 import NoirCarChase from "./animations/NoirCarChase";
+import Modcast from "../modcast/Modcast";
 
 export default function AnimationGallery() {
   return (
@@ -32,9 +33,12 @@ export default function AnimationGallery() {
       {/* <AnimationCard> */}
       {/*   <AnimatedGearScene /> */}
       {/* </AnimationCard> */}
-        <AnimationCard>
-          <NoirCarChase />
-        </AnimationCard>
+      <AnimationCard>
+        <Modcast />
+      </AnimationCard>
+      <AnimationCard>
+        <NoirCarChase />
+      </AnimationCard>
       <AnimationCard>
         <Bus />
       </AnimationCard>
@@ -59,9 +63,9 @@ export default function AnimationGallery() {
       <AnimationCard codeLink="https://stackblitz.com/edit/animatedloadingairplane?file=app%2FAnimatedLoadingAirplane.tsx">
         <AnimatedLoadingAirplane />
       </AnimationCard>
-      <AnimationCard>
-        <AnimatedSwitch2 />
-      </AnimationCard>
+      {/* <AnimationCard> */}
+      {/*   <AnimatedSwitch2 /> */}
+      {/* </AnimationCard> */}
       <AnimationCard>
         <CityScapeWrapper />
       </AnimationCard>

@@ -33,7 +33,9 @@ export default function Modcast() {
 
   // Muppet state
   const [mode, setMode] = useState<"talk" | "listenToMusic">("talk");
-  const [mouthState, setMouthState] = useState<"closed" | "half" | "open">("closed");
+  const [mouthState, setMouthState] = useState<"closed" | "half" | "open">(
+    "closed",
+  );
 
   // Playback state
   const [isPlaying, setIsPlaying] = useState(false);
@@ -73,7 +75,9 @@ export default function Modcast() {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_TTS_API_KEY;
 
     if (!apiKey) {
-      throw new Error("Google TTS API key not found. Please set NEXT_PUBLIC_GOOGLE_TTS_API_KEY environment variable.");
+      throw new Error(
+        "Google TTS API key not found. Please set NEXT_PUBLIC_GOOGLE_TTS_API_KEY environment variable.",
+      );
     }
 
     const requestBody: TTSRequest = {
@@ -98,7 +102,7 @@ export default function Modcast() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(requestBody),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -110,7 +114,9 @@ export default function Modcast() {
       const audioUrl = `data:audio/mp3;base64,${data.audioContent}`;
       return audioUrl;
     } catch (err) {
-      throw new Error(`TTS generation failed: ${err instanceof Error ? err.message : "Unknown error"}`);
+      throw new Error(
+        `TTS generation failed: ${err instanceof Error ? err.message : "Unknown error"}`,
+      );
     }
   }, []);
 
@@ -121,7 +127,11 @@ export default function Modcast() {
       clearInterval(mouthAnimationIntervalRef.current);
     }
 
-    const mouthStates: Array<"closed" | "half" | "open"> = ["closed", "half", "open"];
+    const mouthStates: Array<"closed" | "half" | "open"> = [
+      "closed",
+      "half",
+      "open",
+    ];
     let currentStateIndex = 0;
 
     mouthAnimationIntervalRef.current = setInterval(() => {
@@ -140,39 +150,44 @@ export default function Modcast() {
   }, []);
 
   // Initialize Web Audio API for music visualization
-  const initAudioContext = useCallback((audioElement: HTMLAudioElement) => {
-    try {
-      // Avoid creating multiple contexts for the same element
-      if (sourceNodeRef.current) return;
+  const initAudioContext = useCallback(
+    (audioElement: HTMLAudioElement) => {
+      try {
+        // Avoid creating multiple contexts for the same element
+        if (sourceNodeRef.current) return;
 
-      // Create AudioContext if it doesn't exist
-      if (!audioContextRef.current) {
-        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-        audioContextRef.current = new AudioContextClass();
+        // Create AudioContext if it doesn't exist
+        if (!audioContextRef.current) {
+          const AudioContextClass =
+            window.AudioContext || (window as any).webkitAudioContext;
+          audioContextRef.current = new AudioContextClass();
+        }
+
+        // Create analyser node if it doesn't exist
+        if (!analyserRef.current) {
+          analyserRef.current = audioContextRef.current.createAnalyser();
+          analyserRef.current.fftSize = 256; // Smaller FFT for better performance
+          analyserRef.current.smoothingTimeConstant = 0.5; // More responsive (lower = faster response)
+        }
+
+        // Create gain node if it doesn't exist
+        if (!gainNodeRef.current) {
+          gainNodeRef.current = audioContextRef.current.createGain();
+          gainNodeRef.current.gain.value = isMuted ? 0 : 1;
+        }
+
+        // Create source node and connect: source -> analyser -> gain -> destination
+        sourceNodeRef.current =
+          audioContextRef.current.createMediaElementSource(audioElement);
+        sourceNodeRef.current.connect(analyserRef.current);
+        analyserRef.current.connect(gainNodeRef.current);
+        gainNodeRef.current.connect(audioContextRef.current.destination);
+      } catch (err) {
+        console.error("Failed to initialize Web Audio API:", err);
       }
-
-      // Create analyser node if it doesn't exist
-      if (!analyserRef.current) {
-        analyserRef.current = audioContextRef.current.createAnalyser();
-        analyserRef.current.fftSize = 256; // Smaller FFT for better performance
-        analyserRef.current.smoothingTimeConstant = 0.5; // More responsive (lower = faster response)
-      }
-
-      // Create gain node if it doesn't exist
-      if (!gainNodeRef.current) {
-        gainNodeRef.current = audioContextRef.current.createGain();
-        gainNodeRef.current.gain.value = isMuted ? 0 : 1;
-      }
-
-      // Create source node and connect: source -> analyser -> gain -> destination
-      sourceNodeRef.current = audioContextRef.current.createMediaElementSource(audioElement);
-      sourceNodeRef.current.connect(analyserRef.current);
-      analyserRef.current.connect(gainNodeRef.current);
-      gainNodeRef.current.connect(audioContextRef.current.destination);
-    } catch (err) {
-      console.error("Failed to initialize Web Audio API:", err);
-    }
-  }, [isMuted]);
+    },
+    [isMuted],
+  );
 
   // Analyze audio frequency data and detect beats for BPM
   const analyzeAudioFrequency = useCallback(() => {
@@ -182,12 +197,16 @@ export default function Modcast() {
     analyserRef.current.getByteFrequencyData(dataArray);
 
     // BPM Detection - only if we haven't locked in a BPM yet
-    if (bpmDetectionRef.current.isDetecting && !bpmDetectionRef.current.lockedBPM) {
+    if (
+      bpmDetectionRef.current.isDetecting &&
+      !bpmDetectionRef.current.lockedBPM
+    ) {
       // Focus on bass frequencies (20-200Hz) for beat detection
       // With FFT size 256, bin 0-10 covers roughly 0-860Hz at 44.1kHz sample rate
       // We want bins 0-5 for bass emphasis
       const bassSlice = dataArray.slice(0, 5);
-      const bassAvg = bassSlice.reduce((sum, val) => sum + val, 0) / bassSlice.length;
+      const bassAvg =
+        bassSlice.reduce((sum, val) => sum + val, 0) / bassSlice.length;
 
       // Beat threshold - detect when bass energy spikes above 180
       const beatThreshold = 180;
@@ -203,18 +222,26 @@ export default function Modcast() {
 
           // Calculate intervals between consecutive beats
           if (timestamps.length >= 2) {
-            const interval = timestamps[timestamps.length - 1] - timestamps[timestamps.length - 2];
+            const interval =
+              timestamps[timestamps.length - 1] -
+              timestamps[timestamps.length - 2];
             bpmDetectionRef.current.intervals.push(interval);
 
             // Once we have 8-16 intervals, calculate BPM and lock it in
             if (bpmDetectionRef.current.intervals.length >= 8) {
               // Filter out outliers (keep middle 80% of intervals)
-              const sorted = [...bpmDetectionRef.current.intervals].sort((a, b) => a - b);
+              const sorted = [...bpmDetectionRef.current.intervals].sort(
+                (a, b) => a - b,
+              );
               const trimCount = Math.floor(sorted.length * 0.1);
-              const filtered = sorted.slice(trimCount, sorted.length - trimCount);
+              const filtered = sorted.slice(
+                trimCount,
+                sorted.length - trimCount,
+              );
 
               // Average the filtered intervals
-              const avgInterval = filtered.reduce((sum, val) => sum + val, 0) / filtered.length;
+              const avgInterval =
+                filtered.reduce((sum, val) => sum + val, 0) / filtered.length;
 
               // Convert interval (ms) to BPM: BPM = 60000 / interval_ms
               const bpm = Math.round(60000 / avgInterval);
@@ -224,7 +251,9 @@ export default function Modcast() {
               bpmDetectionRef.current.isDetecting = false;
               setDetectedBPM(bpm);
 
-              console.log(`BPM locked: ${bpm} (from ${bpmDetectionRef.current.intervals.length} beat intervals)`);
+              console.log(
+                `BPM locked: ${bpm} (from ${bpmDetectionRef.current.intervals.length} beat intervals)`,
+              );
             }
           }
         }
@@ -286,121 +315,147 @@ export default function Modcast() {
   }, []);
 
   // Play intro segment (TTS)
-  const playIntroSegment = useCallback(async (segment: ModcastSegment) => {
-    if (!segment.introScript) return;
+  const playIntroSegment = useCallback(
+    async (segment: ModcastSegment) => {
+      if (!segment.introScript) return;
 
-    setIsLoading(true);
-    setError(null);
-    setMode("talk");
-    setCurrentInfo(`Introducing: ${segment.songTitle || "Next track"}...`);
+      setIsLoading(true);
+      setError(null);
+      setMode("talk");
+      setCurrentInfo(`Introducing: ${segment.songTitle || "Next track"}...`);
 
-    try {
-      // Generate TTS audio
-      const audioUrl = await generateTTS(segment.introScript);
+      try {
+        // Generate TTS audio
+        const audioUrl = await generateTTS(segment.introScript);
+
+        // Create and setup audio element
+        const audio = new Audio(audioUrl);
+        audio.muted = isMuted; // Apply current mute state
+        ttsAudioRef.current = audio;
+
+        // Start mouth animation when audio plays
+        audio.onplay = () => {
+          startMouthAnimation();
+          setIsPlaying(true);
+        };
+
+        // Update info during playback
+        audio.ontimeupdate = () => {
+          // Additional sync could be added here
+        };
+
+        // When TTS ends, move to next segment
+        audio.onended = () => {
+          stopMouthAnimation();
+          setIsPlaying(false);
+          moveToNextSegment();
+        };
+
+        // Handle errors
+        audio.onerror = () => {
+          stopMouthAnimation();
+          setError("Audio playback failed");
+          setIsPlaying(false);
+          setIsLoading(false);
+        };
+
+        setIsLoading(false);
+        audio.play().catch((err) => {
+          setError(`Playback failed: ${err.message}`);
+          setIsPlaying(false);
+          setIsLoading(false);
+        });
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : "Failed to generate speech",
+        );
+        setIsLoading(false);
+      }
+    },
+    [
+      generateTTS,
+      startMouthAnimation,
+      stopMouthAnimation,
+      moveToNextSegment,
+      isMuted,
+    ],
+  );
+
+  // Play song segment
+  const playSongSegment = useCallback(
+    (segment: ModcastSegment) => {
+      if (!segment.audioFile) return;
+
+      setMode("listenToMusic");
+      setCurrentInfo(
+        `Now playing: ${modcastPlaylist[currentSegmentIndex - 1]?.songTitle || "Music"}...`,
+      );
+
+      // Reset BPM detection for new song
+      bpmDetectionRef.current = {
+        isDetecting: true,
+        beatTimestamps: [],
+        intervals: [],
+        lockedBPM: null,
+      };
 
       // Create and setup audio element
-      const audio = new Audio(audioUrl);
-      audio.muted = isMuted; // Apply current mute state
-      ttsAudioRef.current = audio;
+      const audio = new Audio(segment.audioFile);
+      songAudioRef.current = audio;
 
-      // Start mouth animation when audio plays
-      audio.onplay = () => {
-        startMouthAnimation();
+      // Apply current mute state
+      audio.muted = isMuted;
+
+      // Reset source node and gain node to allow reconnection for new audio element
+      sourceNodeRef.current = null;
+      gainNodeRef.current = null;
+
+      // Initialize Web Audio API for visualization
+      initAudioContext(audio);
+
+      audio.onplay = async () => {
+        // Resume AudioContext for iOS Safari compatibility
+        if (
+          audioContextRef.current &&
+          audioContextRef.current.state === "suspended"
+        ) {
+          try {
+            await audioContextRef.current.resume();
+          } catch (err) {
+            console.error("Failed to resume AudioContext:", err);
+          }
+        }
         setIsPlaying(true);
+        startMusicVisualization();
       };
 
-      // Update info during playback
-      audio.ontimeupdate = () => {
-        // Additional sync could be added here
-      };
-
-      // When TTS ends, move to next segment
       audio.onended = () => {
-        stopMouthAnimation();
         setIsPlaying(false);
+        stopMusicVisualization();
         moveToNextSegment();
       };
 
-      // Handle errors
       audio.onerror = () => {
-        stopMouthAnimation();
-        setError("Audio playback failed");
+        setError("Song playback failed");
         setIsPlaying(false);
-        setIsLoading(false);
+        stopMusicVisualization();
       };
 
-      setIsLoading(false);
       audio.play().catch((err) => {
-        setError(`Playback failed: ${err.message}`);
+        setError(`Song playback failed: ${err.message}`);
         setIsPlaying(false);
-        setIsLoading(false);
+        stopMusicVisualization();
       });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to generate speech");
-      setIsLoading(false);
-    }
-  }, [generateTTS, startMouthAnimation, stopMouthAnimation, moveToNextSegment, isMuted]);
-
-  // Play song segment
-  const playSongSegment = useCallback((segment: ModcastSegment) => {
-    if (!segment.audioFile) return;
-
-    setMode("listenToMusic");
-    setCurrentInfo(`Now playing: ${modcastPlaylist[currentSegmentIndex - 1]?.songTitle || "Music"}...`);
-
-    // Reset BPM detection for new song
-    bpmDetectionRef.current = {
-      isDetecting: true,
-      beatTimestamps: [],
-      intervals: [],
-      lockedBPM: null,
-    };
-
-    // Create and setup audio element
-    const audio = new Audio(segment.audioFile);
-    songAudioRef.current = audio;
-
-    // Apply current mute state
-    audio.muted = isMuted;
-
-    // Reset source node and gain node to allow reconnection for new audio element
-    sourceNodeRef.current = null;
-    gainNodeRef.current = null;
-
-    // Initialize Web Audio API for visualization
-    initAudioContext(audio);
-
-    audio.onplay = async () => {
-      // Resume AudioContext for iOS Safari compatibility
-      if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-        try {
-          await audioContextRef.current.resume();
-        } catch (err) {
-          console.error('Failed to resume AudioContext:', err);
-        }
-      }
-      setIsPlaying(true);
-      startMusicVisualization();
-    };
-
-    audio.onended = () => {
-      setIsPlaying(false);
-      stopMusicVisualization();
-      moveToNextSegment();
-    };
-
-    audio.onerror = () => {
-      setError("Song playback failed");
-      setIsPlaying(false);
-      stopMusicVisualization();
-    };
-
-    audio.play().catch((err) => {
-      setError(`Song playback failed: ${err.message}`);
-      setIsPlaying(false);
-      stopMusicVisualization();
-    });
-  }, [currentSegmentIndex, isMuted, initAudioContext, startMusicVisualization, stopMusicVisualization, moveToNextSegment]);
+    },
+    [
+      currentSegmentIndex,
+      isMuted,
+      initAudioContext,
+      startMusicVisualization,
+      stopMusicVisualization,
+      moveToNextSegment,
+    ],
+  );
 
   // Play current segment
   const playCurrentSegment = useCallback(() => {
@@ -438,11 +493,14 @@ export default function Modcast() {
       setIsPlaying(false);
     } else {
       // Resume AudioContext for iOS Safari compatibility (must be in user interaction)
-      if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+      if (
+        audioContextRef.current &&
+        audioContextRef.current.state === "suspended"
+      ) {
         try {
           await audioContextRef.current.resume();
         } catch (err) {
-          console.error('Failed to resume AudioContext:', err);
+          console.error("Failed to resume AudioContext:", err);
         }
       }
 
@@ -460,7 +518,14 @@ export default function Modcast() {
         playCurrentSegment();
       }
     }
-  }, [isPlaying, playCurrentSegment, startMouthAnimation, stopMouthAnimation, startMusicVisualization, stopMusicVisualization]);
+  }, [
+    isPlaying,
+    playCurrentSegment,
+    startMouthAnimation,
+    stopMouthAnimation,
+    startMusicVisualization,
+    stopMusicVisualization,
+  ]);
 
   // Handle skip to next segment
   const handleSkip = useCallback(() => {
@@ -507,37 +572,26 @@ export default function Modcast() {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+      if (
+        audioContextRef.current &&
+        audioContextRef.current.state !== "closed"
+      ) {
         audioContextRef.current.close();
       }
     };
   }, [stopMouthAnimation, stopMusicVisualization]);
 
   return (
-    <div style={{
-      width: "100%",
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#1a1a2e",
-      position: "relative"
-    }}>
-      {/* Muppet Podcaster with controls */}
-      <div style={{ flex: 1, width: "100%", maxWidth: "800px" }}>
-        <MuppetPodcaster
-          mode={mode}
-          mouthState={mouthState}
-          bpm={detectedBPM}
-          isMuted={isMuted}
-          isPlaying={isPlaying}
-          isLoading={isLoading}
-          onMuteToggle={handleMuteToggle}
-          onPlayPause={handlePlayPause}
-          onSkip={handleSkip}
-        />
-      </div>
-    </div>
+    <MuppetPodcaster
+      mode={mode}
+      mouthState={mouthState}
+      bpm={detectedBPM}
+      isMuted={isMuted}
+      isPlaying={isPlaying}
+      isLoading={isLoading}
+      onMuteToggle={handleMuteToggle}
+      onPlayPause={handlePlayPause}
+      onSkip={handleSkip}
+    />
   );
 }

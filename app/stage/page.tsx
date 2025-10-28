@@ -3,16 +3,15 @@
 import { Box } from "@mond-design-system/theme";
 import MuppetPodcaster from "../animation-gallery/animations/MuppetPodcaster";
 import Modcast from "../modcast/Modcast";
+import AnimationCard from "../components/cards/AnimationCard";
 
 const Stage = () => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center" flex={1}>
-      <Box
-        width="50%"
-        overflow="visible"
-        border="1px solid yellow"
-      >
-        <Modcast />
+      <Box width="50%" overflow="visible" border="1px solid yellow">
+        {/* <AnimationCard> */}
+          <Modcast />
+        {/* </AnimationCard> */}
       </Box>
     </Box>
   );

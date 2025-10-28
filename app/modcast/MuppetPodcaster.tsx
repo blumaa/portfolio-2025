@@ -234,10 +234,10 @@ export default function MuppetPodcaster({
   return (
     <svg
       ref={containerRef}
-      viewBox="0 65 800 350"
+      viewBox="0 180 800 720"
       xmlns="http://www.w3.org/2000/svg"
-      // width="100%"
-      // height="100%"
+      width="100%"
+      height="100%"
       style={{ overflow: "visible" }}
     >
       {/* Gradients and Patterns */}
@@ -411,7 +411,7 @@ export default function MuppetPodcaster({
 
       {/* Body - simple organic muppet body (behind desk) */}
       <g>
-        {/* Main body - rounded and furry */}
+        {/* Main body - rounded */}
         <ellipse
           cx="400"
           cy="680"
@@ -420,14 +420,6 @@ export default function MuppetPodcaster({
           fill="url(#furGrad)"
           filter="url(#furTexture)"
         />
-        {/* Fur texture details on body */}
-        <g opacity="0.4">
-          <ellipse cx="320" cy="630" rx="22" ry="32" fill="#4a8bc2" />
-          <ellipse cx="480" cy="630" rx="22" ry="32" fill="#4a8bc2" />
-          <ellipse cx="400" cy="780" rx="28" ry="38" fill="#4a8bc2" />
-          <ellipse cx="340" cy="730" rx="20" ry="28" fill="#4a8bc2" />
-          <ellipse cx="460" cy="730" rx="20" ry="28" fill="#4a8bc2" />
-        </g>
       </g>
 
       {/* Simple desk edge at bottom */}
@@ -594,49 +586,36 @@ export default function MuppetPodcaster({
         {/* Neck */}
         <ellipse cx="400" cy="520" rx="30" ry="25" fill="#5b9bd5" />
 
-        {/* Main head - bright blue shaggy fur */}
+        {/* Main head - more round/circular */}
         <ellipse
           cx="400"
-          cy="350"
-          rx="140"
-          ry="160"
+          cy="375"
+          rx="145"
+          ry="145"
           fill="url(#furGrad)"
           filter="url(#furTexture)"
         />
 
-        {/* Fur texture details - shaggy tufts */}
-        <g opacity="0.4">
-          {/* Side tufts */}
-          <ellipse cx="270" cy="320" rx="25" ry="35" fill="#4a8bc2" />
-          <ellipse cx="530" cy="320" rx="25" ry="35" fill="#4a8bc2" />
-          <ellipse cx="260" cy="380" rx="20" ry="30" fill="#4a8bc2" />
-          <ellipse cx="540" cy="380" rx="20" ry="30" fill="#4a8bc2" />
-        </g>
-
-        {/* Eyes container */}
+        {/* Eyes container - taller oval, tilted inward at top */}
         <g>
-          {/* Left eye white */}
-          <g ref={leftEyeRef} transform="translate(340, 320)">
-            <ellipse cx="0" cy="0" rx="35" ry="45" fill="#ffffff" />
-            {/* Pupil */}
-            <ellipse cx="5" cy="8" rx="18" ry="22" fill="#000000" />
+          {/* Left eye white - tall oval tilted inward at top */}
+          <g ref={leftEyeRef} transform="translate(345, 330) rotate(8)">
+            <ellipse cx="0" cy="0" rx="32" ry="55" fill="#ffffff" />
+            {/* Pupil - looking more towards center/slightly cross-eyed */}
+            <ellipse cx="6" cy="12" rx="18" ry="26" fill="#000000" />
             {/* Highlight */}
-            <ellipse cx="10" cy="0" rx="8" ry="10" fill="#ffffff" />
+            <ellipse cx="11" cy="3" rx="8" ry="12" fill="#ffffff" />
           </g>
 
-          {/* Right eye white */}
-          <g ref={rightEyeRef} transform="translate(460, 320)">
-            <ellipse cx="0" cy="0" rx="35" ry="45" fill="#ffffff" />
-            {/* Pupil */}
-            <ellipse cx="-5" cy="8" rx="18" ry="22" fill="#000000" />
+          {/* Right eye white - tall oval tilted inward at top */}
+          <g ref={rightEyeRef} transform="translate(455, 330) rotate(-8)">
+            <ellipse cx="0" cy="0" rx="32" ry="55" fill="#ffffff" />
+            {/* Pupil - looking more towards center/slightly cross-eyed */}
+            <ellipse cx="-6" cy="12" rx="18" ry="26" fill="#000000" />
             {/* Highlight */}
-            <ellipse cx="-10" cy="0" rx="8" ry="10" fill="#ffffff" />
+            <ellipse cx="-11" cy="3" rx="8" ry="12" fill="#ffffff" />
           </g>
         </g>
-
-        {/* Pink oval nose */}
-        <ellipse cx="400" cy="400" rx="28" ry="22" fill="#ffb6c1" />
-        <ellipse cx="400" cy="405" rx="24" ry="18" fill="#ffc9d6" />
 
         {/* Mouth states - controlled by state variable and mode */}
         <g>
@@ -646,57 +625,83 @@ export default function MuppetPodcaster({
               {/* Closed mouth */}
               {mouthState === "closed" && (
                 <path
-                  d="M 360 440 Q 400 450 440 440"
+                  d="M 330 460 Q 400 475 470 460"
                   fill="none"
                   stroke="#2a1810"
-                  strokeWidth="4"
+                  strokeWidth="7"
                   strokeLinecap="round"
                 />
               )}
 
-              {/* Half open mouth */}
+              {/* Half open mouth - much wider */}
               {mouthState === "half" && (
-                <ellipse
-                  cx="400"
-                  cy="445"
-                  rx="35"
-                  ry="18"
-                  fill="#2a1810"
-                  stroke="#2a1810"
-                  strokeWidth="2"
-                />
+                <g>
+                  <ellipse
+                    cx="400"
+                    cy="475"
+                    rx="65"
+                    ry="32"
+                    fill="#c41e3a"
+                  />
+                  <ellipse
+                    cx="400"
+                    cy="470"
+                    rx="65"
+                    ry="32"
+                    fill="#1a0a08"
+                  />
+                </g>
               )}
 
-              {/* Open mouth */}
+              {/* Open mouth - huge and very expressive */}
               {mouthState === "open" && (
                 <g>
                   <ellipse
                     cx="400"
-                    cy="450"
-                    rx="40"
-                    ry="30"
-                    fill="#2a1810"
-                    stroke="#2a1810"
-                    strokeWidth="2"
+                    cy="485"
+                    rx="75"
+                    ry="55"
+                    fill="#c41e3a"
                   />
-                  {/* Tongue hint */}
-                  <ellipse cx="400" cy="460" rx="25" ry="15" fill="#ff6b7a" />
+                  <ellipse
+                    cx="400"
+                    cy="480"
+                    rx="75"
+                    ry="55"
+                    fill="#1a0a08"
+                  />
+                  {/* Tongue */}
+                  <ellipse cx="400" cy="500" rx="45" ry="25" fill="#ff6b7a" />
+                  {/* Bottom lip curve for depth */}
+                  <path
+                    d="M 335 520 Q 400 535 465 520"
+                    fill="none"
+                    stroke="#c41e3a"
+                    strokeWidth="4"
+                    opacity="0.6"
+                  />
                 </g>
               )}
             </>
           ) : (
             <>
-              {/* Listen to music mode - relaxed smile (bigger and more curved) */}
+              {/* Listen to music mode - huge happy smile */}
               <path
-                d="M 350 440 Q 400 465 450 440"
+                d="M 320 460 Q 400 510 480 460"
                 fill="none"
                 stroke="#2a1810"
-                strokeWidth="5"
+                strokeWidth="8"
                 strokeLinecap="round"
               />
             </>
           )}
         </g>
+
+        {/* Pink round nose - rendered after mouth so it appears on top, vertically oriented */}
+        <ellipse cx="400" cy="425" rx="38" ry="45" fill="#ff69b4" />
+        <ellipse cx="400" cy="430" rx="33" ry="40" fill="#ff9fd6" />
+        {/* Nose highlight */}
+        <ellipse cx="408" cy="415" rx="11" ry="14" fill="#ffcce6" opacity="0.8" />
       </g>
 
       {/* Microphone stand and mic (foreground layer) */}

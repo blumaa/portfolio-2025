@@ -5,7 +5,7 @@ const EducationCard = ({ school }: { school: Education }) => {
   const { name, link, linkTarget, degree, graduationYear } = school;
 
   return (
-    <Box p={2}>
+    <Box padding={2}>
       <Text variant="body-md" semantic="primary">
         <Link href={link || "#"} target={linkTarget} size="large">
           {name}

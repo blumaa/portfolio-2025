@@ -11,14 +11,15 @@ const Header = ({ children }: { children: React.ReactNode }) => {
       display="flex"
       alignItems="center"
       justifyContent="space-between"
-      pb={10}
-      px={10}
+      paddingBottom={10}
+      paddingLeft={10}
+      paddingRight={10}
     >
       <HeaderMenu />
       <Box display="flex" alignItems="center">
         {children}
       </Box>
-      <Box display="flex" pt={5}>
+      <Box display="flex" paddingTop={5}>
         <LightSwitch />
       </Box>
     </Box>

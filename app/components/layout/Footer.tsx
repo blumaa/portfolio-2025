@@ -3,7 +3,7 @@ import { Box, Text, Link } from "@mond-design-system/theme";
 const Footer = () => {
   return (
     <Box as="footer">
-      <Box pl={10} pb={10}>
+      <Box paddingLeft={10} paddingBottom={10}>
         <Text variant="caption" semantic="secondary">
           © 2025{" "}
           <Link href="mailto:blumaa@gmail.com" size="small">

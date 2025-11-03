@@ -10,7 +10,7 @@ const CreativeCard = ({ creativeThing }: { creativeThing: CreativeThing }) => {
     <Box
       width="100%"
       maxWidth="66.666667%"
-      p={4}
+      padding={4}
       borderRadius="8px"
     >
       <Text variant="body-md" semantic="primary">

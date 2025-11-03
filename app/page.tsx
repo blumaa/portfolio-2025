@@ -10,7 +10,7 @@ import { goodStuffLinks, myStuffLinks } from "./globals/links";
 export default function Home() {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
-      <Box display="flex" justifyContent="flex-end" pt={10} pr={10}>
+      <Box display="flex" justifyContent="flex-end" paddingTop={10} paddingRight={10}>
         <LightSwitch />
       </Box>
       <Box
@@ -30,11 +30,11 @@ export default function Home() {
             flexDirection="column"
             justifyContent="center"
           >
-            <Heading size="4xl" semantic="primary" weight="light">
+            <Heading size="4xl" semantic="primary" weight="normal">
               aaron blum
             </Heading>
           </Box>
-          <Box display="flex" pb={5}>
+          <Box display="flex" paddingBottom={5}>
             <Box
               display="flex"
               flexDirection="column"

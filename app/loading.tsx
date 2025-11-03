@@ -1,3 +1,5 @@
+"use client";
+
 import { Box } from "@mond-design-system/theme";
 import AnimatedBeaverMoon from "./animation-gallery/animations/AnimatedBeaverMoon";
 

@@ -3,13 +3,21 @@ import { render, screen } from '../../test-utils'
 import WorkCard from './WorkCard'
 import { Job, JobCategory } from '../../globals/jobs'
 
-// Mock useAppTheme
-vi.mock('../../hooks/useAppTheme', () => ({
-  useAppTheme: () => ({
-    isDarkMode: false,
-    toggleColorScheme: vi.fn(),
-  }),
-}))
+// Mock MDS useTheme hook
+vi.mock('@mond-design-system/theme', async () => {
+  const actual = await vi.importActual('@mond-design-system/theme');
+  return {
+    ...actual,
+    useTheme: () => ({
+      mode: 'light',
+      brand: 'default',
+      setMode: vi.fn(),
+      setBrand: vi.fn(),
+      toggleMode: vi.fn(),
+      currentTheme: {},
+    }),
+  };
+})
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({

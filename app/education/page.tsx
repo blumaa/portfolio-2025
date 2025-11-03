@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Link, Text, Divider } from "@mond-design-system/theme";
 import { educations } from "../globals/education";
 import EducationCard from "../components/cards/EducationCard";
@@ -9,7 +11,7 @@ export default function Education() {
         <EducationCard key={`${school.name}-${index}`} school={school} />
       ))}
       <Divider />
-      <Box p={2}>
+      <Box padding={2}>
         <Link href={"#"} >
         languages
         </Link>

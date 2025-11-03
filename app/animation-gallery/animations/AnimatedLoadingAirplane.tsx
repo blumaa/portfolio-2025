@@ -94,7 +94,7 @@ const AnimatedLoadingAirplane: React.FC = () => {
         alignItems="center"
         width="176px"
         height="176px"
-        bg="#0c4a6e"
+        backgroundColor="#0c4a6e"
         borderRadius="50%"
         overflow="auto"
       >

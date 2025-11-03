@@ -15,7 +15,7 @@ const AnimationCard = ({
       display="flex"
       flexDirection="column"
       width="300px"
-      m={2}
+      margin={2}
       position="relative"
     >
       <Box
@@ -35,7 +35,7 @@ const AnimationCard = ({
           bottom="8px"
           left="8px"
           borderRadius="12px"
-          p={1}
+          padding={1}
           border="1px solid"
         >
           <Box display="flex" justifyContent="center" position="relative">

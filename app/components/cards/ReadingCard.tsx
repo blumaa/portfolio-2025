@@ -10,7 +10,7 @@ const ReadingCard = ({ reading }: { reading: Reading }) => {
   return (
     <Box width="50%" maxWidth="50%">
       <Box
-        p={10}
+        padding={10}
         border="1px solid"
         borderRadius="10px"
         transition="transform 0.3s ease-out"
@@ -23,13 +23,13 @@ const ReadingCard = ({ reading }: { reading: Reading }) => {
         }}
       >
         <Box display="flex" flexDirection="column">
-          <Box display="flex" pt={2} alignItems="flex-end">
+          <Box display="flex" paddingTop={2} alignItems="flex-end">
             {imageUrl && (
               <Box>
                 <Image src={imageUrl} alt={title} width={100} height={100} />
               </Box>
             )}
-            <Box p={2} display="flex" justifyContent="center" flexDirection="column">
+            <Box padding={2} display="flex" justifyContent="center" flexDirection="column">
               <Link href={link || "#"} target={linkTarget} size="large">
                 {title}
               </Link>
@@ -40,7 +40,7 @@ const ReadingCard = ({ reading }: { reading: Reading }) => {
               )}
             </Box>
           </Box>
-          <Box py={2}>
+          <Box paddingTop={2} paddingBottom={2}>
             <Text variant="body-md" semantic="primary">
               {description}
             </Text>

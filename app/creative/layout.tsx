@@ -1,3 +1,5 @@
+"use client";
+
 import { PaintBrushIcon } from "@heroicons/react/24/solid";
 import { Box, Text, Icon } from "@mond-design-system/theme";
 import { Header } from "../components/layout/Header";
@@ -11,7 +13,7 @@ export default function CreativeLayout({
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
       <Header>
-        <Box display="flex" alignItems="center" gap={10} pt={5}>
+        <Box display="flex" alignItems="center" gap={10} paddingTop={5}>
           <Icon size="md">
             <PaintBrushIcon />
           </Icon>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Box } from "@mond-design-system/theme";
 import LightSwitch from "../components/ui/LightSwitch";
 
@@ -8,8 +10,8 @@ export default function StageLayout({
 }) {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
-      <Box as="nav" display="flex" justifyContent="flex-end" pb={10} px={10}>
-        <Box display="flex" pt={5}>
+      <Box as="nav" display="flex" justifyContent="flex-end" paddingBottom={10} paddingLeft={10} paddingRight={10}>
+        <Box display="flex" paddingTop={5}>
           <LightSwitch />
         </Box>
       </Box>

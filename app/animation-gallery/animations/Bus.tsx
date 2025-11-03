@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { useAppTheme } from "../../providers/AppThemeProvider";
+import { useTheme } from "@mond-design-system/theme";
 import { Box } from "@mond-design-system/theme";
 
 gsap.registerPlugin(useGSAP, MotionPathPlugin);
@@ -22,10 +22,10 @@ export default function Bus() {
   const cloud2Ref = useRef<SVGGElement>(null);
   const cloud3Ref = useRef<SVGGElement>(null);
   const cloud4Ref = useRef<SVGGElement>(null);
-  const { colorScheme } = useAppTheme();
+  const { mode } = useTheme();
 
-  const hillColor = colorScheme === "dark" ? "#27AE60" : "#2ECC71";
-  const skyColor = colorScheme === "dark" ? "#34495E" : "#ECF0F1";
+  const hillColor = mode === "dark" ? "#27AE60" : "#2ECC71";
+  const skyColor = mode === "dark" ? "#34495E" : "#ECF0F1";
 
   useGSAP(
     () => {
@@ -173,7 +173,7 @@ export default function Bus() {
         <rect width="2000" height="1500" fill={skyColor} />
 
         {/* Clouds */}
-        <g opacity="0.7" fill={colorScheme === "dark" ? "#FFFFFF" : "#546E7A"}>
+        <g opacity="0.7" fill={mode === "dark" ? "#FFFFFF" : "#546E7A"}>
           {/* Cloud 1 */}
           <g ref={cloud1Ref}>
             <ellipse cx="300" cy="900" rx="80" ry="50" />
@@ -210,7 +210,7 @@ export default function Bus() {
         />
 
         {/* Grass blades below the hills - different scales for depth with natural variation */}
-        <g fill={colorScheme === "dark" ? "#1E8449" : "#239B56"} opacity="0.6">
+        <g fill={mode === "dark" ? "#1E8449" : "#239B56"} opacity="0.6">
           {/* Far grass (smaller) */}
           {[
             80, 170, 240, 330, 510, 620, 730, 890, 980, 1090, 1210, 1380, 1520,
@@ -227,13 +227,13 @@ export default function Bus() {
               >
                 <path
                   d={`M 0 0 Q -${curve} -${height1 * 0.5} 0 -${height1}`}
-                  stroke={colorScheme === "dark" ? "#1E8449" : "#239B56"}
+                  stroke={mode === "dark" ? "#1E8449" : "#239B56"}
                   strokeWidth="1.5"
                   fill="none"
                 />
                 <path
                   d={`M 0 0 Q ${curve} -${height2 * 0.5} 0 -${height2}`}
-                  stroke={colorScheme === "dark" ? "#1E8449" : "#239B56"}
+                  stroke={mode === "dark" ? "#1E8449" : "#239B56"}
                   strokeWidth="1.5"
                   fill="none"
                 />
@@ -257,13 +257,13 @@ export default function Bus() {
               >
                 <path
                   d={`M 0 0 Q -${curve} -${height1 * 0.5} 0 -${height1}`}
-                  stroke={colorScheme === "dark" ? "#1E8449" : "#239B56"}
+                  stroke={mode === "dark" ? "#1E8449" : "#239B56"}
                   strokeWidth="2"
                   fill="none"
                 />
                 <path
                   d={`M 0 0 Q ${curve} -${height2 * 0.5} 0 -${height2}`}
-                  stroke={colorScheme === "dark" ? "#1E8449" : "#239B56"}
+                  stroke={mode === "dark" ? "#1E8449" : "#239B56"}
                   strokeWidth="2"
                   fill="none"
                 />
@@ -287,13 +287,13 @@ export default function Bus() {
               >
                 <path
                   d={`M 0 0 Q -${curve} -${height1 * 0.5} 0 -${height1}`}
-                  stroke={colorScheme === "dark" ? "#1E8449" : "#239B56"}
+                  stroke={mode === "dark" ? "#1E8449" : "#239B56"}
                   strokeWidth="2.5"
                   fill="none"
                 />
                 <path
                   d={`M 0 0 Q ${curve} -${height2 * 0.5} 0 -${height2}`}
-                  stroke={colorScheme === "dark" ? "#1E8449" : "#239B56"}
+                  stroke={mode === "dark" ? "#1E8449" : "#239B56"}
                   strokeWidth="2.5"
                   fill="none"
                 />

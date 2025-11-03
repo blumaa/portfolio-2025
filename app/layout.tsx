@@ -1,4 +1,7 @@
+"use client";
+
 import { Analytics } from "@vercel/analytics/react";
+import { Box } from "@mond-design-system/theme";
 import "../styles/global.css";
 import { AppThemeProvider } from "./providers/AppThemeProvider";
 
@@ -11,8 +14,16 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppThemeProvider>
-          {children}
-          <Analytics />
+          <Box
+            minHeight="100vh"
+            display="flex"
+            flexDirection="column"
+            backgroundColor="surfaceBackground"
+            color="textPrimary"
+          >
+            {children}
+            <Analytics />
+          </Box>
         </AppThemeProvider>
       </body>
     </html>

@@ -31,7 +31,7 @@ export default function Work() {
   }, [filters]);
 
   return (
-    <Box width="100%" maxWidth="66.666667%" p={10} gap={40}>
+    <Box width="100%" maxWidth="66.666667%" padding={10} gap={40}>
       <Text variant="body-lg">
         i put a little bit of illustration into my creative writing, a little
         bit of creative writing into my music, a little bit of music into my
@@ -41,8 +41,8 @@ export default function Work() {
         display="flex"
         alignItems="center"
         gap={10}
-        pt={20}
-        pb={20}
+        paddingTop={20}
+        paddingBottom={20}
         justifyContent="center"
       >
         <Button
@@ -83,7 +83,7 @@ export default function Work() {
         gap={10}
         width="100%"
         justifyContent="center"
-        p={20}
+        padding={20}
       >
         <AnimatePresence>
           {filteredJobs.map((job) => (

@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mond-design-system/theme";
 import { readings } from "../globals/readings";
 import ReadingCard from "../components/cards/ReadingCard";

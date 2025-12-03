@@ -1,5 +1,3 @@
-"use client";
-
 import { BuildingLibraryIcon } from "@heroicons/react/24/solid";
 import { Box, Text, Icon } from "@mond-design-system/theme";
 import { Header } from "../components/layout/Header";

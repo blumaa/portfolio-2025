@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mond-design-system/theme";
 import AnimationCard from "../components/cards/AnimationCard";
 import OctoDude from "./animations/OctoDude";

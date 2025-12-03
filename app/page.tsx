@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Heading, Divider, Label } from "@mond-design-system/theme";
 import LightSwitch from "./components/ui/LightSwitch";
 import HomePageLink from "./components/navigation/HomePageLink";

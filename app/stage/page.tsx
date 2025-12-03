@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mond-design-system/theme";
 import MuppetPodcaster from "../animation-gallery/animations/MuppetPodcaster";
 import Modcast from "../modcast/Modcast";

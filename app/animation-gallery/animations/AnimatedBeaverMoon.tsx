@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@mond-design-system/theme";
+import { useThemeContext } from "@/app/providers/ThemeContext";
 
 const list = {
   visible: {
@@ -26,7 +26,7 @@ const item = {
 };
 
 const AnimatedBeaverMoon = () => {
-  const { mode } = useTheme();
+  const { mode } = useThemeContext();
   const isDarkMode = mode === 'dark';
   const stroke = isDarkMode ? "#fff" : "#000";
   const fill = isDarkMode ? "#fff" : "#000";

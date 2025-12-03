@@ -7,8 +7,8 @@ import AnimationCard from "../components/cards/AnimationCard";
 
 const Stage = () => {
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" flex={1}>
-      <Box width="50%" overflow="visible" border="1px solid yellow">
+    <Box display="flex" alignItems="center" justifyContent="center" flex="1">
+      <Box width="half" className="overflow-visible" border="default">
         {/* <AnimationCard> */}
           <Modcast />
         {/* </AnimationCard> */}

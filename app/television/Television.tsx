@@ -47,9 +47,9 @@ export default function Television() {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      flex={1}
+      flex="1"
     >
-      <Box width="100%" maxWidth="1200px">
+      <Box width="full" className="max-w-1200">
         <TelevisionFacade
           onPowerClick={handlePowerClick}
           onChannelClick={handleChannelClick}

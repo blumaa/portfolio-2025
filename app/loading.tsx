@@ -5,8 +5,8 @@ import AnimatedBeaverMoon from "./animation-gallery/animations/AnimatedBeaverMoo
 
 const Loading = () => {
   return (
-    <Box height="100vh" display="flex" justifyContent="center" alignItems="center">
-      <Box height="50%" overflow="visible">
+    <Box display="flex" justifyContent="center" alignItems="center" className="h-screen">
+      <Box height="half" className="overflow-visible">
         <AnimatedBeaverMoon />
       </Box>
     </Box>

@@ -12,18 +12,16 @@ export default function AnimationLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
+    <Box display="flex" flexDirection="column" className="min-h-screen">
       <Header>
-        <Box display="flex" alignItems="center" gap={10} paddingTop={5}>
-          <Box height="32px">
+        <Box display="flex" alignItems="center" gap="xxs">
+          <Box className="h-8">
             <AnimatedMoon />
           </Box>
           <AnimatedTitle />
         </Box>
       </Header>
-      <Box flex="1">
-        {children}
-      </Box>
+      <Box flex="1">{children}</Box>
       <Footer />
     </Box>
   );

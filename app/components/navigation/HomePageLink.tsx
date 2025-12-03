@@ -5,9 +5,9 @@ import { LINKS } from "../../globals/links";
 const HomePageLink = ({ name }: { name: string }) => {
 
   return (
-    <Box display="flex" alignItems="center" gap={5}>
+    <Box display="flex" alignItems="center" gap="xs">
       {LINKS[name].icon()}
-      <Link as={NextLink} href={LINKS[name].href as string}>
+      <Link size="small" as={NextLink} href={LINKS[name].href as string}>
         {LINKS[name].title}
       </Link>
     </Box>

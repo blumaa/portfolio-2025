@@ -10,11 +10,11 @@ export default function WindLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
+    <Box display="flex" flexDirection="column" className="min-h-screen">
       <Header>
-        <Box display="flex" alignItems="center" gap={10} paddingTop={5}>
-          <Text variant="title" semantic="primary">
-           Rustling Grass 
+        <Box display="flex" alignItems="center" gap="xl" paddingTop="5">
+          <Text size="xl" semantic="primary">
+           Rustling Grass
           </Text>
         </Box>
       </Header>

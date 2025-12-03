@@ -87,16 +87,12 @@ const AnimatedLoadingAirplane: React.FC = () => {
   }, []);
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+    <Box display="flex" justifyContent="center" alignItems="center" className="h-full">
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        width="176px"
-        height="176px"
-        backgroundColor="#0c4a6e"
-        borderRadius="50%"
-        overflow="auto"
+        className="airplane-inner"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

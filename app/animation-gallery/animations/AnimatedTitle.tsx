@@ -29,15 +29,15 @@ const AnimatedTitle = () => {
     >
       {title.split("").map((char, index) => {
         return (
-          <Text
-            variant="title"
-            semantic="primary"
-            as={motion.span}
+          <motion.span
             key={char + index}
             variants={letter}
+            style={{ display: "inline-block" }}
           >
-            {char}
-          </Text>
+            <Text size="xl" semantic="primary" as="span">
+              {char === " " ? "\u00A0" : char}
+            </Text>
+          </motion.span>
         );
       })}
     </motion.div>

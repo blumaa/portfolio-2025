@@ -25,10 +25,10 @@ export default function AnimationGallery() {
       display="flex"
       flexWrap="wrap"
       flexDirection="row"
-      width="100%"
+      width="full"
       justifyContent="center"
       alignItems="center"
-      gap={10}
+      gap="xxs"
     >
       {/* <AnimationCard> */}
       {/*   <AnimatedGearScene /> */}

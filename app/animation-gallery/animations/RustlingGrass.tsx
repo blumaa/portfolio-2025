@@ -3,14 +3,14 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useTheme } from "@mond-design-system/theme";
+import { useThemeContext } from "@/app/providers/ThemeContext";
 
 gsap.registerPlugin(useGSAP);
 
 export default function RustlingGrass() {
   const container = useRef<SVGSVGElement>(null);
   const stemPlantRef = useRef<SVGGElement>(null);
-  const { mode } = useTheme();
+  const { mode } = useThemeContext();
   const grassColor = mode === 'dark' ? '#414A4C' : '#DDE6ED';
   const windColor = grassColor; // Wind should be the same color as grass
   const bgColor = mode === 'dark' ? '#F2F3F4' : '#27374D';

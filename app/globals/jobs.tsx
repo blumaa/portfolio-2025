@@ -32,7 +32,7 @@ export const jobs = [
         <Icon size="sm">
           <HeartIcon />
         </Icon>
-        : love the team.
+        : web-components.
       </>
     ),
     location: "remote / leipzig, germany",

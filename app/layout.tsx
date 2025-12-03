@@ -15,11 +15,9 @@ export default function RootLayout({
       <body>
         <AppThemeProvider>
           <Box
-            minHeight="100vh"
             display="flex"
             flexDirection="column"
-            backgroundColor="surfaceBackground"
-            color="textPrimary"
+            className="min-h-screen"
           >
             {children}
             <Analytics />

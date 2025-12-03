@@ -19,7 +19,7 @@ export const LINKS: LinksType = {
   work: {
     title: "work",
     icon: () => (
-      <Icon size="sm">
+      <Icon size="xs">
         <WrenchScrewdriverIcon />
       </Icon>
     ),
@@ -28,7 +28,7 @@ export const LINKS: LinksType = {
   education: {
     title: "education",
     icon: () => (
-      <Icon size="sm">
+      <Icon size="xs">
         <BuildingLibraryIcon />
       </Icon>
     ),
@@ -37,7 +37,7 @@ export const LINKS: LinksType = {
   creative: {
     title: "creative",
     icon: () => (
-      <Icon size="sm">
+      <Icon size="xs">
         <PaintBrushIcon />
       </Icon>
     ),
@@ -46,7 +46,7 @@ export const LINKS: LinksType = {
   resources: {
     title: "resources",
     icon: () => (
-      <Icon size="sm">
+      <Icon size="xs">
         <DocumentPlusIcon />
       </Icon>
     ),
@@ -55,7 +55,7 @@ export const LINKS: LinksType = {
   animationGallery: {
     title: "animations",
     icon: () => (
-      <div style={{ width: "1rem" }}>
+      <div style={{ width: "0.8rem" }}>
         <AnimatedMoon />
       </div>
     ),
@@ -64,7 +64,7 @@ export const LINKS: LinksType = {
   television: {
     title: "television",
     icon: () => (
-      <Icon size="sm">
+      <Icon size="xs">
         <TvIcon />
       </Icon>
     ),

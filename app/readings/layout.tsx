@@ -11,20 +11,18 @@ export default function BooksLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
+    <Box display="flex" flexDirection="column" className="min-h-screen">
       <Header>
-        <Box display="flex" alignItems="center" gap={10} paddingTop={5}>
+        <Box display="flex" alignItems="center" gap="xxs">
           <Icon size="md">
             <DocumentPlusIcon />
           </Icon>
-          <Text variant="title" semantic="primary">
+          <Text size="xl" semantic="primary">
             Resources
           </Text>
         </Box>
       </Header>
-      <Box flex="1">
-        {children}
-      </Box>
+      <Box flex="1">{children}</Box>
       <Footer />
     </Box>
   );

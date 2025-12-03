@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { useTheme } from "@mond-design-system/theme";
+import { useThemeContext } from "@/app/providers/ThemeContext";
 import { Box } from "@mond-design-system/theme";
 
 gsap.registerPlugin(useGSAP, MotionPathPlugin);
@@ -22,7 +22,7 @@ export default function Bus() {
   const cloud2Ref = useRef<SVGGElement>(null);
   const cloud3Ref = useRef<SVGGElement>(null);
   const cloud4Ref = useRef<SVGGElement>(null);
-  const { mode } = useTheme();
+  const { mode } = useThemeContext();
 
   const hillColor = mode === "dark" ? "#27AE60" : "#2ECC71";
   const skyColor = mode === "dark" ? "#34495E" : "#ECF0F1";
@@ -160,8 +160,8 @@ export default function Bus() {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      width="100%"
-      height="100%"
+      width="full"
+      height="full"
     >
       <svg
         ref={containerRef}

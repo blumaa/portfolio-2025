@@ -2,27 +2,34 @@
 
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mond-design-system/theme';
+import { ThemeContextProvider, useThemeContext } from './ThemeContext';
 
 interface AppThemeProviderProps {
   children: React.ReactNode;
 }
 
 /**
- * AppThemeProvider - Wraps the app with the Mond Design System ThemeProvider
+ * Inner component that uses the theme context to pass colorScheme to MDS ThemeProvider
+ */
+function ThemeProviderWithContext({ children }: { children: React.ReactNode }) {
+  const { mode } = useThemeContext();
+
+  return (
+    <ThemeProvider colorScheme={mode}>
+      {children}
+    </ThemeProvider>
+  );
+}
+
+/**
+ * AppThemeProvider - Wraps the app with theme management
  *
- * Uses the MDS ThemeProvider with enableHooks for built-in theme management.
- * The MDS provider handles:
- * - Theme state management via useTheme hook
- * - localStorage persistence (key: 'mond-theme-mode')
- * - SSR-safe hydration
+ * Uses local ThemeContext for theme state management and MDS ThemeProvider for CSS variables.
  *
- * Components can use `useTheme` from '@mond-design-system/theme' to access:
+ * Components can use `useThemeContext` from '../providers/ThemeContext' to access:
  * - mode: 'light' | 'dark'
- * - brand: 'default' | 'bsf'
- * - setMode, setBrand, toggleMode functions
- *
- * Note: We must wait for client-side mount before rendering children that use useTheme()
- * because the ThemeProvider's context is only available after mounting.
+ * - isDarkMode: boolean
+ * - setMode, toggleMode functions
  */
 export function AppThemeProvider({ children }: AppThemeProviderProps) {
   const [mounted, setMounted] = useState(false);
@@ -32,12 +39,10 @@ export function AppThemeProvider({ children }: AppThemeProviderProps) {
   }, []);
 
   return (
-    <ThemeProvider
-      enableHooks
-      colorScheme="dark"
-      brand="default"
-    >
-      {mounted ? children : <div style={{ minHeight: '100vh' }} />}
-    </ThemeProvider>
+    <ThemeContextProvider>
+      <ThemeProviderWithContext>
+        {mounted ? children : <div style={{ minHeight: '100vh' }} />}
+      </ThemeProviderWithContext>
+    </ThemeContextProvider>
   );
 }

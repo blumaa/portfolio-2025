@@ -1,6 +1,7 @@
 "use client";
 import NextLink from "next/link";
-import { Box, Text, Link, Popover } from "@mond-design-system/theme";
+import { Box, Text, Link } from "@mond-design-system/theme";
+import { Popover } from "@mond-design-system/theme/client";
 import { goodStuffLinks, myStuffLinks } from "../../globals/links";
 import HomePageLink from "./HomePageLink";
 
@@ -18,7 +19,7 @@ const HeaderMenu = () => {
       }
     >
       <Link as={NextLink} href="/">
-        <Text as="span" variant="body-lg" semantic="primary">
+        <Text as="span" size="lg" semantic="primary">
           aaron blum
         </Text>
       </Link>

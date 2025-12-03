@@ -15,7 +15,7 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@heroicons/react": "^2.0.18",
-    "@mond-design-system/theme": "1.26.0",
+    "@mond-design-system/theme": "2.9.10",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "@vercel/analytics": "^1.1.0",

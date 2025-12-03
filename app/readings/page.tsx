@@ -6,8 +6,16 @@ import ReadingCard from "../components/cards/ReadingCard";
 
 export default function Books() {
   return (
-    <Box paddingTop={4}>
-      <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap={10}>
+    <Box>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        gap="xxs"
+        paddingLeft="4"
+        paddingRight="4"
+      >
         {readings.map((reading) => (
           <ReadingCard key={reading.title} reading={reading} />
         ))}

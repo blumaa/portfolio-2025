@@ -1,10 +1,67 @@
+@import "@mond-design-system/theme/theme.css";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
 body {
-  margin: 0;
+  background: var(--mond-surface-background);
+  color: var(--mond-text-primary);
+  font-family: var(--mond-font-family-sans);
   min-height: 100vh;
+}
+
+/* Utility classes for props not supported by Box */
+.min-h-screen { min-height: 100vh; }
+.h-screen { height: 100vh; }
+.h-8 { height: 32px; }
+.h-full { height: 100%; }
+.h-half { height: 50%; }
+.w-full { width: 100%; }
+.w-half { width: 50%; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.cursor-pointer { cursor: pointer; }
+
+/* Gap utilities (for when SizeToken doesn't fit) */
+.gap-2 { gap: 0.5rem; }
+.gap-5 { gap: 1.25rem; }
+.gap-10 { gap: 2.5rem; }
+
+/* Animation card specific */
+.animation-card { width: 300px; }
+.animation-card-preview { height: 200px; }
+.animation-card-code-link { bottom: 8px; left: 8px; }
+
+/* Loading airplane specific */
+.airplane-container { width: 176px; height: 176px; }
+
+/* Reading card hover effect */
+.reading-card {
+  transition: transform 0.3s ease-out;
+  cursor: pointer;
+}
+.reading-card:hover {
+  transform: scale(1.05);
+}
+
+/* Max width utilities */
+.max-w-2\/3 { max-width: 66.666667%; }
+.max-w-1200 { max-width: 1200px; }
+
+/* Gap utilities for larger values */
+.gap-40 { gap: 10rem; }
+
+/* Animation airplane specific */
+.airplane-inner {
+  width: 176px;
+  height: 176px;
+  background-color: #0c4a6e;
+  border-radius: 50%;
+  overflow: auto;
 }

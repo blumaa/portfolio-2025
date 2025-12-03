@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Text, Heading, Divider, Label } from "@mond-design-system/theme";
+import { Box, Heading, Divider, Label } from "@mond-design-system/theme";
 import LightSwitch from "./components/ui/LightSwitch";
 import HomePageLink from "./components/navigation/HomePageLink";
 import SocialLink from "./components/ui/SocialLink";
@@ -9,8 +9,13 @@ import { goodStuffLinks, myStuffLinks } from "./globals/links";
 
 export default function Home() {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
-      <Box display="flex" justifyContent="flex-end" paddingTop={10} paddingRight={10}>
+    <Box display="flex" flexDirection="column" className="min-h-screen">
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        paddingTop="10"
+        paddingRight="10"
+      >
         <LightSwitch />
       </Box>
       <Box
@@ -20,53 +25,30 @@ export default function Home() {
         justifyContent="center"
         flex="1"
       >
-        <Box
-          display="flex"
-          flexDirection="column"
-          gap={10}
-        >
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-          >
-            <Heading size="4xl" semantic="primary" weight="normal">
+        <Box display="flex" flexDirection="column">
+          <Box display="flex" flexDirection="column" justifyContent="center">
+            <Heading size="3xl" semantic="primary" weight="normal">
               aaron blum
             </Heading>
           </Box>
-          <Box display="flex" paddingBottom={5}>
-            <Box
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              gap={5}
-            >
-              <Label size="lg">my stuff</Label>
-              <Box display="flex" flexDirection="column" gap={5}>
+          <Box display="flex" gap="md">
+            <Box display="flex" flexDirection="column" justifyContent="center">
+              <Label size="md">my stuff</Label>
+              <Box display="flex" flexDirection="column" gap="xxs">
                 {myStuffLinks.map((link) => (
                   <HomePageLink key={link} name={link} />
                 ))}
               </Box>
             </Box>
-            <Box display="flex" flexDirection="column" gap={5}>
-              <Label size="lg">good stuff</Label>
+            <Box display="flex" flexDirection="column" gap="xxs">
+              <Label size="md">good stuff</Label>
               {goodStuffLinks.map((link) => (
                 <HomePageLink key={link} name={link} />
               ))}
             </Box>
           </Box>
-          <Divider variant="strong" />
-          <Box display="flex" gap={2} justifyContent="flex-start" >
-            <SocialLink
-              href="https://bsky.app/profile/punkpoet.bsky.social"
-              src="/bluesky.svg"
-              alt="BlueSky"
-            />
-            <SocialLink
-              href="https://desmondblume.substack.com/"
-              src="/substack-icon.svg"
-              alt="Blumenous Poetry"
-            />
+          <Divider variant="default" />
+          <Box display="flex" justifyContent="flex-start">
             <SocialLink
               href="https://github.com/blumaa"
               src="/github-logo.svg"
@@ -81,6 +63,11 @@ export default function Home() {
               href="https://www.linkedin.com/in/aaron-blum-0904/"
               src="/linkedin-logo.svg"
               alt="LinkedIn"
+            />
+            <SocialLink
+              href="https://desmondblume.substack.com/"
+              src="/substack-icon.svg"
+              alt="Blumenous Poetry"
             />
           </Box>
         </Box>

@@ -31,8 +31,8 @@ export default function Work() {
   }, [filters]);
 
   return (
-    <Box width="100%" maxWidth="66.666667%" padding={10} gap={40}>
-      <Text variant="body-lg">
+    <Box width="full" paddingLeft="4" paddingRight="4">
+      <Text>
         i put a little bit of illustration into my creative writing, a little
         bit of creative writing into my music, a little bit of music into my
         teaching, and a whole lot of all of these crafts into coding.
@@ -40,10 +40,10 @@ export default function Work() {
       <Box
         display="flex"
         alignItems="center"
-        gap={10}
-        paddingTop={20}
-        paddingBottom={20}
+        gap="md"
         justifyContent="center"
+        paddingTop="2"
+        paddingBottom="2"
       >
         <Button
           variant={filters.includes("coding") ? "primary" : "outline"}
@@ -80,10 +80,11 @@ export default function Work() {
         display="flex"
         alignItems="center"
         flexDirection="column"
-        gap={10}
-        width="100%"
+        gap="xxs"
+        width="full"
         justifyContent="center"
-        padding={20}
+        paddingRight="4"
+        paddingLeft="4"
       >
         <AnimatePresence>
           {filteredJobs.map((job) => (

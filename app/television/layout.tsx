@@ -11,13 +11,13 @@ export default function TelevisionLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
+    <Box display="flex" flexDirection="column" className="min-h-screen">
       <Header>
-        <Box display="flex" alignItems="center" gap={10} paddingTop={5}>
+        <Box display="flex" alignItems="center" gap="xxs">
           <Icon size="md">
             <TvIcon />
           </Icon>
-          <Text variant="title" semantic="primary">
+          <Text size="xl" semantic="primary">
             television
           </Text>
         </Box>

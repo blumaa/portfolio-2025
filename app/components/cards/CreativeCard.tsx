@@ -1,3 +1,5 @@
+"use client";
+
 import NextLink from "next/link";
 import { Box, Text, Link, Card, CardBody } from "@mond-design-system/theme";
 import { CreativeThing } from "../../globals/creatives";

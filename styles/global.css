@@ -65,3 +65,20 @@ body {
   border-radius: 50%;
   overflow: auto;
 }
+
+/* Work page grid - responsive 1/2/3 columns */
+.work-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -29,9 +29,6 @@ export const jobs = [
     description: ": web-components + atomic design system = amazing developer experience (with flexibility, reusibiliity, scalability, and consistency)!",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : web-components.
       </>
     ),
@@ -47,9 +44,6 @@ export const jobs = [
       ": javascript frontend (react and nextJs), ruby on rails backend. coding to help automate the tasks of case managers who assisted employees in global mobility",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : it was so much fun helping to
         develop the design system:&nbsp;
         <Link
@@ -73,9 +67,6 @@ export const jobs = [
       ": frontend coding to automate large scale health insurance applications",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : i really honed my&nbsp;
         <Link
           as={NextLink}
@@ -100,9 +91,6 @@ export const jobs = [
       " boosted the level of cultural relevance using 21st century apps and technology",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : this was both the most rewarding
         and the most stressful job of my life.
       </>
@@ -120,9 +108,6 @@ export const jobs = [
       "maintained, updated, and developed the community education websites",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : it was my honour to meet, be
         mentored by, and work with the greatly inspirational artist:&nbsp;
         <Link
@@ -146,9 +131,6 @@ export const jobs = [
       ": together with niky duxbury, we founded powderhorn porchfest- a free, neighborhood based music festival that brought people together and highlighted local musicians, food vendors, and artists. it's still going strong to this day",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : seeing the community come out and
         gather in the streets to hear a lot of great local music.
       </>
@@ -164,9 +146,6 @@ export const jobs = [
     description: ": designed and implemented art oriented curriculum for youth",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : together, with the students, built
         an enormous robot sculpture using only recycled materials and we had two
         pet rats in the classroom.
@@ -184,9 +163,6 @@ export const jobs = [
       ": served as lead english teacher, helping to improve the language skills of students",
     learning: () => (
       <>
-        <Icon size="sm">
-          <HeartIcon />
-        </Icon>
         : i got to act in a pantomime! i
         also got to walk the camino de santiago- a life changing experience!
       </>

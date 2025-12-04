@@ -124,7 +124,7 @@ export default function MuppetPodcaster({
         });
 
         const blinkEyes = () => {
-          if (mode !== "talk") return;
+          if (mode !== "talk" || !isPlaying) return;
 
           const blinkTimeline = gsap.timeline();
           blinkTimeline
@@ -140,7 +140,7 @@ export default function MuppetPodcaster({
               ease: "power2.out",
             });
 
-          if (mode === "talk") {
+          if (mode === "talk" && isPlaying) {
             blinkCallbackRef.current = gsap.delayedCall(
               gsap.utils.random(2, 5),
               blinkEyes,
@@ -148,7 +148,10 @@ export default function MuppetPodcaster({
           }
         };
 
-        blinkCallbackRef.current = gsap.delayedCall(1, blinkEyes);
+        // Only start blinking if playing
+        if (isPlaying) {
+          blinkCallbackRef.current = gsap.delayedCall(1, blinkEyes);
+        }
       }
 
       // Reset head position
@@ -172,6 +175,7 @@ export default function MuppetPodcaster({
           yoyo: true,
           ease: "sine.inOut",
           transformOrigin: "center bottom",
+          paused: !isPlaying, // Start paused if not playing
         });
 
         headAnimationRef.current = headAnimation;
@@ -184,14 +188,15 @@ export default function MuppetPodcaster({
           yoyo: true,
           ease: "sine.inOut",
           transformOrigin: "center bottom",
+          paused: !isPlaying, // Start paused if not playing
         });
         headAnimationRef.current = headAnimation;
       }
 
-      // Mouth animation cycle - only in talk mode
+      // Mouth animation cycle - only in talk mode and when playing
       let mouthCycle: gsap.core.Timeline | null = null;
 
-      if (mode === "talk") {
+      if (mode === "talk" && isPlaying) {
         mouthCycle = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
         mouthCycle
           .call(() => setMouthState("half"), [], 0)
@@ -217,19 +222,19 @@ export default function MuppetPodcaster({
         gsap.killTweensOf([leftEyeRef.current, rightEyeRef.current]);
       };
     },
-    { scope: containerRef, dependencies: [mode] },
+    { scope: containerRef, dependencies: [mode, isPlaying] },
   );
 
-  // Pause/resume head animation based on isPlaying in listenToMusic mode
+  // Pause/resume head animation based on isPlaying
   useEffect(() => {
-    if (mode === "listenToMusic" && headAnimationRef.current) {
+    if (headAnimationRef.current) {
       if (isPlaying) {
         headAnimationRef.current.resume();
       } else {
         headAnimationRef.current.pause();
       }
     }
-  }, [isPlaying, mode]);
+  }, [isPlaying]);
 
   return (
     <svg

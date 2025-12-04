@@ -16,6 +16,7 @@ export default function OctoDude() {
         cy="80"
         r="6"
         fill="#7dd3fc"
+        initial={{ cx: 16, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [16, 18, 14, 16],
@@ -32,6 +33,7 @@ export default function OctoDude() {
         cy="80"
         r="4"
         fill="#7dd3fc"
+        initial={{ cx: 40, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [40, 37, 42, 40],
@@ -49,6 +51,7 @@ export default function OctoDude() {
         cy="80"
         r="5"
         fill="#7dd3fc"
+        initial={{ cx: 120, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [120, 118, 123, 120],
@@ -66,6 +69,7 @@ export default function OctoDude() {
         cy="80"
         r="4.5"
         fill="#7dd3fc"
+        initial={{ cx: 144, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [144, 142, 146, 144],
@@ -83,6 +87,7 @@ export default function OctoDude() {
         cy="80"
         r="3.5"
         fill="#7dd3fc"
+        initial={{ cx: 80, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [80, 78, 82, 80],
@@ -178,7 +183,7 @@ export default function OctoDude() {
               }}
             >
               <motion.circle
-                initial={{ opacity: 0 }}
+                initial={{ cx: 44, cy: 24, opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
                   duration: 0.3,
@@ -200,7 +205,7 @@ export default function OctoDude() {
               }}
             >
               <motion.circle
-                initial={{ opacity: 0 }}
+                initial={{ cx: 17.379, cy: 24, opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
                   duration: 0.3,
@@ -225,6 +230,7 @@ export default function OctoDude() {
         cy="80"
         r="5"
         fill="#7dd3fc"
+        initial={{ cx: 24, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [24, 22, 26, 24],
@@ -242,6 +248,7 @@ export default function OctoDude() {
         cy="80"
         r="5.5"
         fill="#7dd3fc"
+        initial={{ cx: 128, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [128, 126, 130, 128],
@@ -259,6 +266,7 @@ export default function OctoDude() {
         cy="80"
         r="4"
         fill="#7dd3fc"
+        initial={{ cx: 96, cy: 160, opacity: 0 }}
         animate={{
           cy: [160, 0],
           cx: [96, 94, 98, 96],

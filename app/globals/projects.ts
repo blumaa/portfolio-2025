@@ -95,10 +95,10 @@ export const projects: Project[] = [
     description:
       "A modern, accessible website for Beth Shalom Synagogue featuring event calendars, member portals, and content management.",
     category: "app",
-    link: "https://bethshalomsynagogue.org",
+    link: "https://beth-shalom-fairfield.vercel.app/",
     previewType: "image",
     images: ["/images/bsf1.png", "/images/bsf2.png", "/images/bsf3.png"],
-    liveUrl: "https://bethshalomsynagogue.org",
+    liveUrl: "https://beth-shalom-fairfield.vercel.app/",
     techStack: ["Next.js", "React", "CMS"],
     year: "2023",
   },

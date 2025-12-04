@@ -3,11 +3,10 @@ import {
   PaintBrushIcon,
   WrenchScrewdriverIcon,
   DocumentPlusIcon,
-  TvIcon
+  SparklesIcon,
 } from "@heroicons/react/24/solid";
 import { ReactElement } from "react";
 import { Icon } from "@mond-design-system/theme";
-import AnimatedMoon from "../animation-gallery/animations/AnimatedMoon";
 
 type LinksType = Record<string, {
   title: string;
@@ -52,31 +51,20 @@ export const LINKS: LinksType = {
     ),
     href: "/readings",
   },
-  animationGallery: {
-    title: "animations",
-    icon: () => (
-      <div style={{ width: "0.8rem" }}>
-        <AnimatedMoon />
-      </div>
-    ),
-    href: "/animation-gallery",
-  },
-  television: {
-    title: "television",
+  showcase: {
+    title: "showcase",
     icon: () => (
       <Icon size="xs">
-        <TvIcon />
+        <SparklesIcon />
       </Icon>
     ),
-    href: "/television",
+    href: "/showcase",
   },
 };
 
 export const myStuffLinks = [
   "work",
+  "showcase",
   "education",
-  "creative",
-  "animationGallery",
-  "television",
 ];
 export const goodStuffLinks = ["resources"];

@@ -82,3 +82,30 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Showcase floating stepper - responsive */
+.floating-stepper {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .floating-stepper {
+    display: flex;
+  }
+}
+
+/* Project section scroll snap */
+.project-section {
+  scroll-snap-align: start;
+}
+
+/* Stepper dot transitions */
+.stepper-dot {
+  outline: none;
+  border: none;
+}
+
+.stepper-dot:focus-visible {
+  outline: 2px solid var(--mond-brand-interactive-background);
+  outline-offset: 2px;
+}

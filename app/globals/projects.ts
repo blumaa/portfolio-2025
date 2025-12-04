@@ -130,7 +130,7 @@ export const projects: Project[] = [
   // MEDIA
   {
     id: "television",
-    name: "Muppet Television",
+    name: "Television",
     tagline: "Video productions and puppetry",
     description:
       "Collection of video productions featuring puppetry and creative storytelling.",

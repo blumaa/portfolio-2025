@@ -30,7 +30,7 @@ export default function Home() {
             </Heading>
           </Box>
           <Box display="flex" gap="md">
-            <Box display="flex" flexDirection="column" justifyContent="center">
+            <Box display="flex" flexDirection="column" alignItems="flex-start">
               <Label size="md">my stuff</Label>
               <Box display="flex" flexDirection="column" gap="xxs">
                 {myStuffLinks.map((link) => (
@@ -38,11 +38,23 @@ export default function Home() {
                 ))}
               </Box>
             </Box>
-            <Box display="flex" flexDirection="column" gap="xxs">
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+              justifyContent="flex-start"
+            >
               <Label size="md">good stuff</Label>
-              {goodStuffLinks.map((link) => (
-                <HomePageLink key={link} name={link} />
-              ))}
+              <Box
+                display="flex"
+                flexDirection="column"
+                gap="xxs"
+                alignItems="flex-start"
+              >
+                {goodStuffLinks.map((link) => (
+                  <HomePageLink key={link} name={link} />
+                ))}
+              </Box>
             </Box>
           </Box>
           <Divider variant="default" />

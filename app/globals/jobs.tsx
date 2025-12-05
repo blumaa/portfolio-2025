@@ -83,7 +83,7 @@ export const jobs = [
   {
     companyName: "south high school",
     link: "https://south.mpls.k12.mn.us/",
-    jobTitle: "teacher - english as a second language (esl)",
+    jobTitle: "teacher - esl",
     timeSpan: "october 2016 - june 2019",
     description:
       ": wrote, designed, and taught 10th, 11th, and 12th grade curriculum oriented towards racial and social justice." +

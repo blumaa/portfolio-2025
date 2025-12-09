@@ -89,6 +89,22 @@ export const projects: Project[] = [
     year: "2025",
   },
   {
+    id: "litclues",
+    name: "litclues.space",
+    tagline: "Daily literature puzzle game",
+    description:
+      "A daily puzzle game where players guess books from literary clues. Sister app to musiclues and filmclues.",
+    category: "app",
+    link: "https://litclues.space",
+    previewType: "iframe",
+    previewUrl: "https://litclues.space",
+    liveUrl: "https://litclues.space",
+    liveUrlLabel: "Play",
+    githubUrl: "https://github.com/blumaa/xclues",
+    techStack: ["Next.js", "React", "TypeScript", "Vercel"],
+    year: "2025",
+  },
+  {
     id: "beth-shalom",
     name: "Beth Shalom Synagogue",
     tagline: "Community website redesign",

@@ -19,6 +19,7 @@ import Modcast from "@/app/modcast/Modcast";
  * The television component will automatically scale to support the new channel.
  */
 export const ANIMATIONS: ComponentType<any>[] = [
+  NuclearPhysics1,
   Modcast,
   AnimatedEyeballWatching,
   Bird,
@@ -29,7 +30,6 @@ export const ANIMATIONS: ComponentType<any>[] = [
   AnimatedLoadingAirplane,
   CityScapeWrapper,
   AlienMoon,
-  NuclearPhysics1,
   // AnimatedEyeball,
   RustlingGrass,
 ];

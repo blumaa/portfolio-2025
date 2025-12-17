@@ -24,6 +24,7 @@ const AnimationCard = ({
             alignItems="center"
             corners="rounded-lg"
             className="overflow-hidden animation-card-preview"
+            border="default"
           >
             {children}
           </Box>

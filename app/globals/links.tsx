@@ -1,5 +1,5 @@
 import {
-  BuildingLibraryIcon,
+  UserIcon,
   PaintBrushIcon,
   WrenchScrewdriverIcon,
   DocumentPlusIcon,
@@ -24,14 +24,14 @@ export const LINKS: LinksType = {
     ),
     href: "/work",
   },
-  education: {
-    title: "education",
+  about: {
+    title: "about",
     icon: () => (
       <Icon size="xs">
-        <BuildingLibraryIcon />
+        <UserIcon />
       </Icon>
     ),
-    href: "/education",
+    href: "/about",
   },
   creative: {
     title: "creative",
@@ -65,6 +65,6 @@ export const LINKS: LinksType = {
 export const myStuffLinks = [
   "work",
   "showcase",
-  "education",
+  "about",
 ];
 export const goodStuffLinks = ["resources"];

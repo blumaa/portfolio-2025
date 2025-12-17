@@ -10,6 +10,9 @@ import ProjectSection from "../components/showcase/ProjectSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Set to true to enable scroll snap behavior
+const ENABLE_SCROLL_SNAP = false;
+
 export default function Showcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -65,9 +68,9 @@ export default function Showcase() {
       // Listen for scroll
       window.addEventListener("scroll", updateProgress, { passive: true });
 
-      // Create snap points for each section
+      // Create snap points for each section (when enabled)
       const sections = sectionRefs.current.filter(Boolean) as HTMLDivElement[];
-      if (sections.length > 0) {
+      if (ENABLE_SCROLL_SNAP && sections.length > 0) {
         ScrollTrigger.create({
           snap: {
             snapTo: (progress) => {

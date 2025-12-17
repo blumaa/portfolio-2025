@@ -99,17 +99,14 @@ const CityScape = ({ mode }) => {
 
         stars.forEach((star) => {
           tl.add(
-            gsap.to(
-              star,
-              {
-                opacity: 0,
-                /* duration: 0.2, */
-                duration: Math.random() * 10,
-                repeat: 7,
-                yoyo: true,
-                ease: "elastic",
-              },
-            ),
+            gsap.to(star, {
+              opacity: 0,
+              /* duration: 0.2, */
+              duration: Math.random() * 10,
+              repeat: 7,
+              yoyo: true,
+              ease: "elastic",
+            }),
             0,
           );
         });
@@ -122,13 +119,10 @@ const CityScape = ({ mode }) => {
             duration: duration,
           },
         );
-        gsap.to(
-          [".cityscape-cloud", "#daylight", "#window_off"],
-          {
-            opacity: 0,
-            duration: duration,
-          },
-        );
+        gsap.to([".cityscape-cloud", "#daylight", "#window_off"], {
+          opacity: 0,
+          duration: duration,
+        });
         gsap.fromTo(
           "#sun",
           { y: 0 },
@@ -191,16 +185,16 @@ const CityScape = ({ mode }) => {
     <Box
       ref={rootRef}
       overflow="hidden"
-      height="100%"
-      flex={18}
       display="flex"
       alignItems="center"
       justifyContent="center"
+      width="two-thirds"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 105.26 105.24"
-        style={{ height: "100%" }}
+        width="100%"
+        height="100%"
       >
         <g id="background">
           <path

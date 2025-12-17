@@ -28,17 +28,10 @@ const CityScapeWrapper = () => {
     borderRadius: "30%",
   };
   return (
-    <Box
-      display="flex"
-      gap="10px"
-      flexDirection="column"
-      height="100%"
-      pt="10px"
-      pb="10px"
-    >
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <CityScape mode={mode} />
-      <Box display="flex" justifyContent="flex-end" overflow="visible" height="0">
-        <Box pr="15px" alignSelf="flex-end">
+      <div style={{ position: "absolute", bottom: "5px", right: "5px" }}>
+        <Box>
           {mode === `day` ? (
             <MoonIcon
               onMouseEnter={handleMouseEnter}
@@ -46,7 +39,6 @@ const CityScapeWrapper = () => {
               onClick={() => setMode("night")}
               width="24px"
               height="24px"
-              color="#fff"
               style={{ ...buttonStyles, cursor: "pointer" }}
             />
           ) : (
@@ -61,8 +53,8 @@ const CityScapeWrapper = () => {
             />
           )}
         </Box>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

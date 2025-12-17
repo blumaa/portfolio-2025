@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export type ProjectCategory = "app" | "animation" | "creative" | "media";
 export type PreviewType =
   | "iframe"
@@ -35,6 +37,11 @@ export interface Project {
 
   techStack: string[];
   year: string;
+
+  // Case study content (optional - for flagship projects)
+  problem?: () => string | ReactElement;
+  approach?: () => string | ReactElement;
+  learnings?: () => string | ReactElement;
 }
 
 export const projects: Project[] = [
@@ -55,6 +62,12 @@ export const projects: Project[] = [
     npmUrl: "https://www.npmjs.com/package/@mond-design-system/theme",
     techStack: ["React", "TypeScript", "Storybook", "Vanilla Extract"],
     year: "2025",
+    problem: () =>
+      "After working on multiple projects, I kept rebuilding the same UI components from scratch. I needed a consistent, reusable system that enforced accessibility and design consistency across all my work.",
+    approach: () =>
+      "Built with atomic design principles - atoms (buttons, inputs) compose into molecules (form fields) and organisms (forms). Used Vanilla Extract for type-safe CSS-in-JS and Storybook for documentation and visual testing.",
+    learnings: () =>
+      "Publishing to npm taught me about package distribution and versioning. The design system now powers this portfolio and my other projects, dramatically speeding up development while maintaining consistency.",
   },
   {
     id: "musiclues",
@@ -71,6 +84,12 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/blumaa/xclues",
     techStack: ["Next.js", "React", "TypeScript", "Vercel"],
     year: "2025",
+    problem: () =>
+      "I wanted to create an engaging daily game that brings people back each day, inspired by Wordle's simple but addictive format. Music felt like a natural fit for progressive clue revelation.",
+    approach: () =>
+      "Designed a shared codebase (xclues) that powers multiple puzzle games with different content types. Each game shares the core mechanics while customizing the clue presentation for its medium.",
+    learnings: () =>
+      "Building for daily engagement taught me about user retention patterns. The shared architecture made it easy to expand into film and literature variants without duplicating code.",
   },
   {
     id: "filmclues",
@@ -87,6 +106,12 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/blumaa/xclues",
     techStack: ["Next.js", "React", "TypeScript", "Vercel"],
     year: "2025",
+    problem: () =>
+      "After musiclues gained traction, users requested similar games for other media. Film was a natural next step - visual clues add a different puzzle-solving dimension.",
+    approach: () =>
+      "Leveraged the xclues shared codebase to spin up filmclues quickly. The main work was adapting the clue system for visual content and curating a diverse film database.",
+    learnings: () =>
+      "Proved the scalability of the shared architecture. Each new variant takes days instead of weeks, and improvements to one app benefit all of them.",
   },
   {
     id: "litclues",
@@ -103,6 +128,12 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/blumaa/xclues",
     techStack: ["Next.js", "React", "TypeScript", "Vercel"],
     year: "2025",
+    problem: () =>
+      "Literature lovers wanted their own version of the puzzle game. Books present unique challenges - clues need to work without spoiling plots while remaining recognizable to readers.",
+    approach: () =>
+      "Extended the xclues platform with literature-specific clue types: opening lines, author hints, and thematic clues. Focused on a mix of classics and contemporary works.",
+    learnings: () =>
+      "Content curation is as important as code. Working with book data required careful attention to spoiler-free clue design and balancing difficulty across different reader backgrounds.",
   },
   {
     id: "beth-shalom",
@@ -117,6 +148,12 @@ export const projects: Project[] = [
     liveUrl: "https://beth-shalom-fairfield.vercel.app/",
     techStack: ["Next.js", "React", "CMS"],
     year: "2023",
+    problem: () =>
+      "The synagogue's existing website was outdated and difficult to update. Community members struggled to find event information, and staff couldn't easily manage content without technical help.",
+    approach: () =>
+      "Collaborated directly with synagogue leadership to understand their needs. Built an accessible, mobile-friendly site with an intuitive CMS so non-technical staff can update events and content independently.",
+    learnings: () =>
+      "Working with a real community taught me to prioritize user needs over technical elegance. The most valuable features were often the simplest ones that saved staff time.",
   },
 
   // ANIMATIONS - All GSAP animations in one project
@@ -138,6 +175,7 @@ export const projects: Project[] = [
       "AnimatedLoadingAirplane",
       "AnimatedEyeballWatching",
       "Modcast",
+      "NuclearPhysics1",
     ],
     techStack: ["GSAP", "SVG", "React"],
     year: "2025",

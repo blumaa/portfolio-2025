@@ -20,7 +20,7 @@ export default function WorkLayout({
           </Text>
         </Box>
       </Header>
-      {children}
+      <Box flex="1">{children}</Box>
       <Footer />
     </Box>
   );

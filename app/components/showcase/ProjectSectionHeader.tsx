@@ -1,6 +1,11 @@
 "use client";
 
 import { Text, Badge, Button } from "@mond-design-system/theme";
+import {
+  LightBulbIcon,
+  CogIcon,
+  AcademicCapIcon,
+} from "@heroicons/react/24/outline";
 import { Project } from "../../globals/projects";
 
 // Puzzle icon SVG
@@ -39,6 +44,9 @@ const ProjectSectionHeader = ({ project }: ProjectSectionHeaderProps) => {
     npmUrl,
     techStack,
     year,
+    problem,
+    approach,
+    learnings,
   } = project;
 
   const nameElement = (
@@ -116,6 +124,70 @@ const ProjectSectionHeader = ({ project }: ProjectSectionHeaderProps) => {
 
       {/* Description */}
       <Text size="md">{description}</Text>
+
+      {/* Case Study Content */}
+      {(problem || approach || learnings) && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            marginTop: "4px",
+            paddingTop: "12px",
+            borderTop: "1px solid var(--color-border-subtle, #e5e5e5)",
+          }}
+        >
+          {problem && (
+            <div
+              style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}
+            >
+              <LightBulbIcon
+                style={{
+                  width: 16,
+                  height: 16,
+                  flexShrink: 0,
+                  marginTop: 3,
+                  opacity: 0.7,
+                }}
+              />
+              <Text size="sm">{problem()}</Text>
+            </div>
+          )}
+          {approach && (
+            <div
+              style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}
+            >
+              <CogIcon
+                style={{
+                  width: 16,
+                  height: 16,
+                  flexShrink: 0,
+                  marginTop: 3,
+                  opacity: 0.7,
+                }}
+              />
+              <Text size="sm">{approach()}</Text>
+            </div>
+          )}
+          {learnings && (
+            <div
+              style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}
+            >
+              <AcademicCapIcon
+                style={{
+                  width: 16,
+                  height: 16,
+                  flexShrink: 0,
+                  marginTop: 3,
+                  opacity: 0.7,
+                }}
+              />
+              <Text size="sm">{learnings()}</Text>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Links */}
       <div
         style={{

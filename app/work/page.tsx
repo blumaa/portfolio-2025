@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Box, Text, Button } from "@mond-design-system/theme";
+import { Box, Button } from "@mond-design-system/theme";
 import { jobs } from "../globals/jobs";
 import WorkCard from "../components/cards/WorkCard";
 
@@ -20,11 +20,6 @@ export default function Work() {
   return (
     <Box paddingLeft="4" paddingRight="4">
       <Box display="flex" flexDirection="column" alignItems="center" gap="md">
-        <Text>
-          i put a little bit of illustration into my creative writing, a little
-          bit of creative writing into my music, a little bit of music into my
-          teaching, and a whole lot of all of these crafts into coding.
-        </Text>
         <Box display="flex" justifyContent="center" paddingBottom="2">
           {CATEGORIES.map((category) => (
             <Button

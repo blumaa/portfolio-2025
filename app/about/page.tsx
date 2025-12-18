@@ -18,33 +18,28 @@ export default function About() {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      gap="lg"
+      gap="md"
       paddingLeft="4"
       paddingRight="4"
-      paddingTop="4"
-      paddingBottom="4"
     >
       {/* Bio Card */}
       <Card variant="elevated" hoverable>
-        <CardHeader>
-          <Heading size="3xl">background</Heading>
-        </CardHeader>
         <CardBody>
           <Box display="flex" flexDirection="column" gap="md">
-            <Text size="md" semantic="primary">
+            <Text>
               I&apos;m a developer who came to code through teaching, community
-              organizing, and the arts. Before programming, I spent years
-              as an ESL teacher helping over 1,000 students learn English,
-              organized neighborhood music festivals, and made things with
-              words, sounds, and images.
+              organizing, and the arts. Before programming, I spent years as an
+              ESL teacher helping over 1,000 students learn English, organized
+              neighborhood music festivals, and made things with words, sounds,
+              and images.
             </Text>
-            <Text size="sm" semantic="secondary">
+            <Text>
               That background shaped how I build software. Teaching taught me to
               break complex ideas into understandable pieces. Organizing taught
               me to listen to what communities actually need. Making art taught
               me that craft matters in the details.
             </Text>
-            <Text size="sm" semantic="secondary">
+            <Text>
               Now I bring all of that to frontend development - building
               interfaces that are accessible, thoughtfully designed, and
               genuinely useful for the people who use them.
@@ -65,7 +60,7 @@ export default function About() {
       {/* Education Card */}
       <Card variant="elevated" hoverable>
         <CardHeader>
-          <Heading size="3xl">education</Heading>
+          <Heading size="2xl">education</Heading>
         </CardHeader>
         <CardBody>
           <Box display="flex" flexDirection="column" gap="sm">
@@ -91,7 +86,7 @@ export default function About() {
       {/* Languages Card */}
       <Card variant="elevated" hoverable>
         <CardHeader>
-          <Heading size="3xl">languages</Heading>
+          <Heading size="2xl">languages</Heading>
         </CardHeader>
         <CardBody>
           <Text size="md" semantic="primary">

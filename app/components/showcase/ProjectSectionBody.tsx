@@ -30,6 +30,7 @@ const animationComponents: Record<
   Bus: lazy(() => import("../../animation-gallery/animations/Bus")),
   Modcast: lazy(() => import("../../modcast/Modcast")),
   NuclearPhysics1: lazy(() => import("../../animation-gallery/animations/NuclearPhysics1")),
+  Lighthouse: lazy(() => import("../../animation-gallery/animations/Lighthouse")),
 };
 
 interface ProjectSectionBodyProps {

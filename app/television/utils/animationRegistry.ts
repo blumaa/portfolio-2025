@@ -12,6 +12,7 @@ import Bus from "@/app/animation-gallery/animations/Bus";
 import NoirCarChase from "@/app/animation-gallery/animations/NoirCarChase";
 import AnimatedBeaverMoon from "@/app/animation-gallery/animations/AnimatedBeaverMoon";
 import Modcast from "@/app/modcast/Modcast";
+import Lighthouse from "@/app/animation-gallery/animations/Lighthouse";
 
 /**
  * Central registry for all animations displayed in the television.
@@ -32,4 +33,5 @@ export const ANIMATIONS: ComponentType<any>[] = [
   AlienMoon,
   // AnimatedEyeball,
   RustlingGrass,
+  Lighthouse,
 ];

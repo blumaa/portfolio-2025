@@ -176,6 +176,7 @@ export const projects: Project[] = [
       "AnimatedEyeballWatching",
       "Modcast",
       "NuclearPhysics1",
+      "Lighthouse",
     ],
     techStack: ["GSAP", "SVG", "React"],
     year: "2025",

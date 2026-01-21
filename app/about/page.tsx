@@ -22,6 +22,16 @@ export default function About() {
       paddingLeft="4"
       paddingRight="4"
     >
+      {/* Philosophy Quote */}
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <Heading size="2xl" semantic="secondary" align="center">
+          &quot;i put a little bit of illustration into my creative writing, a
+          little bit of creative writing into my music, a little bit of music
+          into my teaching, and a whole lot of all of these crafts into
+          coding.&quot;
+        </Heading>
+      </Box>
+
       {/* Bio Card */}
       <Card variant="elevated" hoverable>
         <CardBody>
@@ -48,15 +58,6 @@ export default function About() {
         </CardBody>
       </Card>
 
-      {/* Philosophy Quote Card */}
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <Heading size="2xl" semantic="secondary" align="center">
-          &quot;i put a little bit of illustration into my creative writing, a
-          little bit of creative writing into my music, a little bit of music
-          into my teaching, and a whole lot of all of these crafts into
-          coding.&quot;
-        </Heading>
-      </Box>
       {/* Education Card */}
       <Card variant="elevated" hoverable>
         <CardHeader>

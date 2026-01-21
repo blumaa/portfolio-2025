@@ -11,7 +11,7 @@ export type CreativeThing = {
 export const creatives: CreativeThing[] = [
   {
     name: "blumenous poetry",
-    link: "https://desmondblume.substack.com/",
+    link: "https://blumenous-poetry.vercel.app/",
     linkTarget: "_blank",
     description: () =>
       "i love to write- stories, articles, essays- but i especially like to write poetry. a while ago i started a poetry substack (blog + email newsletter) under my pen name desmond blume.",

@@ -1,5 +1,4 @@
 import { Box, Heading, Divider, Label } from "@mond-design-system/theme";
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import LightSwitch from "./components/ui/LightSwitch";
 import HomePageLink from "./components/navigation/HomePageLink";
 import SocialLink from "./components/ui/SocialLink";
@@ -74,11 +73,6 @@ export default function Home() {
               href="https://www.linkedin.com/in/aaron-blum-0904/"
               src="/linkedin-logo.svg"
               alt="LinkedIn"
-            />
-            <SocialLink
-              href="https://blumenous-poetry.vercel.app/"
-              icon={<PencilSquareIcon className="w-5 h-5" />}
-              alt="Blumenous Poetry"
             />
           </Box>
         </Box>

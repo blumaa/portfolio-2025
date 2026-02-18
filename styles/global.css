@@ -66,21 +66,11 @@ body {
   overflow: auto;
 }
 
-/* Work page grid - responsive 1/2/3 columns */
+/* Work page list layout - single column */
 .work-grid {
   grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .work-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Showcase floating stepper - responsive */

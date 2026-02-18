@@ -47,6 +47,7 @@ const ProjectSectionHeader = ({ project }: ProjectSectionHeaderProps) => {
     problem,
     approach,
     learnings,
+    apps,
   } = project;
 
   const nameElement = (
@@ -196,6 +197,20 @@ const ProjectSectionHeader = ({ project }: ProjectSectionHeaderProps) => {
           flexWrap: "wrap",
         }}
       >
+        {/* App variant links (for multi-iframe projects like xclues) */}
+        {apps?.map((app) => (
+          <Button
+            key={app.id}
+            as="a"
+            href={app.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+          >
+            <PuzzleIcon />
+            {app.name}
+          </Button>
+        ))}
         {liveUrl && (
           <Button
             as="a"

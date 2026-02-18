@@ -7,7 +7,16 @@ export type PreviewType =
   | "gsap"
   | "video"
   | "image"
-  | "multi-gsap";
+  | "multi-gsap"
+  | "multi-iframe";
+
+export interface AppVariant {
+  id: string;
+  name: string;
+  tagline: string;
+  url: string;
+  previewUrl: string;
+}
 
 export interface Project {
   id: string;
@@ -25,6 +34,7 @@ export interface Project {
   previewUrl?: string;
   previewComponent?: string;
   previewComponents?: string[]; // For multi-gsap - multiple animations
+  apps?: AppVariant[]; // For multi-iframe - multiple app variants
   thumbnail?: string;
   images?: string[]; // For image gallery preview
 
@@ -70,90 +80,45 @@ export const projects: Project[] = [
       "Publishing to npm taught me about package distribution and versioning. The design system now powers this portfolio and my other projects, dramatically speeding up development while maintaining consistency.",
   },
   {
-    id: "musiclues",
-    name: "musiclues.space",
-    tagline: "Daily music puzzle game",
+    id: "xclues",
+    name: "xclues",
+    tagline: "Daily puzzle games for music, film, and literature",
     description:
-      "A daily puzzle game where players guess songs from musical clues. Features a clean interface, streak tracking, and social sharing.",
+      "A family of daily puzzle games where players guess songs, movies, and books from progressive clues. Built on a shared codebase, each game features streak tracking, social sharing, and a clean interface tailored to its medium.",
     category: "app",
-    link: "https://musiclues.space",
-    previewType: "iframe",
-    previewUrl: "https://musiclues.space",
-    liveUrl: "https://musiclues.space",
-    liveUrlLabel: "Play",
+    previewType: "multi-iframe",
+    apps: [
+      {
+        id: "musiclues",
+        name: "musiclues",
+        tagline: "Guess the song from musical clues",
+        url: "https://musiclues.space",
+        previewUrl: "https://musiclues.space",
+      },
+      {
+        id: "filmclues",
+        name: "filmclues",
+        tagline: "Guess the movie from visual clues",
+        url: "https://filmclues.space",
+        previewUrl: "https://filmclues.space",
+      },
+      {
+        id: "litclues",
+        name: "litclues",
+        tagline: "Guess the book from literary clues",
+        url: "https://litclues.space",
+        previewUrl: "https://litclues.space",
+      },
+    ],
     githubUrl: "https://github.com/blumaa/xclues",
     techStack: ["Next.js", "React", "TypeScript", "Vercel"],
     year: "2025",
     problem: () =>
-      "I wanted to create an engaging daily game that brings people back each day, inspired by Wordle's simple but addictive format. Music felt like a natural fit for progressive clue revelation.",
+      "I wanted to create engaging daily games that bring people back each day, inspired by Wordle's simple but addictive format. After musiclues gained traction, users requested similar games for film and literature.",
     approach: () =>
-      "Designed a shared codebase (xclues) that powers multiple puzzle games with different content types. Each game shares the core mechanics while customizing the clue presentation for its medium.",
+      "Designed a shared codebase (xclues) that powers all three puzzle games. Each game shares the core mechanics while customizing clue presentation for its medium - audio snippets for music, visual clues for film, and text-based hints for literature.",
     learnings: () =>
-      "Building for daily engagement taught me about user retention patterns. The shared architecture made it easy to expand into film and literature variants without duplicating code.",
-  },
-  {
-    id: "filmclues",
-    name: "filmclues.space",
-    tagline: "Daily film puzzle game",
-    description:
-      "A daily puzzle game where players guess movies from visual and textual clues. Sister app to musiclues.",
-    category: "app",
-    link: "https://filmclues.space",
-    previewType: "iframe",
-    previewUrl: "https://filmclues.space",
-    liveUrl: "https://filmclues.space",
-    liveUrlLabel: "Play",
-    githubUrl: "https://github.com/blumaa/xclues",
-    techStack: ["Next.js", "React", "TypeScript", "Vercel"],
-    year: "2025",
-    problem: () =>
-      "After musiclues gained traction, users requested similar games for other media. Film was a natural next step - visual clues add a different puzzle-solving dimension.",
-    approach: () =>
-      "Leveraged the xclues shared codebase to spin up filmclues quickly. The main work was adapting the clue system for visual content and curating a diverse film database.",
-    learnings: () =>
-      "Proved the scalability of the shared architecture. Each new variant takes days instead of weeks, and improvements to one app benefit all of them.",
-  },
-  {
-    id: "litclues",
-    name: "litclues.space",
-    tagline: "Daily literature puzzle game",
-    description:
-      "A daily puzzle game where players guess books from literary clues. Sister app to musiclues and filmclues.",
-    category: "app",
-    link: "https://litclues.space",
-    previewType: "iframe",
-    previewUrl: "https://litclues.space",
-    liveUrl: "https://litclues.space",
-    liveUrlLabel: "Play",
-    githubUrl: "https://github.com/blumaa/xclues",
-    techStack: ["Next.js", "React", "TypeScript", "Vercel"],
-    year: "2025",
-    problem: () =>
-      "Literature lovers wanted their own version of the puzzle game. Books present unique challenges - clues need to work without spoiling plots while remaining recognizable to readers.",
-    approach: () =>
-      "Extended the xclues platform with literature-specific clue types: opening lines, author hints, and thematic clues. Focused on a mix of classics and contemporary works.",
-    learnings: () =>
-      "Content curation is as important as code. Working with book data required careful attention to spoiler-free clue design and balancing difficulty across different reader backgrounds.",
-  },
-  {
-    id: "beth-shalom",
-    name: "Beth Shalom Synagogue",
-    tagline: "Community website redesign",
-    description:
-      "A modern, accessible website for Beth Shalom Synagogue featuring event calendars, member portals, and content management.",
-    category: "app",
-    link: "https://beth-shalom-fairfield.vercel.app/",
-    previewType: "image",
-    images: ["/images/bsf1.png", "/images/bsf2.png", "/images/bsf3.png"],
-    liveUrl: "https://beth-shalom-fairfield.vercel.app/",
-    techStack: ["Next.js", "React", "CMS"],
-    year: "2023",
-    problem: () =>
-      "The synagogue's existing website was outdated and difficult to update. Community members struggled to find event information, and staff couldn't easily manage content without technical help.",
-    approach: () =>
-      "Collaborated directly with synagogue leadership to understand their needs. Built an accessible, mobile-friendly site with an intuitive CMS so non-technical staff can update events and content independently.",
-    learnings: () =>
-      "Working with a real community taught me to prioritize user needs over technical elegance. The most valuable features were often the simplest ones that saved staff time.",
+      "Building for daily engagement taught me about user retention patterns. The shared architecture means each new variant takes days instead of weeks, and improvements to one app benefit all of them. Content curation proved as important as code - each medium requires carefully balanced, spoiler-free clues.",
   },
 
   // ANIMATIONS - All GSAP animations in one project

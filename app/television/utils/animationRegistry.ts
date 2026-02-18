@@ -20,18 +20,18 @@ import Lighthouse from "@/app/animation-gallery/animations/Lighthouse";
  * The television component will automatically scale to support the new channel.
  */
 export const ANIMATIONS: ComponentType<any>[] = [
-  NuclearPhysics1,
+  OctoDude,
+  Bus,
   Modcast,
-  AnimatedEyeballWatching,
+  Lighthouse,
   Bird,
   AnimatedBeaverMoon,
   NoirCarChase,
-  Bus,
-  OctoDude,
+  NuclearPhysics1,
   AnimatedLoadingAirplane,
   CityScapeWrapper,
   AlienMoon,
+  AnimatedEyeballWatching,
   // AnimatedEyeball,
   RustlingGrass,
-  Lighthouse,
 ];
